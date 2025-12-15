@@ -1,0 +1,164 @@
+---
+title: "Caderno de Projetos de Roupas"
+author: "Helena Regina Salomé D'Espindula"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+lang: pt-BR
+documentclass: book
+classoption: oneside
+fontsize: 11pt
+geometry: margin=2.2cm
+toc: true
+toc_depth: 2
+number_sections: true
+
+output:
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: preamble.tex
+    keep_tex: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+# Medidas do corpo
+
+Data das medidas: \fieldline
+
+\bigskip
+
+> Preencha em **cm** (exceto onde indicado).  
+> Dica: se fizer novas medidas, copie esta pagina e atualize a data.
+
+\begin{longtable}{p{0.55\linewidth} p{0.15\linewidth} p{0.25\linewidth}}
+\toprule
+\textbf{Medida} & \textbf{Unid.} & \textbf{Valor} \\
+\midrule
+\endhead
+Ankle circumference & cm & \fieldline \\
+Biceps circumference & cm & \fieldline \\
+Bust front & cm & \fieldline \\
+Bust point to underbust & cm & \fieldline \\
+Bust span & cm & \fieldline \\
+Chest circumference & cm & \fieldline \\
+Cross seam & cm & \fieldline \\
+Cross seam front & cm & \fieldline \\
+Crotch depth & cm & \fieldline \\
+Head circumference & cm & \fieldline \\
+Heel circumference & cm & \fieldline \\
+High bust & cm & \fieldline \\
+High bust front & cm & \fieldline \\
+Hips circumference & cm & \fieldline \\
+HPS to bust & cm & \fieldline \\
+HPS to waist back & cm & \fieldline \\
+HPS to waist front & cm & \fieldline \\
+Inseam & cm & \fieldline \\
+Knee circumference & cm & \fieldline \\
+Neck circumference & cm & \fieldline \\
+Seat circumference & cm & \fieldline \\
+Seat back & cm & \fieldline \\
+Shoulder slope & \textdegree & \fieldline \\
+Shoulder to elbow & cm & \fieldline \\
+Shoulder to shoulder & cm & \fieldline \\
+Shoulder to wrist & cm & \fieldline \\
+Underbust & cm & \fieldline \\
+Upper leg circumference & cm & \fieldline \\
+Waist circumference & cm & \fieldline \\
+Waist back & cm & \fieldline \\
+Waist to armpit & cm & \fieldline \\
+Waist to floor & cm & \fieldline \\
+Waist to hips & cm & \fieldline \\
+Waist to knee & cm & \fieldline \\
+Waist to seat & cm & \fieldline \\
+Waist to underbust & cm & \fieldline \\
+Waist to upper leg & cm & \fieldline \\
+Wrist circumference & cm & \fieldline \\
+\bottomrule
+\end{longtable}
+
+\categorybreak
+
+# Projetos
+
+> Cada projeto abaixo foi pensado para impressao.  
+> Use `----` como linha separadora entre projetos.
+
+## Projeto: \fieldline
+
+### Detalhes do projeto
+
+- Nome do molde / pattern: \fieldline  
+- Marca / empresa: \fieldline  
+- Tamanho cortado: \fieldline  
+- Versao / variacao: \fieldline  
+- Data de inicio: \fieldline  
+- Data de termino: \fieldline  
+- Objetivo (uso, ocasiao, estacao): \fieldline  
+
+### Tecidos usados (espaco para swatches)
+
+\begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
+\textbf{Tecido 1} & \textbf{Tecido 2} \\
+Fibra: \fieldline & Fibra: \fieldline \\
+Origem/loja: \fieldline & Origem/loja: \fieldline \\
+Uso no projeto: \fieldline & Uso no projeto: \fieldline \\
+\swatchbox & \swatchbox \\
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
+\textbf{Tecido 3} & \textbf{Tecido 4} \\
+Fibra: \fieldline & Fibra: \fieldline \\
+Origem/loja: \fieldline & Origem/loja: \fieldline \\
+Uso no projeto: \fieldline & Uso no projeto: \fieldline \\
+\swatchbox & \swatchbox \\
+\end{tabular}
+
+### Materiais e aviamentos
+
+- Linhas: \fieldline  
+- Ziper / fechos: \fieldline  
+- Botoes: \fieldline  
+- Elastico: \fieldline  
+- Entretela / interfacing: \fieldline  
+- Outros: \fieldline  
+
+### Alteracoes e ajustes
+
+- Ajustes no molde: \fieldline  
+
+\bigskip
+\labelline{Ajustes adicionais}  
+
+\bigskip
+\labelline{Observacoes de prova}  
+
+### Checklist rapido
+
+- [ ] Corte conferido
+- [ ] Marcas transferidas
+- [ ] Entretela aplicada (se houver)
+- [ ] Primeira prova
+- [ ] Acabamentos internos
+- [ ] Bainha
+- [ ] Passadoria final
+
+### Notas e aprendizado
+
+\labelline{O que aprendi / o que faria diferente}  
+
+\bigskip
+\labelline{Tempo real x tempo estimado}  
+
+----
+## Projeto: \fieldline
+
+(duplique o bloco de projeto acima para cada nova peca)
+

@@ -1,0 +1,28 @@
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\setlist{noitemsep}
+\onehalfspacing
+
+% Chapter style
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}
+  {\thechapter}{1em}{}
+
+% Simple field line
+\newcommand{\fieldline}{\rule{0.72\linewidth}{0.4pt}}
+
+% Small label + line helper
+\newcommand{\labelline}[1]{#1:\ \fieldline}
+
+% Swatch box (for printing)
+\newcommand{\swatchbox}{\fbox{\rule{0pt}{3.2cm}\rule{4.8cm}{0pt}}}
+
+% Page-safe category break
+\newcommand{\categorybreak}{\clearpage}
