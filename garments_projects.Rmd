@@ -1,11 +1,11 @@
 ---
-title: "Caderno de Projetos de Roupas"
+title: "Garments Planner"
 author: "Helena Regina Salomé D'Espindula"
 date: "`r format(Sys.Date(), '%d/%m/%Y')`"
 lang: pt-BR
 documentclass: book
 classoption: oneside
-fontsize: 11pt
+fontsize: 8pt
 geometry: margin=2.2cm
 toc: true
 toc_depth: 2
@@ -31,9 +31,6 @@ knitr::opts_chunk$set(
 
 Data das medidas: \fieldline
 
-\bigskip
-
-> Preencha em **cm** (exceto onde indicado).  
 > Dica: se fizer novas medidas, copie esta pagina e atualize a data.
 
 \begin{longtable}{p{0.55\linewidth} p{0.15\linewidth} p{0.25\linewidth}}
@@ -100,6 +97,13 @@ Wrist circumference & cm & \fieldline \\
 - Data de inicio: \fieldline  
 - Data de termino: \fieldline  
 - Objetivo (uso, ocasiao, estacao): \fieldline  
+
+### Croqui (frente e costas)
+
+```{r, fig.align='center', fig.show='hold', out.width='0.48\\textwidth'}
+knitr::include_graphics(c("Croqui_limpo_frente.png", "Croqui_limpo_costas.png"))
+```
+
 
 ### Tecidos usados (espaco para swatches)
 
