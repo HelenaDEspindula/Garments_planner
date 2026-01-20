@@ -162,7 +162,154 @@ Uso no projeto: \fieldline & Uso no projeto: \fieldline \\
 \labelline{Tempo real x tempo estimado}  
 
 ----
-## Projeto: \fieldline
+## Projeto:
 
 (duplique o bloco de projeto acima para cada nova peca)
 
+
+
+
+\newpage
+
+# Checklist de Costura — Blusa Simples (G1, tecido leve 100%)
+
+## FASE 0 — Preparação do tecido
+
+- [ ] Conferir composição do tecido (100% natural)
+- [ ] Verificar se o tecido desfia facilmente
+
+### Proteção das bordas (antes da lavagem)
+- [ ] Passar ponto zigue-zague na máquina em **todas as bordas do pano inteiro**
+- [ ] Usar ponto zigue-zague largo, sem tensão excessiva
+- [ ] Não cortar peças antes da lavagem
+
+### Pré-lavagem
+- [ ] Dobrar o tecido com cuidado
+- [ ] Colocar o tecido em **sacola de lavagem**
+- [ ] Lavar como a peça será lavada depois (mesma temperatura e sabão)
+- [ ] Não usar amaciante
+
+### Secagem e estabilização
+- [ ] Secar à sombra
+- [ ] Não torcer o tecido
+- [ ] Evitar pendurar pelas extremidades
+- [ ] Passar o tecido após seco
+- [ ] Alinhar o fio ao passar
+- [ ] Usar vapor moderado
+- [ ] Não arrastar o ferro
+
+---
+
+## FASE 1 — Modelagem e preparação (papel)
+
+- [ ] Copiar todos os moldes para papel Kraft
+- [ ] Identificar cada molde (nome da peça, tamanho G1, quantidade de cortes)
+- [ ] Marcar linha do fio em todas as peças
+- [ ] Marcar centro da frente
+- [ ] Marcar centro das costas
+- [ ] Marcar centro da manga (topo da copa)
+- [ ] Marcar piques da manga:
+  - [ ] 1 pique da frente
+  - [ ] 2 piques das costas
+- [ ] Marcar linha de cintura aproximada (para prova)
+- [ ] Conferir simetria dos moldes
+
+---
+
+## FASE 2 — Orientação, marcação e corte do tecido
+
+### Orientação dos moldes
+- [ ] Alinhar todos os moldes paralelos à ourela
+- [ ] Conferir sentido do fio em frente, costas e mangas
+- [ ] Conferir se todas as peças estão no mesmo sentido
+
+### Marcação no tecido
+- [ ] Transferir centros (frente, costas, manga)
+- [ ] Transferir piques da manga
+- [ ] Identificar frente e costas no tecido
+- [ ] Marcar linha de cintura no tecido
+
+### Corte
+- [ ] Definir margens generosas para aprendizado e ajuste:
+  - [ ] Laterais: 2–3 cm
+  - [ ] Ombros: 1,5–2 cm
+- [ ] Manter margens consistentes em todas as peças
+- [ ] Cortar o tecido
+- [ ] Descartar bordas com zigue-zague da pré-lavagem
+
+---
+
+## FASE 3 — Montagem de prova (antes da costura definitiva)
+
+- [ ] Definir ordem lógica de montagem para prova
+- [ ] Alinhavar ombros (alinhavo largo ou ponto longo)
+- [ ] Alinhavar laterais
+- [ ] (Opcional) Alinhavar mangas para testar mobilidade
+- [ ] Passar levemente para assentar
+
+### Prova da peça
+- [ ] Vestir a peça
+- [ ] Verificar largura geral
+- [ ] Verificar acinturamento
+- [ ] Verificar comprimento
+- [ ] Verificar posição e queda da manga
+- [ ] Verificar equilíbrio frente × costas
+
+### Ajustes
+- [ ] Marcar ajustes no corpo
+- [ ] Definir tipo de ajuste (lateral, pence ou combinação)
+- [ ] Descusturar o necessário
+- [ ] Ajustar no tecido
+- [ ] Realinhar e realinhar novamente
+- [ ] Conferir simetria
+
+### Atualização do molde
+- [ ] Transferir todos os ajustes para o molde de papel
+- [ ] Corrigir linhas e margens
+- [ ] Conferir se o molde ficou repetível
+
+---
+
+## FASE 4 — Montagem definitiva da peça
+
+### Ordem construtiva
+- [ ] Unir painéis das costas (se forem separados)
+- [ ] Aplicar ornamentação na frente (se houver)
+- [ ] Fechar ombros
+- [ ] Preparar mangas (abertas)
+- [ ] Aplicar mangas ao corpo
+- [ ] Fechar laterais (corpo + manga)
+- [ ] Fazer acabamento da gola
+- [ ] Fazer barras (mangas e corpo)
+
+### Provas intermediárias
+- [ ] Provar após fechar ombros
+- [ ] Provar após aplicar mangas
+- [ ] Provar antes da barra final
+
+### Botões e zíper
+- [ ] Definir posição dos botões
+- [ ] Costurar botões após gola e antes da barra
+- [ ] (Se houver zíper) Aplicar zíper antes de fechar a área correspondente
+
+---
+
+## FASE 5 — Protocolo de cada costura definitiva
+
+Para **cada costura**:
+
+- [ ] Alinhar (alfinetes ou alinhavo)
+- [ ] Alinhavar
+- [ ] Passar antes
+- [ ] Costurar
+- [ ] Passar imediatamente após costurar
+- [ ] Abrir ou assentar a costura conforme o caso
+- [ ] Rebater (se previsto no projeto)
+
+---
+
+## Regra de ouro
+
+- [ ] Nenhuma costura irreversível antes da prova
+- [ ] Nenhuma costura definitiva sem passar
+- [ ] Ferro faz parte da costura, não do acabamento

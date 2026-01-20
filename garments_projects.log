@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.15)  15 DEC 2025 15:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.15)  19 JAN 2026 18:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -373,6 +373,68 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count315
+\LTcapwidth=\dimen170
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count316
+\LT@rows=\count317
+\c@LT@tables=\count318
+\c@LT@chunks=\count319
+\LT@p@ftn=\toks26
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen171
+\lightrulewidth=\dimen172
+\cmidrulewidth=\dimen173
+\belowrulesep=\dimen174
+\belowbottomsep=\dimen175
+\aboverulesep=\dimen176
+\abovetopsep=\dimen177
+\cmidrulesep=\dimen178
+\cmidrulekern=\dimen179
+\defaultaddspace=\dimen180
+\@cmidla=\count320
+\@cmidlb=\count321
+\@aboverulesep=\dimen181
+\@belowrulesep=\dimen182
+\@thisruleclass=\count322
+\@lastruleclass=\count323
+\@thisrulewidth=\dimen183
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen184
+\ar@mcellbox=\box61
+\extrarowheight=\dimen185
+\NC@list=\toks27
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box62
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count324
+\calc@Bcount=\count325
+\calc@Adimen=\dimen186
+\calc@Bdimen=\dimen187
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count326
+\calc@Cskip=\skip63
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box63
+\fn@width=\dimen188
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -384,13 +446,13 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 106.
 )
-\Gin@req@height=\dimen170
-\Gin@req@width=\dimen171
+\Gin@req@height=\dimen189
+\Gin@req@width=\dimen190
 )
-\pandoc@box=\box56
+\pandoc@box=\box64
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count315
+\babel@savecnt=\count327
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2068.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2070.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2072.
@@ -398,11 +460,11 @@ LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2074.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2076.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2101.
-\U@D=\dimen172
+\U@D=\dimen191
 \l@unhyphenated=\language4
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/xebabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count316
+\bbl@dirlevel=\count328
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/pt/babel-brazilian.tex)
 Package babel Info: Importing font and identification data for brazilian
 (babel)             from babel-pt-BR.ini. Reported on input line 4320.
@@ -413,78 +475,32 @@ Package babel Info: Hyphen rules for 'brazilian' set to \l@portuguese
 Package babel Info: Making " an active character on input line 143.
 )) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count317
-\float@exts=\toks26
-\float@box=\box57
-\@float@everytoks=\toks27
-\@floatcapt=\box58
+\c@float@type=\count329
+\float@exts=\toks28
+\float@box=\box65
+\@float@everytoks=\toks29
+\@floatcapt=\box66
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box59
-\beforetitleunit=\skip55
-\aftertitleunit=\skip56
-\ttl@plus=\dimen173
-\ttl@minus=\dimen174
-\ttl@toksa=\toks28
-\titlewidth=\dimen175
-\titlewidthlast=\dimen176
-\titlewidthfirst=\dimen177
+\ttl@box=\box67
+\beforetitleunit=\skip64
+\aftertitleunit=\skip65
+\ttl@plus=\dimen192
+\ttl@minus=\dimen193
+\ttl@toksa=\toks30
+\titlewidth=\dimen194
+\titlewidthlast=\dimen195
+\titlewidthfirst=\dimen196
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip57
-\enit@outerparindent=\dimen178
-\enit@toks=\toks29
-\enit@inbox=\box60
-\enit@count@id=\count318
-\enitdp@description=\count319
-) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen179
-\ar@mcellbox=\box61
-\extrarowheight=\dimen180
-\NC@list=\toks30
-\extratabsurround=\skip58
-\backup@length=\skip59
-\ar@cellbox=\box62
-) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen181
-\lightrulewidth=\dimen182
-\cmidrulewidth=\dimen183
-\belowrulesep=\dimen184
-\belowbottomsep=\dimen185
-\aboverulesep=\dimen186
-\abovetopsep=\dimen187
-\cmidrulesep=\dimen188
-\cmidrulekern=\dimen189
-\defaultaddspace=\dimen190
-\@cmidla=\count320
-\@cmidlb=\count321
-\@aboverulesep=\dimen191
-\@belowrulesep=\dimen192
-\@thisruleclass=\count322
-\@lastruleclass=\count323
-\@thisrulewidth=\dimen193
-) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
-\LTleft=\skip60
-\LTright=\skip61
-\LTpre=\skip62
-\LTpost=\skip63
-\LTchunksize=\count324
-\LTcapwidth=\dimen194
-\LT@head=\box63
-\LT@firsthead=\box64
-\LT@foot=\box65
-\LT@lastfoot=\box66
-\LT@gbox=\box67
-\LT@cols=\count325
-\LT@rows=\count326
-\c@LT@tables=\count327
-\c@LT@chunks=\count328
-\LT@p@ftn=\toks31
+\labelindent=\skip66
+\enit@outerparindent=\dimen197
+\enit@toks=\toks31
+\enit@inbox=\box68
+\enit@count@id=\count330
+\enitdp@description=\count331
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -516,19 +532,19 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count329
+\c@section@level=\count332
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen195
-\Hy@linkcounter=\count330
-\Hy@pagecounter=\count331
+\@linkdim=\dimen198
+\Hy@linkcounter=\count333
+\Hy@pagecounter=\count334
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count332
+\Hy@SavedSpaceFactor=\count335
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 )
@@ -540,21 +556,21 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count333
+\c@Hy@tempcnt=\count336
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip19
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen196
+\XeTeXLinkMargin=\dimen199
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count334
-\Field@Width=\dimen197
-\Fld@charsize=\dimen198
+\Fld@menulength=\count337
+\Field@Width=\dimen256
+\Fld@charsize=\dimen257
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -562,18 +578,18 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count335
-\c@Item=\count336
-\c@Hfootnote=\count337
+\Hy@abspage=\count338
+\c@Item=\count339
+\c@Hfootnote=\count340
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2025-07-12 v7.01o Hyperref driver for XeTeX
-\pdfm@box=\box68
-\c@Hy@AnnotLevel=\count338
-\HyField@AnnotCount=\count339
-\Fld@listcount=\count340
-\c@bookmark@seq@number=\count341
+\pdfm@box=\box69
+\c@Hy@AnnotLevel=\count341
+\HyField@AnnotCount=\count342
+\Fld@listcount=\count343
+\c@bookmark@seq@number=\count344
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -581,10 +597,10 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
-\Hy@SectionHShift=\skip64
+\Hy@SectionHShift=\skip67
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
-\BKM@id=\count342
+\BKM@id=\count345
 ))
 
 LaTeX Warning: Unused global option(s):
@@ -593,26 +609,26 @@ LaTeX Warning: Unused global option(s):
 (./garments_projects.aux)
 \openout1 = `garments_projects.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -648,19 +664,19 @@ LaTeX Font Info:    ... okay on input line 110.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 110.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 110.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 110.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 110.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 110.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 110.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 120.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 110.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 120.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -688,7 +704,7 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 110.
+(Font)              scaled to size 10.0pt on input line 120.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -724,15 +740,15 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 110.
+(Font)              scaled to size 10.0pt on input line 120.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 110.
+(Font)              `operators' in the math version `normal' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 110.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 120.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 110.
+(Font)              `operators' in the math version `bold' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 110.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 120.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -798,13 +814,13 @@ Package fontspec Info:
 (fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 110.
+(Font)              `symbols' in the math version `normal' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 110.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 120.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 110.
+(Font)              `symbols' in the math version `bold' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 110.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 120.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -864,20 +880,20 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 110.
+(Font)              `largesymbols' in the math version `normal' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 110.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 120.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 110.
+(Font)              `largesymbols' in the math version `bold' on input line 120.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 110.
-LaTeX Info: Redefining \microtypecontext on input line 110.
-Package microtype Info: Applying patch `item' on input line 110.
-Package microtype Info: Applying patch `toc' on input line 110.
-Package microtype Info: Applying patch `eqnum' on input line 110.
-Package microtype Info: Applying patch `footnote' on input line 110.
-Package microtype Info: Applying patch `verbatim' on input line 110.
-LaTeX Info: Redefining \microtypesetup on input line 110.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 120.
+Package microtype Info: Applying patch `item' on input line 120.
+Package microtype Info: Applying patch `toc' on input line 120.
+Package microtype Info: Applying patch `eqnum' on input line 120.
+Package microtype Info: Applying patch `footnote' on input line 120.
+Package microtype Info: Applying patch `verbatim' on input line 120.
+LaTeX Info: Redefining \microtypesetup on input line 120.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -886,36 +902,36 @@ Package microtype Info: No adjustment of kerning.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 110.
+Package hyperref Info: Link coloring OFF on input line 120.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 113.
+(Font)              scaled to size 12.0pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 113.
+(Font)              scaled to size 8.0pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 113.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 113.
+(Font)              scaled to size 6.0pt on input line 123.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 123.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 113.
+(Font)              scaled to size 12.0011pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 113.
+(Font)              scaled to size 8.00073pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 113.
+(Font)              scaled to size 6.00055pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 113.
+(Font)              scaled to size 11.99872pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 113.
+(Font)              scaled to size 7.99915pt on input line 123.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 113.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
+(Font)              scaled to size 5.99936pt on input line 123.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 123.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 123.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -948,12 +964,12 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 [1
 
 ]
-Overfull \hbox (11.54333pt too wide) in alignment at lines 127--131
+Overfull \hbox (11.54333pt too wide) in alignment at lines 137--141
  [] [] [] 
  []
 
 
-Overfull \hbox (11.54333pt too wide) in alignment at lines 131--171
+Overfull \hbox (11.54333pt too wide) in alignment at lines 141--181
  [] [] [] 
  []
 
@@ -961,7 +977,7 @@ ignored error: Infinite glue shrinkage found in box being split [1
 
 
 ] [2]
-Overfull \hbox (12.60072pt too wide) in paragraph at lines 201--202
+Overfull \hbox (12.60072pt too wide) in paragraph at lines 211--212
 []\TU/lmr/m/n/10 Objetivo (uso, ocasiao, estacao): [] 
  []
 
@@ -973,21 +989,6 @@ File: Croqui_limpo_costas.png Graphic file (type bmp)
 
 
 ]
-Overfull \hbox (3.52043pt too wide) in paragraph at lines 215--215
-[]|\TU/lmr/m/n/10 Uso no projeto: []| 
- []
-
-
-Overfull \hbox (3.52043pt too wide) in paragraph at lines 215--216
-[]|\TU/lmr/m/n/10 Uso no projeto: []| 
- []
-
-
-Overfull \hbox (4.43169pt too wide) in paragraph at lines 211--218
-[] 
- []
-
-
 Overfull \hbox (3.52043pt too wide) in paragraph at lines 225--225
 []|\TU/lmr/m/n/10 Uso no projeto: []| 
  []
@@ -999,27 +1000,56 @@ Overfull \hbox (3.52043pt too wide) in paragraph at lines 225--226
 
 
 Overfull \hbox (4.43169pt too wide) in paragraph at lines 221--228
+[] 
+ []
+
+
+Overfull \hbox (3.52043pt too wide) in paragraph at lines 235--235
+[]|\TU/lmr/m/n/10 Uso no projeto: []| 
+ []
+
+
+Overfull \hbox (3.52043pt too wide) in paragraph at lines 235--236
+[]|\TU/lmr/m/n/10 Uso no projeto: []| 
+ []
+
+
+Overfull \hbox (4.43169pt too wide) in paragraph at lines 231--238
 [][] 
  []
 
 [4]
-Overfull \hbox (22.32063pt too wide) in paragraph at lines 283--284
+Overfull \hbox (22.32063pt too wide) in paragraph at lines 293--294
 \TU/lmr/m/n/10 O que aprendi / o que faria diferente: [] 
  []
 
-[5] [6] (./garments_projects.aux)
+
+Overfull \hbox (7.46774pt too wide) in paragraph at lines 305--306
+[]|\TU/lmr/m/n/10 (duplique 
+ []
+
+
+Overfull \hbox (1.04774pt too wide) in paragraph at lines 315--319
+\TU/lmr/m/n/10 lavagem 
+ []
+
+[5]
+ignored error: Infinite glue shrinkage found in box being split [6]
+ignored error: Infinite glue shrinkage found in box being split [7]
+ignored error: Infinite glue shrinkage found in box being split [8]
+ignored error: Infinite glue shrinkage found in box being split [9] [10] [11] [12] [13] (./garments_projects.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20568 strings out of 470178
- 378675 string characters out of 5476208
- 985859 words of memory out of 5000000
- 48893 multiletter control sequences out of 15000+600000
+ 20742 strings out of 470178
+ 381734 string characters out of 5476208
+ 989232 words of memory out of 5000000
+ 49060 multiletter control sequences out of 15000+600000
  634148 words of font info for 90 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 90i,14n,114p,1014b,491s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,114p,1014b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on garments_projects.pdf (8 pages).
+Output written on garments_projects.pdf (15 pages).

@@ -1,0 +1,66 @@
+---
+title: "Medidas do corpo"
+author: "Helena Regina Salomé D'Espindula"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+output: pdf_document
+documentclass: article
+toc: false
+number_sections: false
+lang: "pt-BR"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+# Medidas do corpo
+
+Data das medidas: \fieldline
+
+> Dica: se fizer novas medidas, copie esta pagina e atualize a data.
+
+\begin{longtable}{p{0.55\linewidth} p{0.15\linewidth} p{0.25\linewidth}}
+\toprule
+\textbf{Medida} & \textbf{Unid.} & \textbf{Valor} \\
+\midrule
+\endhead
+Ankle circumference & cm & \fieldline \\
+Biceps circumference & cm & \fieldline \\
+Bust front & cm & \fieldline \\
+Bust point to underbust & cm & \fieldline \\
+Bust span & cm & \fieldline \\
+Chest circumference & cm & \fieldline \\
+Cross seam & cm & \fieldline \\
+Cross seam front & cm & \fieldline \\
+Crotch depth & cm & \fieldline \\
+Head circumference & cm & \fieldline \\
+Heel circumference & cm & \fieldline \\
+High bust & cm & \fieldline \\
+High bust front & cm & \fieldline \\
+Hips circumference & cm & \fieldline \\
+HPS to bust & cm & \fieldline \\
+HPS to waist back & cm & \fieldline \\
+HPS to waist front & cm & \fieldline \\
+Inseam & cm & \fieldline \\
+Knee circumference & cm & \fieldline \\
+Neck circumference & cm & \fieldline \\
+Seat circumference & cm & \fieldline \\
+Seat back & cm & \fieldline \\
+Shoulder slope & \textdegree & \fieldline \\
+Shoulder to elbow & cm & \fieldline \\
+Shoulder to shoulder & cm & \fieldline \\
+Shoulder to wrist & cm & \fieldline \\
+Underbust & cm & \fieldline \\
+Upper leg circumference & cm & \fieldline \\
+Waist circumference & cm & \fieldline \\
+Waist back & cm & \fieldline \\
+Waist to armpit & cm & \fieldline \\
+Waist to floor & cm & \fieldline \\
+Waist to hips & cm & \fieldline \\
+Waist to knee & cm & \fieldline \\
+Waist to seat & cm & \fieldline \\
+Waist to underbust & cm & \fieldline \\
+Waist to upper leg & cm & \fieldline \\
+Wrist circumference & cm & \fieldline \\
+\bottomrule
+\end{longtable}
