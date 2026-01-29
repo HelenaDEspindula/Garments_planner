@@ -1,0 +1,203 @@
+---
+title: "Projeto de Reforma – Saia Ballet Funcional para Pilates"
+author: "Helena Regina Salomé D'Espindula"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+---
+
+# 1. Identificação do Projeto
+
+- **Tipo de projeto:** Reforma e adaptação de peça esportiva existente  
+- **Finalidade:** Uso em Pilates em aparelho  
+- **Usuária:** Corpo real (plus size, barriga e quadril pronunciados)  
+- **Etapa de aprendizagem:** Modelagem consciente e funcional  
+- **Manequim:** Não utilizado (prova no corpo e em superfície plana)
+
+---
+
+# 2. Peça Original – Especificações
+
+## 2.1 Descrição da peça original
+- **Tipo:** Short-saia esportivo
+- **Uso:** Atividade física
+- **Tecido:** Malha esportiva (provável poliamida + elastano)
+- **Cós:** Faixa elástica contínua
+- **Cor:** Roxo quase neon
+- **Observação funcional:**  
+  Saia curta, sobe facilmente em movimento, sensação de exposição excessiva (body shaming).
+
+## 2.2 Decisão de projeto
+- **Não remover a saia original nesta etapa**
+- Motivos:
+  - Manter reversibilidade
+  - Evitar intervenção irreversível precoce
+  - Avaliar comportamento real após uso
+
+---
+
+# 3. Materiais Disponíveis
+
+## 3.1 Tecidos
+- **Tricoline 100% algodão – preto (peso médio):**  
+  Dimensão aproximada: 3,0 m × 1,40 m  
+  Uso: estrutura principal da nova saia
+
+- **Tricoline 100% algodão – lilás (bem leve):**  
+  Dimensão aproximada: 1,0 m × 1,40 m  
+  Uso futuro: forro parcial inferior / efeito visual (não estrutural)
+
+## 3.2 Linhas e insumos
+- Linha de poliéster preta
+- Ferro de passar (fundamental para bainha e controle de caimento)
+
+---
+
+# 4. Medidas Corporais e da Peça Original
+
+## 4.1 Medidas do short-saia original
+- Circunferência do cós (fora do corpo): **79 cm**
+- Altura do cós: **4,5 cm**
+- Base do cós até fim do short:
+  - Fora do corpo: **28 cm**
+  - No corpo: **37 cm**
+- Topo do cós até o joelho (no corpo): **54,5 cm**
+
+## 4.2 Circunferência funcional adotada
+- Ajuste de +12% sobre a medida fora do corpo
+- Circunferência funcional de trabalho (A): **88,5 cm**
+
+---
+
+# 5. Proposta de Intervenção
+
+## 5.1 Conceito
+- **Saia envelope tipo ballet (romantique funcional)**
+- Comprimento abaixo do joelho
+- Abertura lateral anterior
+- Presa somente na **base do cós**
+- Pensada para:
+  - amplitude de movimento
+  - estabilidade
+  - cobertura corporal
+  - conforto psicológico durante a prática
+
+## 5.2 Justificativa do modelo
+- Envelope permite abertura de pernas sem travar
+- Comprimento longo reduz exposição em movimento
+- Fixação no cós evita ajustes durante a aula
+- Adequado para Pilates em aparelho
+
+---
+
+# 6. Modelagem – Saia Preta (Estrutura)
+
+## 6.1 Tipo de molde
+- Peça única
+- Assimétrica
+- Corte único (não espelhado)
+- Fio reto central
+
+## 6.2 Medidas do molde
+
+### Comprimento (linha central / fio)
+- Comprimento útil (base do cós até abaixo do joelho): **55 cm**
+- Bainha com peso: **5 cm**
+- Margem superior: **1,5 cm**
+- **Comprimento total:** **62 cm**
+
+### Largura do topo
+- ½ circunferência funcional: **44,25 cm**
+- Sobreposição frontal: **12 cm**
+- **Topo total:** **56,5 cm**
+
+### Largura máxima da base (antes da curva)
+- Abertura adicional: **+30 cm**
+- **Base teórica:** **87 cm**
+
+---
+
+## 6.3 Geometria da barra
+- Centro da peça: +3 a +4 cm mais longo
+- Laterais: 3 a 4 cm mais curtas
+- Curva contínua, sem ângulos
+- Bainha marcada a 5 cm
+
+---
+
+## 6.4 Marcas obrigatórias no molde
+- Linha do fio com setas duplas
+- Centro da peça
+- Pontos de início e fim da fixação no cós (±14 cm do centro)
+- Linha de referência do fim do short interno (37 cm do topo)
+- Identificação completa do modelo
+- Indicação clara: **margem de costura não inclusa**
+- Observação: **não cortar no viés**
+
+---
+
+# 7. Esboço de Melhoria Futura – Forro Lilás
+
+## 7.1 Conceito
+- Forro parcial inferior
+- Função:
+  - estabilização fina da barra
+  - efeito visual
+- Não estrutural
+- Não sobe até o cós
+
+## 7.2 Esboço no molde
+- Linha tracejada paralela à barra
+- Altura sugerida: **12 a 18 cm** (referência adotada: 15 cm)
+- Anotações explícitas:
+  - “Forro parcial inferior”
+  - “Aplicação posterior”
+  - “Não estrutural”
+
+---
+
+# 8. Montagem e Costura – Sequência Planejada
+
+## 8.1 Ordem de execução
+1. Desenho e corte do molde em tricoline preto
+2. Costura da saia preta à **base do cós original**
+3. Execução da bainha de 5 cm
+4. Costura dupla paralela na bainha (peso)
+5. Prova no corpo em uso real (Pilates em aparelho)
+6. Avaliação de necessidade de forro lilás futuro
+
+## 8.2 Considerações de costura
+- Não costurar laterais
+- Não atravessar o elástico do cós
+- Manter costuras estruturais e estéticas separadas
+- Priorizar conforto em posição sentada e em extensão
+
+---
+
+# 9. Critérios de Avaliação Pós-Uso
+
+- A saia sobe em movimento?
+- Há giro excessivo?
+- A barra retorna rapidamente após abertura?
+- Há desconforto térmico?
+- A saia original interfere no caimento?
+
+Somente após essas observações será avaliada:
+- remoção da saia original
+- instalação do forro lilás
+
+---
+
+# 10. Observações Finais
+
+Este projeto foi concebido como exercício de:
+- modelagem consciente
+- adaptação ao corpo real
+- priorização de uso e conforto
+- documentação para aprendizagem contínua
+
+Decisões foram tomadas visando reversibilidade e evolução progressiva do projeto.
+
+---
