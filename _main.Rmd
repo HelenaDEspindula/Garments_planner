@@ -1,36 +1,38 @@
 ---
+title: "Caderno de Projetos Garments"
+author: "Helena Regina Salomé D'Espindula"
+site: bookdown::bookdown_site
+documentclass: book
+output: bookdown::pdf_book
+---
+
+# Classificação de tecidos naturais — panos e malhas
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+---
 title: "Garments Planner"
 author: "Helena Regina Salomé D'Espindula"
 date: "`r format(Sys.Date(), '%d/%m/%Y')`"
 lang: pt-BR
+documentclass: book
 classoption: oneside
 fontsize: 8pt
 geometry: margin=2.2cm
 toc: true
 toc_depth: 2
 number_sections: true
-pdf_document:
-  toc: true               # mude p/ true se quiser sumário no POP
-  number_sections: false   # mude p/ true se quiser seções numeradas
-  fig_caption: true
-  df_print: kable
-  keep_tex: false
-  includes:
-    in_header:
-    - ../preamble.tex            # mesmo preâmbulo que usa no livro (opcional)
-    #- ../tex/unicode-sanitizer.tex   # mapeia caracteres problemáticos (recomendado)
-  pandoc_args:
-    - "--pdf-engine-opt=-interaction=nonstopmode"
-    - "--pdf-engine-opt=-file-line-error"
-    - "--highlight-style=breezedark"
-    - "-V"
-    - "classoption=oneside"
-    - "-V"
-    - "geometry:margin=1.5cm"
-  fontsize: 4pt
-  extra_dependencies:
-      - booktabs
-      - xcolor
+
+output:
+  pdf_document:
+    latex_engine: xelatex
+    includes:
+      in_header: preamble.tex
+    keep_tex: false
 ---
 
 ```{r setup, include=FALSE}
@@ -327,3 +329,56 @@ Para **cada costura**:
 - [ ] Nenhuma costura irreversível antes da prova
 - [ ] Nenhuma costura definitiva sem passar
 - [ ] Ferro faz parte da costura, não do acabamento
+
+<!--chapter:end:garments_projects.Rmd-->
+
+
+# Projeto: \\fieldline
+
+Placeholder
+
+
+## 1. Objetivo do projeto
+## 2. Premissas do projeto
+## 3. Especificações gerais da peça
+### Tipo de peça
+### Uso previsto
+### Silhueta
+### Estrutura
+## 4. Tecido
+### Tecido principal
+### Justificativa
+### Limitações conhecidas
+## 5. Medidas necessárias (todas em cm)
+## 6. Folgas recomendadas
+### Folga de conforto (iniciante)
+## 7. Estrutura do molde
+### 7.1 Frente
+#### Base
+#### Decote
+#### Pala frontal
+### 7.2 Costas
+### 7.3 Manga
+### 7.4 Gusset (axila)
+## 8. Margens de costura (aprendizado)
+## 9. Acabamentos internos
+### Prioridade
+### Técnicas recomendadas
+### Evitar
+## 10. Acabamentos de borda
+### Pala frontal (borda inferior)
+### Barras
+## 11. Ordem geral de montagem (resumo)
+## 12. Critérios de sucesso do projeto
+## 13. Observação sobre uso consciente
+## 14. Notas finais
+## Detalhes do projeto
+## Croqui (frente e costas)
+## Tecidos usados (espaço para swatches)
+## Materiais e aviamentos
+## Alterações e ajustes
+## Checklist rápido
+## Notas e aprendizado
+
+<!--chapter:end:projects.Rmd-->
+
