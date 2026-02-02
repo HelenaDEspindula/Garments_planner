@@ -11,56 +11,51 @@ lang: "pt-BR"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
 ```
 
 # Medidas do corpo
 
-Data das medidas: \fieldline
+Data das medidas: 
 
 > Dica: se fizer novas medidas, copie esta pagina e atualize a data.
 
-\begin{longtable}{p{0.55\linewidth} p{0.15\linewidth} p{0.25\linewidth}}
-\toprule
-\textbf{Medida} & \textbf{Unid.} & \textbf{Valor} \\
-\midrule
-\endhead
-Ankle circumference & cm & \fieldline \\
-Biceps circumference & cm & \fieldline \\
-Bust front & cm & \fieldline \\
-Bust point to underbust & cm & \fieldline \\
-Bust span & cm & \fieldline \\
-Chest circumference & cm & \fieldline \\
-Cross seam & cm & \fieldline \\
-Cross seam front & cm & \fieldline \\
-Crotch depth & cm & \fieldline \\
-Head circumference & cm & \fieldline \\
-Heel circumference & cm & \fieldline \\
-High bust & cm & \fieldline \\
-High bust front & cm & \fieldline \\
-Hips circumference & cm & \fieldline \\
-HPS to bust & cm & \fieldline \\
-HPS to waist back & cm & \fieldline \\
-HPS to waist front & cm & \fieldline \\
-Inseam & cm & \fieldline \\
-Knee circumference & cm & \fieldline \\
-Neck circumference & cm & \fieldline \\
-Seat circumference & cm & \fieldline \\
-Seat back & cm & \fieldline \\
-Shoulder slope & \textdegree & \fieldline \\
-Shoulder to elbow & cm & \fieldline \\
-Shoulder to shoulder & cm & \fieldline \\
-Shoulder to wrist & cm & \fieldline \\
-Underbust & cm & \fieldline \\
-Upper leg circumference & cm & \fieldline \\
-Waist circumference & cm & \fieldline \\
-Waist back & cm & \fieldline \\
-Waist to armpit & cm & \fieldline \\
-Waist to floor & cm & \fieldline \\
-Waist to hips & cm & \fieldline \\
-Waist to knee & cm & \fieldline \\
-Waist to seat & cm & \fieldline \\
-Waist to underbust & cm & \fieldline \\
-Waist to upper leg & cm & \fieldline \\
-Wrist circumference & cm & \fieldline \\
-\bottomrule
-\end{longtable}
+
+Ankle circumference & cm & 
+Biceps circumference & cm & 
+Bust front & cm & 
+Bust point to underbust & cm & 
+Bust span & cm & 
+Chest circumference & cm & 
+Cross seam & cm & 
+Cross seam front & cm & 
+Crotch depth & cm & 
+Head circumference & cm & 
+Heel circumference & cm & 
+High bust & cm & 
+High bust front & cm & 
+Hips circumference & cm & 
+HPS to bust & cm & 
+HPS to waist back & cm & 
+HPS to waist front & cm & 
+Inseam & cm & 
+Knee circumference & cm & 
+Neck circumference & cm & 
+Seat circumference & cm & 
+Seat back & cm & 
+Shoulder slope &  & 
+Shoulder to elbow & cm & 
+Shoulder to shoulder & cm & 
+Shoulder to wrist & cm & 
+Underbust & cm & 
+Upper leg circumference & cm & 
+Waist circumference & cm & 
+Waist back & cm & 
+Waist to armpit & cm & 
+Waist to floor & cm & 
+Waist to hips & cm & 
+Waist to knee & cm & 
+Waist to seat & cm & 
+Waist to underbust & cm & 
+Waist to upper leg & cm & 
+Wrist circumference & cm & 

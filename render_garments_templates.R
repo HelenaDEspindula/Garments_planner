@@ -14,6 +14,10 @@ suppressPackageStartupMessages({
 library(rmarkdown)
 library(bookdown)
 library(withr)
+require(knitr)
+require(tidyverse)
+require(tinytex)
+require(kableExtra)
 
 
 message("\n=== Garments Templates (PDF) ===")
