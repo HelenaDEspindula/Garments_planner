@@ -327,3 +327,209 @@ Para **cada costura**:
 - [ ] Nenhuma costura irreversível antes da prova
 - [ ] Nenhuma costura definitiva sem passar
 - [ ] Ferro faz parte da costura, não do acabamento
+
+```{r registro-acompanhamento, results="asis"}
+library(knitr)
+
+cat("
+# Registro de Acompanhamento de Projetos de Costura
+
+Este documento tem como objetivo registrar o estado atual dos projetos em andamento, projetos planejados para o futuro próximo e direções de longo prazo.  
+O foco é acompanhamento técnico, aprendizado progressivo e tomada de decisão consciente.
+
+---
+
+## 1. Projetos em Andamento
+
+")
+
+projetos_ativos <- data.frame(
+  Projeto = c(
+    "Camisola em tricoline lilás",
+    "Saia envelope para Pilates",
+    "Shorts base (calça reaproveitada)",
+    "Toalhas de mesa (2 unidades)",
+    "Saia preta longa com bolsos",
+    "Blusa \"Jane\" em tricoline bege",
+    "Shirt 1800s (estilo pirata)",
+    "Leitura de livros históricos de costura"
+  ),
+  Status_atual = c(
+    "Peça finalizada com resultado insatisfatório",
+    "Saia alinhavada; base original descartada",
+    "Cortado; acabamento pendente",
+    "Tecidos lavados; sem acabamento",
+    "Peça montada; cós indefinido",
+    "Em construção; estética insatisfatória",
+    "Em fase conceitual",
+    "Atividade contínua"
+  ),
+  Objetivo_principal = c(
+    "Refazer com base em molde histórico",
+    "Teste funcional em movimento",
+    "Criar base funcional para ensaio",
+    "Projeto simples e treino de acabamento",
+    "Resolver construção e ajuste de cós",
+    "Aprendizagem de modelagem e construção",
+    "Modelagem histórica e possível costura manual",
+    "Construção de repertório técnico"
+  ),
+  Proxima_acao = c(
+    "Gerar novo molde a partir de chemise vitoriana",
+    "Finalizar shorts base e testar em uso real",
+    "Fazer acabamento simples no corte",
+    "Executar acabamento das bordas",
+    "Decidir tipo de cós e executar",
+    "Finalizar peça sem foco estético",
+    "Tirar medidas e gerar molde digital",
+    "Continuar leitura e reproduzir moldes selecionados"
+  ),
+  Prioridade = c(
+    "Média",
+    "Alta",
+    "Alta",
+    "Baixa",
+    "Alta",
+    "Média",
+    "Média",
+    "Contínua"
+  ),
+  stringsAsFactors = FALSE
+)
+
+kable(
+  projetos_ativos,
+  caption = "Tabela 1 — Projetos em andamento"
+)
+
+cat("
+
+---
+
+## 2. Projetos Planejados para o Futuro Próximo
+
+")
+
+futuro_breve <- data.frame(
+  Projeto = c(
+    "Blusa ou regata para atividade física",
+    "Digitalização de roupas que não cabem mais",
+    "Uso da viscose estampada (2,5 m)"
+  ),
+  Objetivo = c(
+    "Criar peça funcional e alinhada ao estilo pessoal",
+    "Preservar formas que vestem bem para adaptação futura",
+    "Desenvolver projeto consciente com tecido já adquirido"
+  ),
+  Bloqueio_atual = c(
+    "Falta de referência funcional e estética",
+    "Necessidade de definir método e selecionar peça piloto",
+    "Ausência de conceito coerente no momento"
+  ),
+  Proximo_passo = c(
+    "Pesquisa direcionada a modelos funcionais",
+    "Escolher uma peça para teste de método",
+    "Manter o tecido reservado até definição clara"
+  ),
+  stringsAsFactors = FALSE
+)
+
+kable(
+  futuro_breve,
+  caption = "Tabela 2 — Projetos planejados para o futuro próximo"
+)
+
+cat("
+
+---
+
+## 3. Direcionamento de Longo Prazo
+
+")
+
+longo_prazo <- data.frame(
+  Eixo = c(
+    "Roupas estruturadas",
+    "Tecidos invernais e mais caros",
+    "Estética acadêmica",
+    "Construção de peças inferiores"
+  ),
+  Exemplos = c(
+    "Casacos longos, capas de ombro",
+    "Linho, lã, tecidos encorpados",
+    "Dark academia, vestuário profissional",
+    "Calças, shorts e variações"
+  ),
+  Habilidades_a_desenvolver = c(
+    "Modelagem avançada e uso de entretelas",
+    "Controle de erro e provas cuidadosas",
+    "Ajuste fino e acabamento de alto nível",
+    "Modelagem de base para membros inferiores"
+  ),
+  stringsAsFactors = FALSE
+)
+
+kable(
+  longo_prazo,
+  caption = "Tabela 3 — Direcionamento de longo prazo"
+)
+
+cat("
+
+---
+
+## 4. Observações Gerais
+
+O momento atual é caracterizado por foco em aprendizado técnico, prototipagem funcional e uso de tecidos de menor custo.  
+As decisões priorizam reversibilidade, documentação e aquisição de repertório antes da transição para projetos mais estruturados e materiais de maior valor.
+
+Este registro deverá ser atualizado periodicamente para acompanhamento da evolução técnica e redefinição de prioridades.
+
+")
+
+cat("
+## 5. Critério Atual de Avanço de Fase (Corte e Costura)
+
+No estágio atual de aprendizagem e organização dos projetos, foi estabelecido o seguinte critério operacional:
+
+**Não iniciar novos projetos na fase de corte e costura enquanto houver projetos em andamento não finalizados.**
+
+Este critério tem como objetivos:
+
+- Evitar dispersão de atenção e acúmulo excessivo de peças inacabadas.
+- Garantir fechamento de ciclos de aprendizagem antes da abertura de novos.
+- Permitir avaliação real dos erros e acertos de cada projeto concluído.
+- Consolidar decisões técnicas antes de investir tempo e material em novas peças.
+
+### 5.1 Definição de “finalização” no contexto atual
+
+Para efeito deste registro, considera-se um projeto **finalizado** quando:
+
+- A etapa prevista para o projeto foi concluída, **mesmo que o resultado estético não seja satisfatório**, ou
+- O projeto foi conscientemente encerrado como exercício de aprendizagem, com documentação do motivo da interrupção.
+
+A finalização **não implica** que a peça será usada, mantida ou refeita imediatamente.
+
+### 5.2 Exceções admitidas
+
+São admitidas exceções apenas para:
+
+- Projetos de acabamento simples (ex.: bainhas, bordas de toalhas).
+- Atividades de estudo teórico, leitura ou reprodução digital de moldes.
+- Ensaios e testes provisórios (alinhavos, provas temporárias, simulações).
+
+Essas atividades não caracterizam a abertura de um novo projeto de corte e costura.
+
+### 5.3 Implicações práticas
+
+Enquanto este critério estiver em vigor:
+
+- Novas ideias podem ser registradas e planejadas.
+- Tecidos podem ser reservados, mas **não cortados**.
+- A prioridade deve ser a conclusão consciente dos projetos já iniciados.
+
+Este critério deverá ser reavaliado periodicamente conforme evolução técnica, redução do número de projetos ativos e mudança de objetivos.
+
+")
+
+```
