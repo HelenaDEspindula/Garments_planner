@@ -486,8 +486,9 @@ As decisões priorizam reversibilidade, documentação e aquisição de repertó
 Este registro deverá ser atualizado periodicamente para acompanhamento da evolução técnica e redefinição de prioridades.
 
 ")
+```
 
-cat("
+
 ## 5. Critério Atual de Avanço de Fase (Corte e Costura)
 
 No estágio atual de aprendizagem e organização dos projetos, foi estabelecido o seguinte critério operacional:
@@ -530,6 +531,3 @@ Enquanto este critério estiver em vigor:
 
 Este critério deverá ser reavaliado periodicamente conforme evolução técnica, redução do número de projetos ativos e mudança de objetivos.
 
-")
-
-```
