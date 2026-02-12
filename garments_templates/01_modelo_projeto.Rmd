@@ -1,36 +1,23 @@
 ---
-title: "Modelo de projeto de roupa"
-author: "Helena Regina Salomé D'Espindula"
-date: "`r format(Sys.Date(), '%d/%m/%Y')`"
-lang: pt-BR
-documentclass: article
-fontsize: 8pt
-geometry: margin=2.2cm
-toc: false
-number_sections: false
-output:
-  pdf_document:
-    latex_engine: xelatex
-    includes:
-      in_header: ../preamble.tex
-    keep_tex: false
+output: bookdown::pdf_document2
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-# Projeto: \\fieldline
+# Projeto: \hfill\rule{6cm}{0.4pt}
+
 
 ## Detalhes do projeto
 
-- Nome do molde / pattern: \\fieldline  
-- Marca / empresa: \\fieldline  
-- Tamanho cortado: \\fieldline  
-- Versão / variação: \\fieldline  
-- Data de início: \\fieldline  
-- Data de término: \\fieldline  
-- Objetivo (uso, ocasião, estação): \\fieldline  
+- Nome do molde / pattern: \hfill\rule{6cm}{0.4pt}  
+- Marca / empresa: \hfill\rule{6cm}{0.4pt}  
+- Tamanho cortado: \hfill\rule{6cm}{0.4pt}  
+- Versão / variação: \hfill\rule{6cm}{0.4pt}  
+- Data de início: \hfill\rule{6cm}{0.4pt}  
+- Data de término: \hfill\rule{6cm}{0.4pt}  
+- Objetivo (uso, ocasião, estação): \hfill\rule{6cm}{0.4pt}  
 
 ## Croqui (frente e costas)
 
@@ -99,9 +86,9 @@ if (all(file.exists(imgs))) {
 
 \begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
 \textbf{Tecido 1} & \textbf{Tecido 2} \\
-Fibra: \\fieldline & Fibra: \\fieldline \\
-Origem/loja: \\fieldline & Origem/loja: \\fieldline \\
-Uso no projeto: \\fieldline & Uso no projeto: \\fieldline \\
+Fibra: \hfill\rule{6cm}{0.4pt} & Fibra: \hfill\rule{6cm}{0.4pt} \\
+Origem/loja: \hfill\rule{6cm}{0.4pt} & Origem/loja: \hfill\rule{6cm}{0.4pt} \\
+Uso no projeto: \hfill\rule{6cm}{0.4pt} & Uso no projeto: \hfill\rule{6cm}{0.4pt} \\
 \\swatchbox & \\swatchbox \\
 \end{tabular}
 
@@ -109,24 +96,24 @@ Uso no projeto: \\fieldline & Uso no projeto: \\fieldline \\
 
 \begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
 \textbf{Tecido 3} & \textbf{Tecido 4} \\
-Fibra: \\fieldline & Fibra: \\fieldline \\
-Origem/loja: \\fieldline & Origem/loja: \\fieldline \\
-Uso no projeto: \\fieldline & Uso no projeto: \\fieldline \\
+Fibra: \hfill\rule{6cm}{0.4pt} & Fibra: \hfill\rule{6cm}{0.4pt} \\
+Origem/loja: \hfill\rule{6cm}{0.4pt} & Origem/loja: \hfill\rule{6cm}{0.4pt} \\
+Uso no projeto: \hfill\rule{6cm}{0.4pt} & Uso no projeto: \hfill\rule{6cm}{0.4pt} \\
 \\swatchbox & \\swatchbox \\
 \end{tabular}
 
 ## Materiais e aviamentos
 
-- Linhas: \\fieldline  
-- Zíper / fechos: \\fieldline  
-- Botões: \\fieldline  
-- Elástico: \\fieldline  
-- Entretela / interfacing: \\fieldline  
-- Outros: \\fieldline  
+- Linhas: \hfill\rule{6cm}{0.4pt}  
+- Zíper / fechos: \hfill\rule{6cm}{0.4pt}  
+- Botões: \hfill\rule{6cm}{0.4pt}  
+- Elástico: \hfill\rule{6cm}{0.4pt}  
+- Entretela / interfacing: \hfill\rule{6cm}{0.4pt}  
+- Outros: \hfill\rule{6cm}{0.4pt}  
 
 ## Alterações e ajustes
 
-- Ajustes no molde: \\fieldline  
+- Ajustes no molde: \hfill\rule{6cm}{0.4pt}  
 
 \bigskip
 \\labelline{Ajustes adicionais}

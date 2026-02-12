@@ -1,19 +1,15 @@
 # POPs/_output.yml  (padrão de PDF para todos os POPs)
 
 pdf_document:
-toc: false             # mude p/ true se quiser sumário no POP
+toc: true               # mude p/ true se quiser sumário no POP
 number_sections: false   # mude p/ true se quiser seções numeradas
 fig_caption: true
 df_print: kable
 keep_tex: false
-header-includes:
-  - \usepackage{array}
-  - \usepackage{graphicx}
-  - \usepackage{booktabs}
-  - \usepackage{titling}
-  - \setlength{\droptitle}{-5cm}
-  - \pretitle{\begin{center}\small\bfseries}
-  - \posttitle{\end{center}}
+includes:
+  in_header:
+  - ../tex/preamble.tex            # mesmo preâmbulo que usa no livro (opcional)
+  - ../tex/unicode-sanitizer.tex   # mapeia caracteres problemáticos (recomendado)
 pandoc_args:
   - "--pdf-engine-opt=-interaction=nonstopmode"
   - "--pdf-engine-opt=-file-line-error"
@@ -21,7 +17,7 @@ pandoc_args:
   - "-V"
   - "classoption=oneside"
   - "-V"
-  - "geometry:top=0.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"
+  - "geometry:margin=1.7cm"
 fontsize: 4pt
 extra_dependencies:
     - booktabs

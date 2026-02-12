@@ -1,20 +1,5 @@
 ---
-title: "Checklist de costura — Blusa simples (G1, tecido leve 100%)"
-author: "Helena Regina Salomé D'Espindula"
-date: "`r format(Sys.Date(), '%d/%m/%Y')`"
-lang: pt-BR
-documentclass: article
-fontsize: 8pt
-geometry: margin=2.2cm
-toc: true
-toc_depth: 2
-number_sections: false
-output:
-  pdf_document:
-    latex_engine: xelatex
-    includes:
-      in_header: ../preamble.tex
-    keep_tex: false
+output: bookdown::pdf_document2
 ---
 
 ```{r setup, include=FALSE}
