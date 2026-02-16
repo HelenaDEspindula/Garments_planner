@@ -44,3 +44,48 @@ cat("
 
 
 ```
+
+\newpage
+
+
+# Tecidos de Viscose
+
+
+```{r, results='asis', echo=FALSE}
+cat("
+\\begin{center}
+\\setlength{\\tabcolsep}{18pt}
+\\renewcommand{\\arraystretch}{1.2}
+\\begin{tabular}{cc}
+")
+
+fabric_cell <- "
+\\begin{minipage}[t]{0.42\\textwidth}
+\\small
+\\fbox{\\rule{0pt}{3cm}\\rule{5cm}{0pt}} \\\\[0.2cm]
+\\textbf{Nome:} \\rule{4.8cm}{0.4pt} \\\\
+\\textbf{Cor-Padrão:} \\rule{4.2cm}{0.4pt} \\\\
+\\textbf{Fribras:} \\rule{4.2cm}{0.4pt} \\\\
+\\textbf{Largura:} \\rule{4.7cm}{0.4pt} \\\\
+\\textbf{Metragem:} \\rule{4.5cm}{0.4pt} \\\\
+\\textbf{Data:} \\rule{5cm}{0.4pt} \\\\
+\\textbf{Fornecedor:} \\rule{4.3cm}{0.4pt} \\\\[0.2cm]
+\\end{minipage}
+"
+
+for(i in 1:6){
+  cat(fabric_cell)
+  if(i %% 2 == 0) cat(" \\\\ [1cm]\n")
+  else cat(" & ")
+}
+
+cat("
+\\end{tabular}
+\\end{center}
+")
+
+
+```
+
+\newpage
+
