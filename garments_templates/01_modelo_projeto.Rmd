@@ -1,139 +1,95 @@
 ---
+title: ""
 output: bookdown::pdf_document2
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-```
+\vspace*{-1cm}
 
-# Projeto: \hfill\rule{6cm}{0.4pt}
+\begin{center}
+\normalsize\bfseries PLANO DE PROJETO
+\end{center}
 
+\vspace{0.8cm}
 
-## Detalhes do projeto
+\begin{center}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{cc}
 
-- Nome do molde / pattern: \hfill\rule{6cm}{0.4pt}  
-- Marca / empresa: \hfill\rule{6cm}{0.4pt}  
-- Tamanho cortado: \hfill\rule{6cm}{0.4pt}  
-- Versão / variação: \hfill\rule{6cm}{0.4pt}  
-- Data de início: \hfill\rule{6cm}{0.4pt}  
-- Data de término: \hfill\rule{6cm}{0.4pt}  
-- Objetivo (uso, ocasião, estação): \hfill\rule{6cm}{0.4pt}  
+\begin{minipage}[t]{0.47\textwidth}
+\normalsize
 
-## Croqui (frente e costas)
+\textbf{Identificação}
 
-```{r croqui, fig.align='center', fig.show='hold', out.width='0.48\\textwidth'}
-# Para o PDF não falhar se as imagens não existirem.
-imgs <- c("Croqui_limpo_frente.png", "Croqui_limpo_costas.png")
-if (all(file.exists(imgs))) {
-  knitr::include_graphics(imgs)
-} else {
-  knitr::asis_output("\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-\\\
-")
+\vspace{0.3cm}
+
+Projeto: \rule{6cm}{0.4pt}  
+
+Data de início: \rule{4cm}{0.4pt}  
+
+Molde base: \rule{6cm}{0.4pt}  
+
+Referência (época/estilo): \rule{3cm}{0.4pt}
+
+\rule{6cm}{0.4pt}
+
+\vspace{1cm}
+
+\end{minipage}
+&
+\begin{minipage}[t]{0.47\textwidth}
+\normalsize
+
+\textbf{Materiais}
+
+\vspace{0.3cm}
+
+Tecido principal: \rule{5cm}{0.4pt}  
+
+Composição: \rule{6cm}{0.4pt}  
+
+Metragem estimada: \rule{4cm}{0.4pt}  
+
+Aviamentos: \rule{6cm}{0.4pt}
+
+\end{minipage}
+
+\\[2cm]
+
+\multicolumn{2}{c}{
+\begin{minipage}[t]{0.95\textwidth}
+\normalsize
+
+\textbf{Objetivo da peça}
+
+\vspace{0.3cm}
+
+Escreva aqui o propósito da peça, contexto de uso, referências estéticas e intenção de silhueta.
+
+\vspace{0.8cm}
+
+\textbf{Planejamento de construção}
+
+\vspace{0.3cm}
+
+Descreva a sequência planejada de montagem, pontos críticos da modelagem e acabamentos pretendidos.
+
+\vspace{0.8cm}
+
+\textbf{Ajustes realizados durante a execução}
+
+\vspace{0.3cm}
+
+\rule{15cm}{0.4pt}  
+
+\rule{15cm}{0.4pt}  
+
+\rule{15cm}{0.4pt}  
+
+\rule{15cm}{0.4pt}
+
+\end{minipage}
 }
-```
 
-## Tecidos usados (espaço para swatches)
-
-\begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
-\textbf{Tecido 1} & \textbf{Tecido 2} \\
-Fibra: \hfill\rule{6cm}{0.4pt} & Fibra: \hfill\rule{6cm}{0.4pt} \\
-Origem/loja: \hfill\rule{6cm}{0.4pt} & Origem/loja: \hfill\rule{6cm}{0.4pt} \\
-Uso no projeto: \hfill\rule{6cm}{0.4pt} & Uso no projeto: \hfill\rule{6cm}{0.4pt} \\
-\\swatchbox & \\swatchbox \\
 \end{tabular}
-
-\bigskip
-
-\begin{tabular}{p{0.48\linewidth} p{0.48\linewidth}}
-\textbf{Tecido 3} & \textbf{Tecido 4} \\
-Fibra: \hfill\rule{6cm}{0.4pt} & Fibra: \hfill\rule{6cm}{0.4pt} \\
-Origem/loja: \hfill\rule{6cm}{0.4pt} & Origem/loja: \hfill\rule{6cm}{0.4pt} \\
-Uso no projeto: \hfill\rule{6cm}{0.4pt} & Uso no projeto: \hfill\rule{6cm}{0.4pt} \\
-\\swatchbox & \\swatchbox \\
-\end{tabular}
-
-## Materiais e aviamentos
-
-- Linhas: \hfill\rule{6cm}{0.4pt}  
-- Zíper / fechos: \hfill\rule{6cm}{0.4pt}  
-- Botões: \hfill\rule{6cm}{0.4pt}  
-- Elástico: \hfill\rule{6cm}{0.4pt}  
-- Entretela / interfacing: \hfill\rule{6cm}{0.4pt}  
-- Outros: \hfill\rule{6cm}{0.4pt}  
-
-## Alterações e ajustes
-
-- Ajustes no molde: \hfill\rule{6cm}{0.4pt}  
-
-\bigskip
-\\labelline{Ajustes adicionais}
-
-\bigskip
-\\labelline{Observações de prova}
-
-## Checklist rápido
-
-- [ ] Corte conferido
-- [ ] Marcas transferidas
-- [ ] Entretela aplicada (se houver)
-- [ ] Primeira prova
-- [ ] Acabamentos internos
-- [ ] Bainha
-- [ ] Passadoria final
-
-## Notas e aprendizado
-
-\\labelline{O que aprendi / o que faria diferente}
-
-\bigskip
-\\labelline{Tempo real x tempo estimado}
+\end{center}

@@ -24,6 +24,7 @@ fabric_cell <- "
 \\textbf{Nome:} \\rule{4.8cm}{0.4pt} \\\\
 \\textbf{Cor-Padrão:} \\rule{4.2cm}{0.4pt} \\\\
 \\textbf{Fribras:} \\rule{4.2cm}{0.4pt} \\\\
+\\textbf{Teste fogo:} \\rule{4.2cm}{0.4pt} \\\\
 \\textbf{Largura:} \\rule{4.7cm}{0.4pt} \\\\
 \\textbf{Metragem:} \\rule{4.5cm}{0.4pt} \\\\
 \\textbf{Data:} \\rule{5cm}{0.4pt} \\\\
@@ -66,6 +67,7 @@ fabric_cell <- "
 \\textbf{Nome:} \\rule{4.8cm}{0.4pt} \\\\
 \\textbf{Cor-Padrão:} \\rule{4.2cm}{0.4pt} \\\\
 \\textbf{Fribras:} \\rule{4.2cm}{0.4pt} \\\\
+\\textbf{Teste fogo:} \\rule{4.2cm}{0.4pt} \\\\
 \\textbf{Largura:} \\rule{4.7cm}{0.4pt} \\\\
 \\textbf{Metragem:} \\rule{4.5cm}{0.4pt} \\\\
 \\textbf{Data:} \\rule{5cm}{0.4pt} \\\\
