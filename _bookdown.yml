@@ -1,0 +1,9 @@
+book_filename: "caderno-projetos"
+rmd_files:
+  - index.Rmd
+  - projects/blusa/00_blusa.Rmd
+  - projects/blusa/2026-01-21-Blusa_esporte_pilates.Rmd
+  - projects/saias/00_saias.Rmd
+  - projects/saias/saia_ballet_pilates.Rmd
+  - projects/vestidos/00_vestidos.Rmd
+  - projects/vestidos/01_modelo_projeto.Rmd

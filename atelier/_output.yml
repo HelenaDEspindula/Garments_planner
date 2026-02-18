@@ -1,0 +1,10 @@
+bookdown::pdf_document2:
+  toc: true
+  number_sections: false
+  latex_engine: pdflatex
+  fig_caption: false
+  pandoc_args:
+    - "-V"
+    - "classoption=oneside"
+    - "-V"
+    - "geometry:top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm"

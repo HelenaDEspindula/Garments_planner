@@ -1,8 +1,6 @@
 ---
 title: "Caderno de Projetos Garments"
 author: "Helena Regina Salomé D'Espindula"
-site: bookdown::bookdown_site
-documentclass: book
 output: bookdown::pdf_book
 ---
 

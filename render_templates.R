@@ -9,7 +9,7 @@ message("\n=== POPs (PDF) ===")
 pops <- c(
   # ,
   "01_modelo_projeto.Rmd",
-  "02_checklist_blusa_simples.Rmd",
+  "02_ficha_de_moldes.Rmd",
   "03_fabric_stach.Rmd"
   # ...adicione os demais
 )

@@ -5,10 +5,10 @@
 # - Receitas entram em ordem alfabetica
 # - Nao usa knit_child()
 
-root <- "receitas"
+root <- "projects"
 
 if (!dir.exists(root)) {
-  stop("Pasta 'receitas/' nao existe no diretorio atual.")
+  stop("Pasta 'projects/' nao existe no diretorio atual.")
 }
 
 cats <- list.dirs(root, recursive = FALSE, full.names = FALSE)
@@ -33,33 +33,33 @@ rmd_files <- c("index.Rmd")
 
 for (cat in cats) {
   cat_path <- file.path(root, cat)
-
+  
   recipes <- list.files(
     cat_path,
     pattern = "\\.Rmd$",
     full.names = TRUE
   )
-
+  
   # remove possivel arquivo de capitulo da contagem
   recipes <- recipes[!grepl("^(00_|cat_)", basename(recipes))]
-
-
+  
+  
   # pula categorias vazias
   if (length(recipes) == 0) next
-
+  
   # garante arquivo de capitulo
   chap_file <- file.path(cat_path, paste0("00_", cat, ".Rmd"))
-
+  
   if (!file.exists(chap_file)) {
     writeLines(
       paste0("# ", pretty_title(cat)),
       chap_file
     )
   }
-
+  
   # adiciona capitulo
   rmd_files <- c(rmd_files, chap_file)
-
+  
   # adiciona receitas em ordem alfabetica
   recipes <- recipes[ order(tolower(basename(recipes))) ]
   rmd_files <- c(rmd_files, recipes)
@@ -75,7 +75,7 @@ rmd_files <- gsub("\\\\", "/", rmd_files)
 # escreve _bookdown.yml
 writeLines(
   c(
-    'book_filename: "caderno-receitas"',
+    'book_filename: "caderno-projetos"',
     "rmd_files:",
     paste0("  - ", rmd_files)
   ),
@@ -87,3 +87,4 @@ cat("OK: _bookdown.yml gerado com", length(rmd_files) - 1, "arquivos.\n")
 if (interactive()) {
   bookdown::render_book("index.Rmd", "bookdown::pdf_book")
 }
+
