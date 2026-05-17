@@ -1,0 +1,178 @@
+# Notation Standards and Conventions {#notation-standards}
+
+This chapter defines all notation, terminology, and standards used throughout this pattern making documentation.
+
+## Measurement System
+
+All measurements in this book use the **metric system** (centimeters).
+
+| Unit | Abbreviation | Usage |
+|------|-------------|-------|
+| Centimeter | cm | All body measurements, pattern dimensions |
+| Millimeter | mm | Small details (notches, seam allowance) |
+| Meter | m | Fabric lengths only |
+
+**Important**: Never mix imperial and metric. All formulas assume centimeter inputs.
+
+## Coordinate System
+
+Patterns are drafted on a 2D Cartesian coordinate system:
+
+- **Origin (0,0)**: Bottom-left corner of the foundation rectangle
+- **X-axis**: Horizontal, positive to the right (pattern width)
+- **Y-axis**: Vertical, positive upward (pattern height/length)
+
+\vspace{1cm}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images/diagrams/coordinate_system.pdf}
+\end{center}
+\vspace{1cm}
+
+## Point Naming Conventions
+
+Construction points follow the traditional pattern drafting convention:
+
+- **Uppercase letters** (A, B, C...): Primary construction points
+- **Sequential order**: Points are named in order of construction
+- **Letter meaning**: Some letters have traditional meanings:
+  - A-D: Foundation rectangle corners
+  - E-F: Side seam offset
+  - G-H: Center division (armscye line)
+  - I-L: Front piece divisions
+  - M-P: Shoulder and neckline points
+  - Q-U: Armscye curve control points
+  - V-Z: Additional curve control points
+
+## Line Types and Meanings
+
+Based on the [FreeSewing Notation System](https://freesewing.eu/docs/about/notation/):
+
+```{r line-types-demo, fig.cap="Line types used in pattern plots", fig.height=6, fig.width=8}
+# Create demonstration plot of all line types
+demo_plot <- create_pattern_plot(width = 20, height = 25, 
+                                 title = "Line Type Reference")
+
+# Add examples of each line type
+y_pos <- 24
+for (type in names(FREESEWING_LINETYPES)) {
+  demo_plot <- demo_plot +
+    annotate("segment", x = 1, xend = 19, y = y_pos, yend = y_pos,
+             color = FREESEWING_COLORS[[type]],
+             linetype = FREESEWING_LINETYPES[[type]],
+             linewidth = 0.8) +
+    annotate("text", x = 10, y = y_pos + 0.3,
+             label = paste(type, "-", FREESEWING_LINETYPES[[type]]),
+             size = 3)
+  y_pos <- y_pos - 1
+}
+demo_plot
+```
+
+Line Type	Appearance	Meaning
+Seam	Solid thick line	Sewing line
+Seam allowance	Dashed line	Edge of fabric
+Grainline	Dotted with arrow	Fabric grain direction
+Cut-on-fold	Dash-dot with arrows	Place on fabric fold
+Dimension	Thin dotted	Measurement reference
+Note	Dashed thin	Construction notes
+Mark	Solid thin	Placement marks
+Contrast	Solid colored	Highlight specific areas
+Help	Dotted thin	Construction guides
+Notches and Markings
+Notch Types
+{r
+
+notch_plot <- create_pattern_plot(width = 10, height = 5, title = "Notch Types")
+notch_plot <- add_notch(notch_plot, 3, 2.5, type = "front", size = 0.3)
+notch_plot <- add_notch(notch_plot, 7, 2.5, type = "back", size = 0.3)
+notch_plot
+
+    Front notch (⊙): Indicates front of garment
+
+    Back notch (⊗): Indicates back of garment
+
+Other Markings
+Symbol	Meaning
+⊙	Front notch
+⊗	Back notch
+⊕	Button
+⊘	Buttonhole
+─●─	Bartack
+⇅	Grainline
+⇶	Cut on fold
+Pattern Piece Information
+
+Every pattern piece includes:
+
+    Piece name and number (e.g., "1 - Front Bodice")
+
+    Size identifier
+
+    Cut quantity (e.g., "Cut 2 fabric")
+
+    Date of drafting
+
+    Scale box (5cm × 5cm verification square)
+
+Color Standards
+{r
+
+color_plot <- create_pattern_plot(width = 20, height = 8, title = "Fabric Type Colors")
+colors_to_show <- c("fabric_primary", "fabric_lining", "fabric_interfacing")
+x_pos <- 2
+for (col_name in colors_to_show) {
+  color_plot <- color_plot +
+    annotate("rect", xmin = x_pos, xmax = x_pos + 4, 
+             ymin = 3, ymax = 5,
+             fill = FREESEWING_COLORS[[col_name]]) +
+    annotate("text", x = x_pos + 2, y = 6,
+             label = gsub("_", " ", col_name),
+             size = 3)
+  x_pos <- x_pos + 6
+}
+color_plot
+
+Color	Fabric Type
+Black (#212121)	Main fabric
+Blue (#1976D2)	Lining
+Orange (#F57C00)	Interfacing
+Grid System
+
+All pattern plots include:
+
+    Major grid: Every 5 cm (solid light grey lines)
+
+    Minor grid: Every 1 cm (very light dotted lines)
+
+    Purpose: Easy visual measurement and scale verification
+
+Printing Conventions
+
+For full-scale printing:
+
+    Test square: Always print a 5cm × 5cm test square first
+
+    Scale: 1:1 (100%) unless otherwise noted
+
+    Paper size: A0 for plotter, A4/Letter tiled for home printing
+
+    Registration marks: Cross marks (+) at tile corners for alignment
+
+File Naming Conventions
+Pattern Type	File Format	Example
+Rendered plots	PDF	bodice_front_v1.pdf
+Full-scale patterns	PDF	bodice_size48_A0.pdf
+Tiled patterns	PDF	bodice_size48_A4_tiled.pdf
+Measurement files	CSV	female_size48.csv
+Ease parameters	CSV	bodice_ease_female.csv
+Version Control
+
+All patterns follow semantic versioning:
+
+    Major version (v1, v2): Significant design changes
+
+    Minor version (v1.1, v1.2): Small adjustments
+
+    Patch version (v1.1.1): Error corrections
+
+Example: bodice_front_female_v2.1.3_size48.pdf
