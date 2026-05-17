@@ -7,13 +7,13 @@ rmd_files:
   - index.Rmd
   - 00-notation-standards.Rmd
   - 01-measurements.Rmd
-  - 02-basic-blocks.Rmd
-  - 02a-bodice-block-female.Rmd
-  - 02b-bodice-block-male.Rmd
-  - 02c-sleeve-block.Rmd
-  - 02d-skirt-block.Rmd
-  - 02e-pants-block.Rmd
-  - 03-design-variations.Rmd
-  - 04-projects.Rmd
-  - 05-reference.Rmd
-  - 99-appendix.Rmd
+  # - 02-basic-blocks.Rmd
+  # - 02a-bodice-block-female.Rmd
+  # - 02b-bodice-block-male.Rmd
+  # - 02c-sleeve-block.Rmd
+  # - 02d-skirt-block.Rmd
+  # - 02e-pants-block.Rmd
+  # - 03-design-variations.Rmd
+  # - 04-projects.Rmd
+  # - 05-reference.Rmd
+  # - 99-appendix.Rmd
