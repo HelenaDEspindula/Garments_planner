@@ -59,7 +59,8 @@ Female Bodice Block Requirements
 
 # Required measurements for female bodice
 
-```{r, eval=FALSE, echo=TRUE}
+
+``` r
 female_bodice_required <- c(
   "height",
   "bust_circ",
@@ -77,7 +78,8 @@ female_bodice_required <- c(
 
 
 # Create reference table
-```{r, eval=FALSE, echo=TRUE}
+
+``` r
 reqs_df <- data.frame(
   Code = female_bodice_required,
   Description = c(
@@ -105,7 +107,8 @@ knitr::kable(reqs_df,
 
 Male Bodice Block Requirements
 
-```{r, eval=FALSE, echo=TRUE}
+
+``` r
 male_bodice_required <- c(
   "height",
   "chest_circ",
@@ -144,128 +147,87 @@ knitr::kable(reqs_male_df,
 
 Skirt Block Requirements
 
-```{r}
-skirt_required <- c(
-  "waist_circ",
-  "hip_circ",
-  "waist_to_hip",
-  "waist_to_knee",
-  "height"
-)
-
-reqs_skirt_df <- data.frame(
-  Code = skirt_required,
-  Description = c(
-    "Waist circumference",
-    "Hip circumference",
-    "Waist to hip distance",
-    "Waist to knee distance",
-    "Total height"
-  ),
-  Category = c("Circumference", "Circumference", "Length", "Length", "Reference")
-)
-
-knitr::kable(reqs_skirt_df,
-             caption = "Required measurements for skirt block",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-```
+\begin{table}[!h]
+\centering
+\caption{(\#tab:unnamed-chunk-4)Required measurements for skirt block}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Code & Description & Category\\
+\midrule
+\cellcolor{gray!10}{waist\_circ} & \cellcolor{gray!10}{Waist circumference} & \cellcolor{gray!10}{Circumference}\\
+hip\_circ & Hip circumference & Circumference\\
+\cellcolor{gray!10}{waist\_to\_hip} & \cellcolor{gray!10}{Waist to hip distance} & \cellcolor{gray!10}{Length}\\
+waist\_to\_knee & Waist to knee distance & Length\\
+\cellcolor{gray!10}{height} & \cellcolor{gray!10}{Total height} & \cellcolor{gray!10}{Reference}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 Sleeve Block Requirements
 
 
-```{r}
-sleeve_required <- c(
-  "armscye_circ",
-  "arm_upper_circ",
-  "arm_elbow_circ",
-  "arm_wrist_circ",
-  "arm_shoulder_tip_to_wrist",
-  "arm_shoulder_tip_to_elbow",
-  "arm_armpit_to_wrist"
-)
-
-reqs_sleeve_df <- data.frame(
-  Code = sleeve_required,
-  Description = c(
-    "Armscye circumference",
-    "Upper arm circumference",
-    "Elbow circumference",
-    "Wrist circumference",
-    "Shoulder to wrist length",
-    "Shoulder to elbow length",
-    "Armpit to wrist (inside)"
-  ),
-  Category = c("Circumference", "Circumference", "Circumference",
-               "Circumference", "Length", "Length", "Length")
-)
-
-knitr::kable(reqs_sleeve_df,
-             caption = "Required measurements for sleeve block",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-```
+\begin{table}[!h]
+\centering
+\caption{(\#tab:unnamed-chunk-5)Required measurements for sleeve block}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Code & Description & Category\\
+\midrule
+\cellcolor{gray!10}{armscye\_circ} & \cellcolor{gray!10}{Armscye circumference} & \cellcolor{gray!10}{Circumference}\\
+arm\_upper\_circ & Upper arm circumference & Circumference\\
+\cellcolor{gray!10}{arm\_elbow\_circ} & \cellcolor{gray!10}{Elbow circumference} & \cellcolor{gray!10}{Circumference}\\
+arm\_wrist\_circ & Wrist circumference & Circumference\\
+\cellcolor{gray!10}{arm\_shoulder\_tip\_to\_wrist} & \cellcolor{gray!10}{Shoulder to wrist length} & \cellcolor{gray!10}{Length}\\
+\addlinespace
+arm\_shoulder\_tip\_to\_elbow & Shoulder to elbow length & Length\\
+\cellcolor{gray!10}{arm\_armpit\_to\_wrist} & \cellcolor{gray!10}{Armpit to wrist (inside)} & \cellcolor{gray!10}{Length}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 Pants Block Requirements
 
 
-```{r}
-pants_required <- c(
-  "waist_circ",
-  "hip_circ",
-  "waist_to_hip",
-  "crotch_depth",
-  "inseam",
-  "outseam",
-  "thigh_circ",
-  "knee_circ",
-  "ankle_circ"
-)
-
-reqs_pants_df <- data.frame(
-  Code = pants_required,
-  Description = c(
-    "Waist circumference",
-    "Hip circumference",
-    "Waist to hip distance",
-    "Crotch depth (sitting)",
-    "Inseam length",
-    "Outseam length",
-    "Thigh circumference",
-    "Knee circumference",
-    "Ankle circumference"
-  ),
-  Category = c("Circumference", "Circumference", "Length",
-               "Length", "Length", "Length", "Circumference",
-               "Circumference", "Circumference")
-)
-
-knitr::kable(reqs_pants_df,
-             caption = "Required measurements for pants block",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-```
+\begin{table}[!h]
+\centering
+\caption{(\#tab:unnamed-chunk-6)Required measurements for pants block}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Code & Description & Category\\
+\midrule
+\cellcolor{gray!10}{waist\_circ} & \cellcolor{gray!10}{Waist circumference} & \cellcolor{gray!10}{Circumference}\\
+hip\_circ & Hip circumference & Circumference\\
+\cellcolor{gray!10}{waist\_to\_hip} & \cellcolor{gray!10}{Waist to hip distance} & \cellcolor{gray!10}{Length}\\
+crotch\_depth & Crotch depth (sitting) & Length\\
+\cellcolor{gray!10}{inseam} & \cellcolor{gray!10}{Inseam length} & \cellcolor{gray!10}{Length}\\
+\addlinespace
+outseam & Outseam length & Length\\
+\cellcolor{gray!10}{thigh\_circ} & \cellcolor{gray!10}{Thigh circumference} & \cellcolor{gray!10}{Circumference}\\
+knee\_circ & Knee circumference & Circumference\\
+\cellcolor{gray!10}{ankle\_circ} & \cellcolor{gray!10}{Ankle circumference} & \cellcolor{gray!10}{Circumference}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 Loading Measurements in R
 
 The `read_measurements()` Function
-```{r}
-# Source measurement functions
-source(here::here("Rscripts", "measurement_io.R"))
 
-# Load a measurement file
-fem48 <- read_measurements(here::here("data", "measurements", "female_size48.csv"))
+```
+## Key measurements for female size 48:
+```
 
-# Display key measurements
-key_codes <- c("height", "bust_circ", "neck_front_to_waist_f", "shoulder_length")
-
-cat("Key measurements for female size 48:\n")
-for (code in key_codes) {
-  cat(sprintf("  %-30s: %6.1f cm\n", code, m_get(fem48, code)))
-}
+```
+##   height                        :  154.0 cm
+##   bust_circ                     :  113.0 cm
+##   neck_front_to_waist_f         :   58.0 cm
+##   shoulder_length               :   10.5 cm
 ```
 
 
@@ -273,63 +235,26 @@ Creating a Measurement Template
 
 If you don't have SeamlyMe, you can create a template CSV and fill in values manually:
 
-```{r}
-# Create template for manual editing
-create_measurement_template(
-  filepath = "data/measurements/custom_measurements.csv",
-  codes = c("height", "bust_circ", "waist_circ", "hip_circ",
-            "neck_front_to_waist_f", "back_waist_length",
-            "shoulder_length", "armscye_circ", "neck_width")
-)
-```
+
 
 Measurement Validation
 
 Checking Required Measurements
 
-```{r}
-# Validate that all required measurements are present
-tryCatch({
-  validate_measurements(fem48, female_bodice_required)
-  cat("✓ All required measurements present\n")
-}, error = function(e) {
-  cat("✗", e$message, "\n")
-})
 
-# Check for zero values (likely unfilled)
-zero_measurements <- names(fem48)[fem48 == 0]
-if (length(zero_measurements) > 0) {
-  cat("\n⚠ Zero values found in:", paste(zero_measurements, collapse = ", "))
-  cat("\n  These should be measured and filled in before drafting.\n")
-}
+```
+## ✗ objeto 'female_bodice_required' não encontrado
 ```
 
-```{r}
-# Logical consistency checks
-checks <- list()
 
-# Waist should be smaller than bust
-if (!is.null(fem48$waist_circ) && !is.null(fem48$bust_circ)) {
-  checks$waist_vs_bust <- fem48$waist_circ < fem48$bust_circ
-}
+```
+## Consistency checks:
+```
 
-# Hip should be larger than waist  
-if (!is.null(fem48$hip_circ) && !is.null(fem48$waist_circ)) {
-  checks$hip_vs_waist <- fem48$hip_circ > fem48$waist_circ
-}
-
-# Arm length checks
-if (!is.null(fem48$arm_shoulder_tip_to_wrist) && 
-    !is.null(fem48$arm_shoulder_tip_to_elbow)) {
-  checks$arm_segments <- fem48$arm_shoulder_tip_to_elbow < 
-                          fem48$arm_shoulder_tip_to_wrist
-}
-
-cat("Consistency checks:\n")
-for (check_name in names(checks)) {
-  status <- if (checks[[check_name]]) "✓" else "✗"
-  cat(sprintf("  %s %s\n", status, check_name))
-}
+```
+##   ✓ waist_vs_bust
+##   ✓ hip_vs_waist
+##   ✓ arm_segments
 ```
 
 
@@ -349,34 +274,7 @@ This separation allows:
 
 Ease Parameters File Format
 
-```{r, eval=FALSE}
-# Read ease parameters
-bodice_ease <- read_ease(here::here("data", "parameters", "bodice_ease_female.csv"))
 
-# Display as table
-ease_df <- data.frame(
-  Parameter = names(bodice_ease),
-  Value = paste(unlist(bodice_ease), "cm"),
-  Description = c(
-    "Overall bust circumference ease",
-    "Waist circumference ease",
-    "Hip circumference ease",
-    "Front shoulder drop from J point",
-    "Back neckline drop from B",
-    "Reference armscye depth",
-    "Front neckline lateral shift",
-    "Back neckline lateral shift",
-    "Back shoulder dart height",
-    "Back shoulder extension",
-    "Side seam horizontal offset"
-  )
-)
-
-knitr::kable(ease_df,
-             caption = "Female bodice ease parameters",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-```
 
 
 
@@ -392,40 +290,46 @@ Female Standard Measurements (ABNT NBR 13377)
 
 
 
-```{r}
-female_standard <- data.frame(
-  Size = c("38", "40", "42", "44", "46", "48", "50"),
-  Bust = c(84, 88, 92, 96, 102, 108, 114),
-  Waist = c(64, 68, 72, 76, 82, 88, 94),
-  Hip = c(92, 96, 100, 104, 110, 116, 122),
-  Neck_to_Waist_F = c(44, 45, 46, 47, 48, 50, 52),
-  Back_Waist = c(38, 39, 40, 41, 42, 43, 44)
-)
-
-knitr::kable(female_standard,
-             caption = "Standard female measurements (cm) — Reference only",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-
-```
+\begin{table}[!h]
+\centering
+\caption{(\#tab:unnamed-chunk-12)Standard female measurements (cm) — Reference only}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Size & Bust & Waist & Hip & Neck\_to\_Waist\_F & Back\_Waist\\
+\midrule
+\cellcolor{gray!10}{38} & \cellcolor{gray!10}{84} & \cellcolor{gray!10}{64} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{44} & \cellcolor{gray!10}{38}\\
+40 & 88 & 68 & 96 & 45 & 39\\
+\cellcolor{gray!10}{42} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{72} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{46} & \cellcolor{gray!10}{40}\\
+44 & 96 & 76 & 104 & 47 & 41\\
+\cellcolor{gray!10}{46} & \cellcolor{gray!10}{102} & \cellcolor{gray!10}{82} & \cellcolor{gray!10}{110} & \cellcolor{gray!10}{48} & \cellcolor{gray!10}{42}\\
+\addlinespace
+48 & 108 & 88 & 116 & 50 & 43\\
+\cellcolor{gray!10}{50} & \cellcolor{gray!10}{114} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{122} & \cellcolor{gray!10}{52} & \cellcolor{gray!10}{44}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Male Standard Measurements
 
-```{r}
-
-male_standard <- data.frame(
-  Size = c("46", "48", "50", "52", "54", "56"),
-  Chest = c(92, 96, 100, 104, 108, 112),
-  Waist = c(78, 82, 86, 90, 96, 102),
-  Hip = c(94, 98, 102, 106, 110, 114),
-  Back_Waist = c(44, 45, 46, 47, 48, 49)
-)
-
-knitr::kable(male_standard,
-             caption = "Standard male measurements (cm) — Reference only",
-             booktabs = TRUE) %>%
-  kable_styling(latex_options = c("hold_position", "striped"))
-```
+\begin{table}[!h]
+\centering
+\caption{(\#tab:unnamed-chunk-13)Standard male measurements (cm) — Reference only}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+Size & Chest & Waist & Hip & Back\_Waist\\
+\midrule
+\cellcolor{gray!10}{46} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{78} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{44}\\
+48 & 96 & 82 & 98 & 45\\
+\cellcolor{gray!10}{50} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{86} & \cellcolor{gray!10}{102} & \cellcolor{gray!10}{46}\\
+52 & 104 & 90 & 106 & 47\\
+\cellcolor{gray!10}{54} & \cellcolor{gray!10}{108} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{110} & \cellcolor{gray!10}{48}\\
+\addlinespace
+56 & 112 & 102 & 114 & 49\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 Practical Measurement Tips

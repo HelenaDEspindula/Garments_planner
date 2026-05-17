@@ -11,11 +11,11 @@ library(here)
 library(grid)
 
 # Source all R functions
-source(here("R", "pattern_core.R"))
-source(here("R", "pattern_plot.R"))
-source(here("R", "pattern_notation.R"))
-source(here("R", "measurement_io.R"))
-source(here("R", "pattern_print.R"))
+source(here("Rscripts", "pattern_core.R"))
+source(here("Rscripts", "pattern_plot.R"))
+source(here("Rscripts", "pattern_notation.R"))
+source(here("Rscripts", "measurement_io.R"))
+source(here("Rscripts", "pattern_print.R"))
 
 # Global knitr options
 knitr::opts_chunk$set(

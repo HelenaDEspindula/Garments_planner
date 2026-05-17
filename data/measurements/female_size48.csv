@@ -1,0 +1,19 @@
+code,reference,description,value,formula
+height,A01,Height: Total,154,154
+bust_circ,G04,Bust circumference,113,113
+waist_circ,G05,Waist circumference,88,88
+hip_circ,G06,Hip circumference,116,116
+neck_front_to_waist_f,H01,Neck Front to Waist Front,58,58
+back_waist_length,H02,Back Waist Length,42,42
+shoulder_length,I01,Shoulder length,10.5,10.5
+armscye_circ,L19,Armscye: Circumference,43,43
+neck_width,I14,Neck Width,19,19
+across_chest_f,I03,Across Chest,33,33
+bustpoint_to_bustpoint,J01,Bustpoint to Bustpoint,24.5,24.5
+bustpoint_to_neck_side,J02,Bustpoint to Neck Side,32,32
+arm_shoulder_tip_to_wrist,L05,Arm: Shoulder Tip to Wrist,61,61
+arm_shoulder_tip_to_elbow,L06,Arm: Shoulder Tip to Elbow,32,32
+arm_armpit_to_wrist,L08,Arm: Armpit to Wrist inside,46.5,46.5
+arm_upper_circ,L11,Arm: Upper Arm circumference,37,37
+arm_elbow_circ,L13,Arm: Elbow circumference,24,24
+arm_wrist_circ,L15,Arm: Wrist circumference,14.5,14.5

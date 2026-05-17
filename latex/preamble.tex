@@ -1,20 +1,22 @@
-% Packages for proper Unicode and font handling
+% ===========================================
+% Packages
+% ===========================================
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
 
-% Page geometry
-\usepackage[a4paper, margin=2.5cm]{geometry}
-
-% Better tables
+% Tables
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
-
-% Graphics and colors
-\usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{wrapfig}
 \usepackage{float}
+
+% Graphics
+\usepackage{graphicx}
 
 % Hyperlinks
 \usepackage{hyperref}
@@ -35,3 +37,46 @@
 \definecolor{patternred}{HTML}{D32F2F}
 \definecolor{patternorange}{HTML}{F57C00}
 \definecolor{patterngreen}{HTML}{388E3C}
+
+% ===========================================
+% Remove blank pages
+% ===========================================
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\clearpage}{}{}
+\makeatother
+\let\cleardoublepage\clearpage
+
+% ===========================================
+% Chapter heading formatting
+% ===========================================
+\usepackage{titlesec}
+
+% Remove "Chapter X" label, use "X. Title" on one line
+\titleformat{\chapter}[block]
+  {\normalfont\LARGE\bfseries}
+  {\thechapter.\quad}
+  {0pt}
+  {}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+% Remove uppercase from headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Redefine chaptermark to not uppercase
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% ===========================================
+% Unnumbered sections in frontmatter
+% ===========================================
+% Make sure frontmatter sections are not numbered
+\let\oldfrontmatter\frontmatter
+\renewcommand{\frontmatter}{%
+  \oldfrontmatter
+  \renewcommand{\thesection}{}%
+}

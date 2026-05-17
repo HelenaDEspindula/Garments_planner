@@ -13,3 +13,8 @@ bookdown::pdf_book:
     in_header: latex/preamble.tex
     before_body: latex/before_body.tex
   template: null
+  pandoc_args: [
+    "--variable", "classoption=oneside",
+    "--variable", "geometry:margin=1.6cm,top=2cm,bottom=2cm",
+    "--variable", "papersize=a4paper"
+  ]
