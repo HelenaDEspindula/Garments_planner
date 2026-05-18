@@ -21,19 +21,20 @@ All patterns are drafted on a 2D Cartesian coordinate system following textile i
 - **Origin (0,0)**: Bottom-left corner of the foundation rectangle (point D or C depending on orientation)
 - **X-axis**: Horizontal, positive values extend to the right (pattern width)
 - **Y-axis**: Vertical, positive values extend upward (pattern length/height)
+
+```
 Y-axis (Height)
 ^
 |
-| A(0, height) ─────────── B(width, height)
-| │ │
-| │ FRONT BACK │
-| │ │
-| D(0, 0) ─────────────── C(width, 0)
+|   A(0, height) ----------- B(width, height)
+|   |                          |
+|   |    FRONT      BACK       |
+|   |                          |
+|   D(0, 0) --------------- C(width, 0)
 |
-+──────────────────────────────────────────> X-axis (Width)
++------------------------------------------> X-axis (Width)
 Origin (0,0)
-
-
+```
 
 ## Point Naming Conventions
 
@@ -89,28 +90,28 @@ Based on the [FreeSewing Notation System](https://freesewing.eu/docs/about/notat
 ## Notches and Markings
 
 ### Notch Types (FreeSewing Standard)
-- **Front notch (⊙)**: Circle with dot center — indicates front of garment
-- **Back notch (⊗)**: Circle with cross — indicates back of garment
+- **Front notch**: Circle with dot center -- indicates front of garment
+- **Back notch**: Circle with cross -- indicates back of garment
 
 ### Construction Marks
 | Symbol | R Implementation | Meaning |
 |--------|-----------------|---------|
-| ⊙ | `add_notch(type="front")` | Front orientation |
-| ⊗ | `add_notch(type="back")` | Back orientation |
-| ⊕ | `add_button()` | Button placement |
-| ⊘ | `add_buttonhole()` | Buttonhole placement |
-| ─●─ | `add_bartack()` | Reinforcement stitch |
-| ⇅ | `add_grainline()` | Grain direction |
+| (.) | `add_notch(type="front")` | Front orientation |
+| (+) | `add_notch(type="back")` | Back orientation |
+| (o) | `add_button()` | Button placement |
+| (|) | `add_buttonhole()` | Buttonhole placement |
+| --x-- | `add_bartack()` | Reinforcement stitch |
+| ^ | `add_grainline()` | Grain direction (arrow up) |
 
 ## Pattern Piece Information Block
 
 Every pattern piece must include:
 
-1. **Piece identifier**: Number and name (e.g., "1 — Front Bodice")
+1. **Piece identifier**: Number and name (e.g., "1 -- Front Bodice")
 2. **Size**: Measurement set identifier
 3. **Cutting instructions**: Quantity and fabric type
 4. **Date**: Drafting date (ISO format: YYYY-MM-DD)
-5. **Scale verification**: 5cm × 5cm test square
+5. **Scale verification**: 5cm x 5cm test square
 
 ## Color Standards
 
@@ -145,14 +146,15 @@ The grid serves as:
 - Alignment guide for pattern pieces
 
 ## File Naming Conventions
-{garment}{block}{version}_{size}.{ext}
+
+```
+{garment}_{block}_{version}_{size}.{ext}
 
 Examples:
-bodice_front_female_v1.0_size48.pdf
-sleeve_basic_v2.1_universal.csv
-skirt_pencil_variation_v1.0_size42_A0.pdf
-
-
+  bodice_front_female_v1.0_size48.pdf
+  sleeve_basic_v2.1_universal.csv
+  skirt_pencil_variation_v1.0_size42_A0.pdf
+```
 
 ### Version Numbering
 - **Major** (X.0.0): Complete redraft or design change
@@ -162,7 +164,7 @@ skirt_pencil_variation_v1.0_size42_A0.pdf
 ## Printing Standards
 
 ### Scale Verification
-Always print and measure the 5cm test square before cutting. If the square doesn't measure exactly 5cm × 5cm:
+Always print and measure the 5cm test square before cutting. If the square doesn't measure exactly 5cm x 5cm:
 1. Check printer settings for "Actual size" (not "Fit to page")
 2. Verify PDF scaling is set to 100%
 3. Re-print if scale is off by more than 1mm
@@ -170,9 +172,9 @@ Always print and measure the 5cm test square before cutting. If the square doesn
 ### Paper Sizes
 | Format | Dimensions (cm) | Use Case |
 |--------|----------------|----------|
-| A4 | 21.0 × 29.7 | Home printing (tiled) |
-| A3 | 29.7 × 42.0 | Small patterns |
-| A0 | 84.1 × 118.9 | Plotter, full patterns |
+| A4 | 21.0 x 29.7 | Home printing (tiled) |
+| A3 | 29.7 x 42.0 | Small patterns |
+| A0 | 84.1 x 118.9 | Plotter, full patterns |
 
 ### Tile Assembly
 For tiled home printing:
@@ -184,14 +186,14 @@ For tiled home printing:
 ## Measurement File Format
 
 ### SeamlyMe CSV Structure
-```csv
+```
 code,reference,description,value,formula
 height,A01,Height: Total,154,154
 bust_circ,G04,Bust circumference,113,113
 ```
 
 ### Ease Parameters CSV Structure
-```csv
+```
 parameter,value,unit,description
 bust_ease,6,cm,Overall bust ease
 shoulder_slope_front,4,cm,Front shoulder drop
@@ -200,39 +202,26 @@ shoulder_slope_front,4,cm,Front shoulder drop
 ## R Implementation Notes
 
 ### Function Naming
-
-    calc_*: Pure mathematical calculations (distance, angle)
-
-    create_*: Generate new objects (curves, plots)
-
-    add_*: Modify existing plots with annotations
-
-    read_* / write_*: File I/O operations
-
-    validate_*: Check data integrity
+- `calc_*`: Pure mathematical calculations (distance, angle)
+- `create_*`: Generate new objects (curves, plots)
+- `add_*`: Modify existing plots with annotations
+- `read_*` / `write_*`: File I/O operations
+- `validate_*`: Check data integrity
 
 ### Coordinate Storage
-
-    Points stored as named vectors: c(x, y)
-
-    Point collections as named lists: list(A = c(0, 44), B = c(48, 44))
-
-    Plotted points as data frames: data.frame(name, x, y)
+- Points stored as named vectors: `c(x, y)`
+- Point collections as named lists: `list(A = c(0, 44), B = c(48, 44))`
+- Plotted points as data frames: `data.frame(name, x, y)`
 
 ### Cache Strategy
-
-    All plots cached in images/cache/
-
-    Cache invalidation based on parameter hash
-
-    Manual cache clear: delete images/cache/*.pdf
+- All plots cached in `images/cache/`
+- Cache invalidation based on parameter hash
+- Manual cache clear: delete `images/cache/*.pdf`
 
 ## References
 
-    FreeSewing Notation Guide: https://freesewing.eu/docs/about/notation/
-
-    ISO 8559: Garment construction and anthropometric surveys
-
-    ABNT NBR 13377: Brazilian standard for garment sizes (where applicable)
+- FreeSewing Notation Guide: https://freesewing.eu/docs/about/notation/
+- ISO 8559: Garment construction and anthropometric surveys
+- ABNT NBR 13377: Brazilian standard for garment sizes (where applicable)
 
 

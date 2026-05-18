@@ -9,7 +9,7 @@ documentclass: book
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE)
-source("Rscripts/install_packages.R")
+# source("Rscripts/install_packages.R")
 ```
 
 \frontmatter

@@ -2,7 +2,7 @@
 title: "Pattern Making Studies"
 subtitle: "A Parametric Approach to Flat Pattern Drafting with R"
 author: "Your Name"
-date: "2026-05-17"
+date: "2026-05-18"
 site: bookdown::bookdown_site
 documentclass: book
 ---

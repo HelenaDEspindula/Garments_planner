@@ -1,7 +1,7 @@
 book_filename: "pattern-making-textbook"
 output_dir: "output"
 delete_merged_file: true
-new_session: yes
+new_session: no
 before_chapter_script: "Rscripts/common.R"
 rmd_files:
   - index.Rmd

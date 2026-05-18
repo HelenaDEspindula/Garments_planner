@@ -21,7 +21,7 @@ source(here("Rscripts", "pattern_notation.R"))
 #' @param piece_type "front", "back" ou "both"
 #' @param width Largura em polegadas
 #' @param height Altura em polegadas
-#' @return Caminho do arquivo gerado (invisível)
+#' @return Caminho do arquivo gerado
 plot_pattern_notebook <- function(block, 
                                   filename,
                                   title = NULL,
@@ -86,7 +86,7 @@ plot_pattern_notebook <- function(block,
          create.dir = TRUE)
   
   message("Plot saved: ", cache_file)
-  invisible(cache_file)
+  return(cache_file)
 }
 
 #' Adicionar uma peça ao plot
@@ -144,25 +144,12 @@ add_piece_to_plot <- function(p, piece, piece_type, show_points, show_constructi
   }
   
   # Label da peça
-  if (piece_type == "front") {
-    mid_x <- (min(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1)) + 
-                max(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1))) / 2
-    mid_y <- (min(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2)) + 
-                max(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2))) / 2
-    
-    p <- p + annotate("text", x = mid_x, y = mid_y,
-                      label = "FRENTE", size = 8, color = color,
-                      fontface = "bold", angle = 90, alpha = 0.3)
-  } else {
-    mid_x <- (min(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1)) + 
-                max(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1))) / 2
-    mid_y <- (min(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2)) + 
-                max(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2))) / 2
-    
-    p <- p + annotate("text", x = mid_x, y = mid_y,
-                      label = "COSTAS", size = 8, color = color,
-                      fontface = "bold", angle = 90, alpha = 0.3)
-  }
+  mid_x <- mean(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1))
+  mid_y <- mean(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2))
+  
+  p <- p + annotate("text", x = mid_x, y = mid_y,
+                    label = toupper(piece_type), size = 8, color = color,
+                    fontface = "bold", angle = 90, alpha = 0.3)
   
   p
 }
@@ -191,8 +178,6 @@ plot_pattern_fullscale <- function(block,
   )
   
   dims <- paper_dims[[paper_size]]
-  
-  # Margem de segurança
   margin <- 2
   
   # Criar plot base em escala real
@@ -206,7 +191,6 @@ plot_pattern_fullscale <- function(block,
   # Adicionar peças (frente e costas)
   for (piece_name in c("front", "back")) {
     piece <- block[[piece_name]]
-    color <- if (piece_name == "front") "#000000" else "#000000"
     
     # Costuras
     for (seam in piece$seams) {
@@ -217,7 +201,7 @@ plot_pattern_fullscale <- function(block,
         p <- p + geom_segment(
           aes(x = from_pt[1], xend = to_pt[1],
               y = from_pt[2], yend = to_pt[2]),
-          color = color, linewidth = 1.5
+          color = "black", linewidth = 1.5
         )
       }
     }
@@ -225,14 +209,19 @@ plot_pattern_fullscale <- function(block,
     # Curvas
     for (curve_data in piece$curves) {
       p <- p + geom_path(data = curve_data, aes(x, y),
-                         color = color, linewidth = 1.5)
+                         color = "black", linewidth = 1.5)
     }
     
     # Margem de costura (se solicitada)
     if (include_seam_allowance) {
-      # Simplificação: offset visual
       p <- add_seam_allowance_lines(p, piece, seam_allowance)
     }
+  }
+  
+  # Adicionar cava completa
+  if (!is.null(block$curves$curve_armscye)) {
+    p <- p + geom_path(data = block$curves$curve_armscye, aes(x, y),
+                       color = "black", linewidth = 1.5)
   }
   
   # Adicionar escala e informações
@@ -253,18 +242,16 @@ plot_pattern_fullscale <- function(block,
          device = "pdf")
   
   message("Full-scale pattern saved: ", output_file)
-  invisible(output_file)
+  return(output_file)
 }
 
 #' Adicionar linhas de margem de costura (versão simplificada)
 add_seam_allowance_lines <- function(p, piece, allowance) {
-  # Para cada costura, adicionar linha paralela
   for (seam in piece$seams) {
     from_pt <- piece$points[[seam$from]]
     to_pt <- piece$points[[seam$to]]
     
     if (!is.null(from_pt) && !is.null(to_pt)) {
-      # Calcular offset perpendicular
       angle <- atan2(to_pt[2] - from_pt[2], to_pt[1] - from_pt[1])
       perp_angle <- angle + pi/2
       
@@ -346,7 +333,7 @@ plot_pattern_tiled <- function(block, output_file,
   
   dev.off()
   message("Tiled pattern saved: ", output_file)
-  invisible(output_file)
+  return(output_file)
 }
 
 #' Criar plot de um tile individual
@@ -372,6 +359,11 @@ create_tile_plot <- function(block, x_start, x_end, y_start, y_end,
           color = "black", linewidth = 1.5
         )
       }
+    }
+    
+    for (curve_data in piece$curves) {
+      p <- p + geom_path(data = curve_data, aes(x, y),
+                         color = "black", linewidth = 1.5)
     }
   }
   

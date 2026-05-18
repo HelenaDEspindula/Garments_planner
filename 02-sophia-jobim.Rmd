@@ -1,6 +1,3 @@
-O `.Rmd` está quase pronto, mas precisa de alguns ajustes para funcionar com a nova estrutura modular. Aqui está a versão corrigida:
-
-```markdown
 # Curso por Correspondência — Sophia Jobim
 
 **Referência:** JOBIM, Sophia. *O sistema de corte e costura de Sophia Jobim: os anos de ouro de Mme Carvalho no Liceu Império: 1932-1954*. São Paulo: Portal de Livros Abertos da USP, 2024. Disponível em: https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/view/1327/1210/4651
@@ -100,10 +97,7 @@ cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n",
 ### Execucao do Tracado
 
 ```{r executar-tracado}
-# Carregar modulos necessarios
-source(here("Rscripts", "pattern_blocks.R"))
-
-# Executar o tracado
+# Executar o tracado com a nova funcao modular
 blusa <- draft_blouse_sj(
   medidas = medidas_sj,
   ease = ease_sj,
@@ -123,14 +117,11 @@ cat(sprintf("
 ```
 
 ---
-
 ### Molde Completo
 
 ```{r molde-final, fig.cap="Blusa (Corpo Simples) — Sophia Jobim", fig.width=10, fig.height=10}
-# Usar a funcao de plot do modulo
-source(here("Rscripts", "pattern_plot.R"))
-
-plot_pattern_notebook(
+# Gerar e salvar o gráfico
+plot_file <- plot_pattern_notebook(
   block = blusa,
   filename = "blusa_sj_final",
   title = "Blusa (Corpo Simples) — Metodo Sophia Jobim",
@@ -142,6 +133,9 @@ plot_pattern_notebook(
   width = 10,
   height = 10
 )
+
+# Incluir a imagem no documento
+knitr::include_graphics(plot_file)
 ```
 
 ---
@@ -206,8 +200,8 @@ knitr::kable(area_df,
 
 cat(sprintf("
 **Estimativa de tecido:**
-- Area total do molde (frente + costas): %.2f m²
-- Com margem de 15%% para curvas e costuras: %.2f m²
+- Area total do molde (frente + costas): %.2f m2
+- Com margem de 15%% para curvas e costuras: %.2f m2
 - Tecido recomendado (largura 1.40 m): %.2f m linear
 
 > **Nota:** %s
@@ -244,9 +238,6 @@ Spline cubica natural usando distancia acumulada como parametro. Passa exatament
 ### Exportar para Tamanho Real
 
 ```{r exportar-tamanho-real, eval=FALSE}
-# Para gerar o molde em tamanho real (A0):
-source(here("Rscripts", "pattern_plot.R"))
-
 plot_pattern_fullscale(
   block = blusa,
   output_file = "output/blusa_corpo_simples_A0.pdf",
@@ -256,3 +247,16 @@ plot_pattern_fullscale(
 )
 ```
 
+---
+
+### Resumo do Aprendizado
+
+1. **Metodo Sophia Jobim**: usa divisoes proporcionais baseadas no busto
+2. **Divisoes**: I e J na frente (1/4 e 3/4 de AG), K e L nas costas (1/4 e 3/4 de GB)
+3. **Cava**: construida com spline cubica parametrica sobre 7 pontos (P, Z, U, Q, T, Y, M)
+4. **Decote frente**: profundidade = AI + 2 cm, com desvio de 1 cm sobre linha do ombro (ponto I2)
+5. **Decote costas**: desce 2 cm de B, com desvio de 1 cm sobre linha do ombro (ponto L2)
+6. **Costas**: sempre 3 cm mais estreitas que a frente (deslocamento EF)
+7. **Ombro costas**: tem pence de 5 cm em K, prolongada 1 cm para P
+8. **Peca das costas**: fecha com pontos a (barra), subindo ate B' (decote costas)
+9. **Area aproximada**: calculada por poligono sem curvas; adicionar 15% para margem de costura

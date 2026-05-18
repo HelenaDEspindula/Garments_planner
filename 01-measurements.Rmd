@@ -254,7 +254,7 @@ Loading Measurements in R
 The `read_measurements()` Function
 ```{r}
 # Source measurement functions
-source(here::here("Rscripts", "measurement_io.R"))
+# source(here::here("Rscripts", "measurement_io.R"))
 
 # Load a measurement file
 fem48 <- read_measurements(here::here("data", "measurements", "female_size48.csv"))
