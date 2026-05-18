@@ -22,13 +22,14 @@ This project uses AI (DeepSeek) as a coding assistant to help translate traditio
 
 ## 📁 Structure
 
+```
 ├── *.Rmd # Book chapters
 ├── Rscripts/ # Core R functions
 ├── data/ # Measurements and ease parameters
 ├── images/ # Diagrams and cached plots
 ├── latex/ # LaTeX customization
 └── output/ # Generated PDF and full-scale patterns
-
+```
 
 ## 🚀 Quick Start
 

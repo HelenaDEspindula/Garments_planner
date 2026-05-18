@@ -1,0 +1,658 @@
+# Curso por Correspondência — Sophia Jobim
+
+**Referência:** JOBIM, Sophia. *O sistema de corte e costura de Sophia Jobim: os anos de ouro de Mme Carvalho no Liceu Império: 1932-1954*. São Paulo: Portal de Livros Abertos da USP, 2024. Disponível em: https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/view/1327/1210/4651
+
+Este capítulo documenta o estudo do método de modelagem de Sophia Jobim, transcrevendo as instruções originais e implementando-as em código R parametrizado.
+
+---
+
+## Blusa (Corpo Simples)
+
+**Página de referência:** ~111 do PDF original
+
+### Medidas Utilizadas
+
+O livro utiliza como exemplo as medidas do **manequim 48**, que são as mais aproximadas do corpo médio feminino.
+
+```{r medidas-blusa}
+# Medidas base conforme o livro
+medida_busto <- 90      # Circunferência do busto (cm)
+comp_frente <- 44        # Comprimento da blusa na frente (cm)
+comp_costas <- 41        # Comprimento da blusa nas costas (cm)
+aumento_busto <- 6       # Aumento para não ficar justa como colete (cm)
+
+# Cálculo da largura do molde (metade das costas + metade da frente)
+largura_molde <- (medida_busto + aumento_busto) / 2  # 48 cm
+altura_molde <- comp_frente                           # 44 cm
+
+# Exibir tabela de medidas
+medidas_df <- data.frame(
+  Descrição = c("Circunferência do busto", "Comprimento frente", "Comprimento costas", 
+                "Aumento (folga)", "Largura do molde (busto+folga)/2", "Altura do molde"),
+  Valor_cm = c(medida_busto, comp_frente, comp_costas, aumento_busto, largura_molde, altura_molde)
+)
+
+knitr::kable(medidas_df, caption = "Medidas do manequim 48 e parâmetros calculados")
+```
+
+Instruções Originais (transcrição)
+
+    Para facilitar as explicações, tomarei como exemplo as medidas do manequim 48, que são as mais aproximadas do corpo médio feminino. Essas medidas são, para a blusa: 90 cm para a circunferência do busto; 44 cm para o comprimento da blusa, na frente, e 41 cm para o comprimento nas costas.
+
+    Para que a blusa não fique justa como um colete, torna-se necessário dar-lhe um aumento de 6 cm na circunferência do busto, resultando 96. Como vamos fazer apenas a metade do molde, isto é, metade da frente e metade das costas, dividiremos por 2 a medida total 96 cm. Que resulta 48 cm.
+
+
+Passo 1: Retângulo Base ABCD
+
+Instrução original:
+
+    Corta-se um retângulo de papel ABCD em que a largura AB é a circunferência do busto aumentada de 6 cm e o resultado dividido por 2; a altura AD, do retângulo, é o comprimento da blusa, tirado pela frente. Para o nosso exemplo, o retângulo terá 48 cm de largura e 44 cm de altura.
+
+```{r}
+# Definição dos pontos do retângulo base
+A <- c(0, altura_molde)              # Canto superior esquerdo
+B <- c(largura_molde, altura_molde)  # Canto superior direito
+C <- c(largura_molde, 0)             # Canto inferior direito
+D <- c(0, 0)                         # Canto inferior esquerdo
+
+# Criar data frame com os pontos do passo 1
+pontos_passo1 <- data.frame(
+  nome = c("A", "B", "C", "D"),
+  x = c(A[1], B[1], C[1], D[1]),
+  y = c(A[2], B[2], C[2], D[2])
+)
+
+# Plot do passo 1
+plot_passo1 <- create_pattern_plot(
+  width = largura_molde, 
+  height = altura_molde,
+  title = "Passo 1: Retângulo Base ABCD",
+  subtitle = paste(largura_molde, "cm ×", altura_molde, "cm")
+)
+
+plot_passo1 <- add_pattern_piece(plot_passo1, pontos_passo1, 
+                                 color = FREESEWING_COLORS$fabric_primary,
+                                 linewidth = 1.0)
+
+# Adicionar anotações de dimensão
+plot_passo1 <- add_measurement(plot_passo1, A, B, paste(largura_molde, "cm"), offset = 1.5)
+plot_passo1 <- add_measurement(plot_passo1, A, D, paste(altura_molde, "cm"), offset = -1.5)
+
+# Salvar cache
+cached_plot("blusa_passo1", function() plot_passo1, 
+            params = list(largura_molde, altura_molde),
+            width = 8, height = 8)
+```
+
+
+
+Passo 2: Deslocamento para Costas (Reta EF)
+
+Instrução original:
+
+    A partir dos pontos A e D, passa-se para a direita 3 cm e traça-se a reta EF.
+
+Implementação em R:
+
+
+```{r}
+deslocamento_costas <- 3  # Valor fixo do método Sophia Jobim
+
+E <- c(deslocamento_costas, altura_molde)  # Ponto E: 3 cm à direita de A
+F_point <- c(deslocamento_costas, 0)       # Ponto F: 3 cm à direita de D
+
+# Plot do passo 2
+plot_passo2 <- plot_passo1 +
+  geom_segment(aes(x = E[1], xend = F_point[1], y = E[2], yend = F_point[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.0) +
+  annotate("text", x = E[1], y = E[2], label = "E", 
+           hjust = -0.5, vjust = 1.5, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = F_point[1], y = F_point[2], label = "F", 
+           hjust = -0.5, vjust = -1, color = FREESEWING_COLORS$construction_points) +
+  add_measurement(plot_passo2, A, E, "3 cm", offset = 2.5)
+
+cached_plot("blusa_passo2", function() plot_passo2,
+            width = 8, height = 8)
+```
+
+
+
+Passo 3: Linha Central GH (Divisão Frente/Costas)
+
+Instrução original:
+
+    Vamos considerar agora apenas o retângulo EBCF. Divide-se ao meio EB e FC; chamaremos esses pontos de GH e traçaremos a reta GH.
+
+Implementação em R:
+
+
+```{r}
+# Ponto G: ponto médio de EB
+G <- c((E[1] + B[1]) / 2, altura_molde)
+
+# Ponto H: ponto médio de FC
+H <- c((F_point[1] + C[1]) / 2, 0)
+
+# Plot do passo 3
+plot_passo3 <- plot_passo2 +
+  geom_segment(aes(x = G[1], xend = H[1], y = G[2], yend = H[2]),
+               color = "#9E9E9E", linewidth = 0.8, linetype = "dotted") +
+  annotate("text", x = G[1], y = G[2], label = "G", 
+           hjust = -0.5, vjust = 1.5, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = H[1], y = H[2], label = "H", 
+           hjust = -0.5, vjust = -1, color = FREESEWING_COLORS$construction_points)
+
+# Nota sobre a linha da cava
+nota_cava <- paste("Linha da cava (GQ)\nDivide frente (esquerda)\ne costas (direita)")
+
+plot_passo3 <- plot_passo3 +
+  annotate("text", x = G[1] + 2, y = altura_molde/2, 
+           label = nota_cava, size = 3, color = "grey40", hjust = 0)
+
+cached_plot("blusa_passo3", function() plot_passo3,
+            width = 8, height = 8)
+```
+
+
+
+Passo 4: Divisões da Frente (I, J, K, L)
+
+Instrução original:
+
+    Dividimos a metade da frente AGHD, em quatro partes iguais e o mesmo façamos com a das costas (se a aluna preferir pode dobrar o papel em vez de riscá-lo). Para facilitar a explicação ponhamos uma letra em cada uma das principais divisões ou dobras do papel (I, J, K, L).
+
+Implementação em R:
+
+```{r}
+# Ponto G: ponto médio de EB
+G <- c((E[1] + B[1]) / 2, altura_molde)
+
+# Ponto H: ponto médio de FC
+H <- c((F_point[1] + C[1]) / 2, 0)
+
+# Plot do passo 3
+plot_passo3 <- plot_passo2 +
+  geom_segment(aes(x = G[1], xend = H[1], y = G[2], yend = H[2]),
+               color = "#9E9E9E", linewidth = 0.8, linetype = "dotted") +
+  annotate("text", x = G[1], y = G[2], label = "G", 
+           hjust = -0.5, vjust = 1.5, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = H[1], y = H[2], label = "H", 
+           hjust = -0.5, vjust = -1, color = FREESEWING_COLORS$construction_points)
+
+# Nota sobre a linha da cava
+nota_cava <- paste("Linha da cava (GQ)\nDivide frente (esquerda)\ne costas (direita)")
+
+plot_passo3 <- plot_passo3 +
+  annotate("text", x = G[1] + 2, y = altura_molde/2, 
+           label = nota_cava, size = 3, color = "grey40", hjust = 0)
+
+cached_plot("blusa_passo3", function() plot_passo3,
+            width = 8, height = 8)
+
+```
+
+
+Passo 4: Divisões da Frente (I, J, K, L)
+
+Instrução original:
+
+    Dividimos a metade da frente AGHD, em quatro partes iguais e o mesmo façamos com a das costas (se a aluna preferir pode dobrar o papel em vez de riscá-lo). Para facilitar a explicação ponhamos uma letra em cada uma das principais divisões ou dobras do papel (I, J, K, L).
+
+Implementação em R:
+
+```{r}
+# Divisão da frente em 4 partes iguais
+divisao_frente <- (G[1] - A[1]) / 4
+
+I <- c(A[1] + 1 * divisao_frente, altura_molde)  # 1ª divisão frente
+J <- c(A[1] + 2 * divisao_frente, altura_molde)  # 2ª divisão frente
+K <- c(A[1] + 3 * divisao_frente, altura_molde)  # 3ª divisão frente
+L <- G                                            # 4ª divisão (coincide com G)
+
+# Pontos das divisões
+pontos_divisoes <- data.frame(
+  nome = c("I", "J", "K", "L"),
+  x = c(I[1], J[1], K[1], L[1]),
+  y = c(I[2], J[2], K[2], L[2])
+)
+
+# Plot do passo 4
+plot_passo4 <- plot_passo3 +
+  geom_point(data = pontos_divisoes, aes(x = x, y = y), 
+             size = 3, color = FREESEWING_COLORS$construction_points) +
+  geom_text(data = pontos_divisoes, aes(x = x, y = y, label = nome),
+            hjust = -0.5, vjust = 1.5, size = 4, 
+            color = FREESEWING_COLORS$construction_points)
+
+# Anotar a divisão
+plot_passo4 <- plot_passo4 +
+  annotate("text", x = A[1] + 2*divisao_frente, y = altura_molde + 2,
+           label = paste("Cada divisão:", round(divisao_frente, 1), "cm"),
+           size = 3, color = "grey50")
+
+cached_plot("blusa_passo4", function() plot_passo4,
+            width = 8, height = 8)
+```
+
+
+Passo 5: Ombro da Frente (Ponto M)
+
+Instrução original:
+
+    A partir do ponto J marca-se para baixo 4 cm e temos o ponto M. Une-se este ponto ao ponto I; a linha IM será a linha do ombro.
+
+Implementação em R:
+
+```{r}
+descida_ombro <- 4  # Descida do ombro a partir de J (cm)
+
+M <- c(J[1], J[2] - descida_ombro)
+
+# Calcular comprimento do ombro
+comprimento_ombro_frente <- sqrt((M[1] - I[1])^2 + (M[2] - I[2])^2)
+
+# Plot do passo 5
+plot_passo5 <- plot_passo4 +
+  geom_segment(aes(x = J[1], xend = M[1], y = J[2], yend = M[2]),
+               color = FREESEWING_COLORS$dimensions, linewidth = 0.5, linetype = "dotted") +
+  geom_segment(aes(x = I[1], xend = M[1], y = I[2], yend = M[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.2) +
+  annotate("text", x = M[1], y = M[2], label = "M", 
+           hjust = 0, vjust = 1.5, size = 4, color = FREESEWING_COLORS$construction_points) +
+  add_measurement(plot_passo5, I, M, paste(round(comprimento_ombro_frente, 1), "cm"), offset = -1)
+
+cached_plot("blusa_passo5", function() plot_passo5,
+            width = 8, height = 8)
+
+cat(sprintf("Comprimento da linha do ombro (IM): %.1f cm\n", comprimento_ombro_frente))
+```
+
+
+Passo 6: Decote da Frente (Ponto N)
+
+Instrução original:
+
+    A partir do ponto A marca-se para baixo um comprimento igual a uma das divisões da frente HI, por exemplo, acrescido de 2 cm. Portanto, AN é igual a AI mais 2 cm. Traça-se a curva IN, que será o decote da frente, justo ao pescoço. O ponto N pode variar de posição, para baixo, à medida que se deseja um decote maior. O ponto quase sempre precisa ser desviado 1 cm para a direita, sobre a linha IM.
+
+Implementação em R:
+
+```{r}
+# AN = AI + 2 cm
+AI <- I[1] - A[1]  # Distância horizontal de A até I
+profundidade_decote <- AI + 2  # AN
+
+N <- c(A[1], A[2] - profundidade_decote)  # Ponto N (abaixo de A)
+
+# Desvio de 1 cm para a direita sobre a linha IM
+desvio_decote <- 1  # cm
+angulo_IM <- atan2(M[2] - I[2], M[1] - I[1])
+N_desviado <- c(N[1] + desvio_decote * cos(angulo_IM), 
+                N[2] + desvio_decote * sin(angulo_IM))
+
+# Criar curva do decote IN
+curva_decote <- create_curve(
+  x = c(I[1], N_desviado[1], N[1]),
+  y = c(I[2], N_desviado[2], N[2]),
+  n = 50
+)
+
+# Plot do passo 6
+plot_passo6 <- plot_passo5 +
+  geom_line(data = curva_decote, aes(x = x, y = y),
+            color = FREESEWING_COLORS$fabric_primary, linewidth = 1.2) +
+  annotate("text", x = N[1], y = N[2], label = "N", 
+           hjust = 0, vjust = -1, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = N_desviado[1], y = N_desviado[2], label = "desvio 1cm", 
+           hjust = 0, vjust = -1, size = 3, color = "grey50") +
+  add_measurement(plot_passo6, A, N, paste(profundidade_decote, "cm"), offset = -2.5)
+
+cached_plot("blusa_passo6", function() plot_passo6,
+            width = 8, height = 8)
+
+cat(sprintf("Profundidade do decote frente (AN): %.1f cm\n", profundidade_decote))
+cat(sprintf("Comprimento AI: %.1f cm\n", AI))
+```
+
+
+
+Passo 7: Decote das Costas
+
+Instrução original:
+
+    A partir do ponto B, marca-se para baixo 2 cm e une-se este ao ponto L por uma ligeira curva que determinará o decote das costas. O mesmo desvio feito no decote da frente, sobre a linha do ombro, deve ser feito no decote das costas.
+
+Implementação em R:
+
+```{r}
+descida_decote_costas <- 2  # cm a partir de B
+
+decote_costas_ponto <- c(B[1], B[2] - descida_decote_costas)
+
+# Desvio de 1 cm (sobre linha do ombro costas)
+angulo_LP <- atan2(P[2] - L[2], P[1] - L[1])  # Será calculado no passo 8
+# Por enquanto, ângulo aproximado para o decote costas
+decote_costas_desviado <- c(decote_costas_ponto[1] - desvio_decote * cos(angulo_LP),
+                            decote_costas_ponto[2] - desvio_decote * sin(angulo_LP))
+
+# Curva do decote costas
+curva_decote_costas <- create_curve(
+  x = c(L[1], decote_costas_desviado[1], decote_costas_ponto[1]),
+  y = c(L[2], decote_costas_desviado[2], decote_costas_ponto[2]),
+  n = 50
+)
+
+# Plot do passo 7
+plot_passo7 <- plot_passo6 +
+  geom_line(data = curva_decote_costas, aes(x = x, y = y),
+            color = FREESEWING_COLORS$fabric_primary, linewidth = 1.2) +
+  annotate("text", x = decote_costas_ponto[1], y = decote_costas_ponto[2], 
+           label = "Decote costas", 
+           hjust = 0.5, vjust = 2, size = 3, color = FREESEWING_COLORS$fabric_primary) +
+  add_measurement(plot_passo7, B, decote_costas_ponto, "2 cm", offset = -2)
+
+cached_plot("blusa_passo7", function() plot_passo7,
+            width = 8, height = 8)
+```
+
+
+Passo 8: Ombro das Costas (Pontos O e P)
+
+Instrução original:
+
+    Marca-se de K para baixo 5 cm e temos o ponto O. Une-se L a O e prolonga-se esta reta de 1 cm. Temos o ponto P.
+
+Implementação em R:
+
+```{r}
+altura_pence_costas <- 5  # cm abaixo de K
+prolongamento_LO <- 1     # cm de prolongamento
+
+O <- c(K[1], K[2] - altura_pence_costas)
+
+# Prolongar LO em 1 cm para obter P
+angulo_LO <- atan2(O[2] - L[2], O[1] - L[1])
+P <- c(O[1] + prolongamento_LO * cos(angulo_LO), 
+       O[2] + prolongamento_LO * sin(angulo_LO))
+
+# Comprimento do ombro costas
+comprimento_ombro_costas <- sqrt((P[1] - L[1])^2 + (P[2] - L[2])^2)
+
+# Plot do passo 8
+plot_passo8 <- plot_passo7 +
+  geom_segment(aes(x = L[1], xend = P[1], y = L[2], yend = P[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.2) +
+  geom_segment(aes(x = K[1], xend = O[1], y = K[2], yend = O[2]),
+               color = FREESEWING_COLORS$dimensions, linewidth = 0.5, linetype = "dotted") +
+  annotate("text", x = O[1], y = O[2], label = "O", 
+           hjust = 0, vjust = 1.5, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = P[1], y = P[2], label = "P", 
+           hjust = -0.5, vjust = -0.5, size = 4, color = FREESEWING_COLORS$construction_points) +
+  add_measurement(plot_passo8, L, P, paste(round(comprimento_ombro_costas, 1), "cm"), offset = -1.5)
+
+cached_plot("blusa_passo8", function() plot_passo8,
+            width = 8, height = 8)
+
+cat(sprintf("Comprimento do ombro costas (LP): %.1f cm\n", comprimento_ombro_costas))
+```
+
+
+Passo 9: Linha da Cava (Pontos R, S, Q)
+
+Instrução original:
+
+    Marca-se 21 cm para baixo de J e de K e teremos os pontos R e S. Essa medida (21 cm) é fornecida pela tabela 1, para a grossura do braço de 33 cm. A reta RS determina o ponto Q sobre a divisão GH. GQ é denominada linha da cava.
+
+Implementação em R:
+
+```{r}
+profundidade_cava <- 21  # cm (da tabela para braço 33 cm)
+
+R <- c(J[1], J[2] - profundidade_cava)
+S <- c(K[1], K[2] - profundidade_cava)
+
+# Ponto Q: interseção de RS com GH
+Q <- c(G[1], R[2])  # Mesma altura de R, mesmo x de G
+
+# Plot do passo 9
+plot_passo9 <- plot_passo8 +
+  geom_segment(aes(x = R[1], xend = S[1], y = R[2], yend = S[2]),
+               color = "#9E9E9E", linewidth = 0.8, linetype = "dotted") +
+  geom_segment(aes(x = G[1], xend = Q[1], y = G[2], yend = Q[2]),
+               color = FREESEWING_COLORS$dimensions, linewidth = 0.8, linetype = "dotted") +
+  annotate("text", x = R[1], y = R[2], label = "R", 
+           hjust = 1.5, vjust = 0, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = S[1], y = S[2], label = "S", 
+           hjust = -0.5, vjust = 0, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = Q[1], y = Q[2], label = "Q", 
+           hjust = -0.5, vjust = -1, size = 4, color = FREESEWING_COLORS$construction_points) +
+  add_measurement(plot_passo9, J, R, "21 cm", offset = -2)
+
+cached_plot("blusa_passo9", function() plot_passo9,
+            width = 8, height = 8)
+```
+
+Passo 10: Bissetrizes e Pontos de Controle da Cava (T, U)
+
+Instrução original:
+
+    Tira-se as bissetrizes dos ângulos R e S, e marca-se sobre a primeira 1,5 cm e sobre a segunda 2,5 cm. Temos assim mais dois pontos TU.
+
+Implementação em R:
+
+```{r}
+# Bissetriz do ângulo R (entre R-J e R-Q)
+# Simplificação: ponto a 45° para dentro
+T <- c(R[1] + 1.5, R[2] + 1.5)  # 1.5 cm para direita e para cima
+
+# Bissetriz do ângulo S (entre S-K e S-Q)
+U <- c(S[1] - 2.5, S[2] + 2.5)  # 2.5 cm para esquerda e para cima
+
+# Plot do passo 10
+plot_passo10 <- plot_passo9 +
+  annotate("point", x = T[1], y = T[2], size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = T[1], y = T[2], label = "T", 
+           hjust = -0.5, vjust = -0.5, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("point", x = U[1], y = U[2], size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = U[1], y = U[2], label = "U", 
+           hjust = -0.5, vjust = -0.5, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = R[1] + 3, y = R[2] + 3, label = "1.5 cm", size = 2.5, color = "grey50") +
+  annotate("text", x = S[1] - 4, y = S[2] + 3, label = "2.5 cm", size = 2.5, color = "grey50")
+
+cached_plot("blusa_passo10", function() plot_passo10,
+            width = 8, height = 8)
+```
+
+Passo 11: Pontos Médios e Desvios (V, X, Y, Z)
+
+Instrução original:
+
+    Divide-se as distâncias MR e OS ao meio e temos os pontos VX. Para a esquerda de V marca-se 2 cm (ponto Y), para a esquerda de X marca-se meio cm (ponto Z).
+
+Implementação em R:
+
+```{r}
+# Pontos médios
+V <- c((M[1] + R[1]) / 2, (M[2] + R[2]) / 2)  # Ponto médio de MR
+X <- c((O[1] + S[1]) / 2, (O[2] + S[2]) / 2)  # Ponto médio de OS
+
+# Desvios para a esquerda
+Y <- c(V[1] - 2, V[2])    # 2 cm à esquerda de V
+Z <- c(X[1] - 0.5, X[2])  # 0.5 cm à esquerda de X
+
+# Plot do passo 11
+plot_passo11 <- plot_passo10 +
+  annotate("point", x = V[1], y = V[2], size = 2, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = V[1], y = V[2], label = "V", 
+           hjust = 1.5, vjust = 0, size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("point", x = X[1], y = X[2], size = 2, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = X[1], y = X[2], label = "X", 
+           hjust = 1.5, vjust = 0, size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("point", x = Y[1], y = Y[2], size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = Y[1], y = Y[2], label = "Y", 
+           hjust = 1.5, vjust = -1, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("point", x = Z[1], y = Z[2], size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = Z[1], y = Z[2], label = "Z", 
+           hjust = 1.5, vjust = -1, size = 4, color = FREESEWING_COLORS$construction_points)
+
+cached_plot("blusa_passo11", function() plot_passo11,
+            width = 8, height = 8)
+```
+
+
+Passo 12: Curva da Cava
+
+Instrução original:
+
+    Unindo-se por uma curva os pontos já encontrados P, Z, U, Q, T, Y, M teremos a cava da manga.
+
+Implementação em R:
+
+```{r}
+# Criar curva da cava unindo P-Z-U-Q-T-Y-M
+curva_cava <- create_curve(
+  x = c(P[1], Z[1], U[1], Q[1], T[1], Y[1], M[1]),
+  y = c(P[2], Z[2], U[2], Q[2], T[2], Y[2], M[2]),
+  n = 100
+)
+
+# Plot do passo 12
+plot_passo12 <- plot_passo11 +
+  geom_line(data = curva_cava, aes(x = x, y = y),
+            color = FREESEWING_COLORS$fabric_primary, linewidth = 1.2) +
+  annotate("text", x = Q[1] + 3, y = Q[2] + 1, 
+           label = "Cava", size = 3, color = FREESEWING_COLORS$fabric_primary, fontface = "italic")
+
+cached_plot("blusa_passo12", function() plot_passo12,
+            width = 8, height = 8)
+```
+
+
+Passo 13: Parte Inferior (Pontos W, c, d)
+
+Instrução original:
+
+    Marca-se 3 cm para cima dos pontos H e C e liga-se esses dois pontos (aw). Em seguida, une-se W ao ponto b, pé da divisão I. Marca-se 2 cm para a direita e para a esquerda do ponto W; temos os pontos c e d, que devem ser unidos ao ponto Q.
+
+Implementação em R:
+
+```{r}
+altura_subida_inferior <- 3  # cm acima de H e C
+
+W <- c(H[1], H[2] + altura_subida_inferior)
+W2 <- c(C[1], C[2] + altura_subida_inferior)  # aw (ponto à direita de W)
+
+# Ponto b: pé da divisão I
+b <- c(I[1], 0)
+
+# Pontos c e d: 2 cm para cada lado de W
+c_ponto <- c(W[1] - 2, W[2])  # 2 cm à esquerda
+d_ponto <- c(W[1] + 2, W[2])  # 2 cm à direita
+
+# Plot do passo 13
+plot_passo13 <- plot_passo12 +
+  geom_segment(aes(x = W[1], xend = W2[1], y = W[2], yend = W2[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.0) +
+  geom_segment(aes(x = W[1], xend = b[1], y = W[2], yend = b[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.0) +
+  geom_segment(aes(x = c_ponto[1], xend = Q[1], y = c_ponto[2], yend = Q[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.0) +
+  geom_segment(aes(x = d_ponto[1], xend = Q[1], y = d_ponto[2], yend = Q[2]),
+               color = FREESEWING_COLORS$fabric_primary, linewidth = 1.0) +
+  annotate("text", x = W[1], y = W[2], label = "W", 
+           hjust = 1.5, vjust = 0, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = b[1], y = b[2], label = "b", 
+           hjust = -0.5, vjust = -1, size = 4, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = c_ponto[1], y = c_ponto[2], label = "c", 
+           hjust = 1.5, vjust = 0, size = 3, color = FREESEWING_COLORS$construction_points) +
+  annotate("text", x = d_ponto[1], y = d_ponto[2], label = "d", 
+           hjust = -0.5, vjust = 0, size = 3, color = FREESEWING_COLORS$construction_points)
+
+cached_plot("blusa_passo13", function() plot_passo13,
+            width = 8, height = 8)
+```
+
+
+Molde Final
+
+Instrução original:
+
+    A figura I-M-Y-T-Q-c-b-D-N-I é o molde da metade da frente da blusa; L, P, Z, U, Q, d, a, e, L é o molde da metade das costas.
+    
+```{r}
+# Adicionar destaque para frente e costas
+plot_final <- plot_passo13 +
+  # Destaque frente (em azul)
+  annotate("text", x = (I[1] + Q[1])/2 - 3, y = altura_molde/2,
+           label = "FRENTE", size = 5, color = FREESEWING_COLORS$fabric_lining,
+           fontface = "bold", angle = 90) +
+  # Destaque costas (em laranja)
+  annotate("text", x = (Q[1] + B[1])/2 + 2, y = altura_molde/2,
+           label = "COSTAS", size = 5, color = FREESEWING_COLORS$fabric_interfacing,
+           fontface = "bold", angle = 90)
+
+cached_plot("blusa_molde_final", function() plot_final,
+            width = 8, height = 10)
+
+```
+
+
+Comprimento das Linhas
+
+```{r}
+# Calcular comprimentos de todos os segmentos principais
+comprimentos <- data.frame(
+  Segmento = c("IM (ombro frente)", "IN (decote frente)", "LP (ombro costas)", 
+               "Decote costas (curva L-B)", "Cava (P-M)", "b-W (lateral frente)", 
+               "W-W2 (inferior)", "c-Q (lateral costas esq)", "d-Q (lateral costas dir)"),
+  Comprimento_cm = c(
+    round(comprimento_ombro_frente, 1),
+    round(sum(sqrt(diff(curva_decote$x)^2 + diff(curva_decote$y)^2)), 1),
+    round(comprimento_ombro_costas, 1),
+    round(sum(sqrt(diff(curva_decote_costas$x)^2 + diff(curva_decote_costas$y)^2)), 1),
+    round(sum(sqrt(diff(curva_cava$x)^2 + diff(curva_cava$y)^2)), 1),
+    round(sqrt((W[1]-b[1])^2 + (W[2]-b[2])^2), 1),
+    round(sqrt((W2[1]-W[1])^2 + (W2[2]-W[2])^2), 1),
+    round(sqrt((c_ponto[1]-Q[1])^2 + (c_ponto[2]-Q[2])^2), 1),
+    round(sqrt((d_ponto[1]-Q[1])^2 + (d_ponto[2]-Q[2])^2), 1)
+  )
+)
+
+knitr::kable(comprimentos, caption = "Comprimento das linhas que delimitam o molde")
+```
+
+
+Exportar para Tamanho Real
+
+```{r}
+# Para gerar o molde em tamanho real (A0):
+# Descomente e ajuste o caminho abaixo
+
+# pontos_molde <- data.frame(
+#   # Frente: I-M-Y-T-Q-c-b-D-N-I (fechar o polígono)
+#   x = c(I[1], M[1], Y[1], T[1], Q[1], c_ponto[1], b[1], D[1], N[1], I[1]),
+#   y = c(I[2], M[2], Y[2], T[2], Q[2], c_ponto[2], b[2], D[2], N[2], I[2])
+# )
+#
+# create_plotter_pattern(
+#   pontos_molde,
+#   output_file = "output/blusa_corpo_simples_tamanho_real.pdf",
+#   include_seam_allowance = TRUE,
+#   seam_allowance = 1.5
+# )
+```
+
+
+Resumo do Aprendizado
+
+    O método Sophia Jobim usa divisões proporcionais baseadas no busto
+
+    A cava é construída com bissetrizes e desvios empíricos (1.5 cm, 2.5 cm)
+
+    O decote tem profundidade baseada na divisão frontal + 2 cm
+
+    As costas são sempre 3 cm mais estreitas que a frente
+
+    A linha do ombro frente e costas têm comprimentos diferentes
+    
+
+

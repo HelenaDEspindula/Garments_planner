@@ -2,15 +2,11 @@
 title: "Pattern Making Studies"
 subtitle: "A Parametric Approach to Flat Pattern Drafting with R"
 author: "Your Name"
-date: "`r Sys.Date()`"
+date: "2026-05-17"
 site: bookdown::bookdown_site
 documentclass: book
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-options(tinytex.verbose = TRUE)
-#source("Rscripts/install_packages.R")
-```
+
 
 \frontmatter
 
