@@ -1,0 +1,17 @@
+parameter,value,unit,description
+bust_ease,6,cm,Aumento na circunferência do busto
+side_seam_offset,3,cm,Deslocamento para costas (A→E, D→F)
+shoulder_slope_front,4,cm,Descida do ombro frente (J→M)
+front_neckline_depth_extra,2,cm,Profundidade extra do decote frente (AI+2)
+front_neckline_shift,1,cm,Desvio lateral decote frente
+back_neck_drop,2,cm,Descida decote costas (B→decote)
+back_neckline_shift,1,cm,Desvio lateral decote costas
+back_dart_height,5,cm,Altura da pence costas (K→O)
+back_shoulder_extension,1,cm,Prolongamento LO para P
+armscye_depth_reference,21,cm,Profundidade da cava (para braço 33cm)
+bissetriz_R,1.5,cm,Bissetriz do ângulo R
+bissetriz_S,2.5,cm,Bissetriz do ângulo S
+desvio_V_esquerda,2,cm,Desvio à esquerda de V (ponto Y)
+desvio_X_esquerda,0.5,cm,Desvio à esquerda de X (ponto Z)
+subida_inferior,3,cm,Subida a partir de H e C (ponto W)
+desvio_W_lateral,2,cm,Distância de W para c e d
