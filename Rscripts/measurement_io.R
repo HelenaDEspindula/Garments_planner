@@ -6,18 +6,30 @@
 #' @param filepath Path to CSV file
 #' @return Named list of measurement values in cm
 read_measurements <- function(filepath) {
-  raw <- readr::read_csv(
-    filepath,
-    col_names = c("code", "reference", "description", "value", "formula"),
-    col_types = readr::cols(.default = "c"),
-    show_col_types = FALSE
-  )
+  # Ler primeira linha para verificar se é cabeçalho
+  first_line <- readLines(filepath, n = 1)
+  has_header <- grepl("^code,reference,description,value,formula", first_line)
   
-  # Convert to named list
+  if (has_header) {
+    raw <- readr::read_csv(
+      filepath,
+      col_types = readr::cols(.default = "c"),
+      show_col_types = FALSE
+    )
+  } else {
+    raw <- readr::read_csv(
+      filepath,
+      col_names = c("code", "reference", "description", "value", "formula"),
+      col_types = readr::cols(.default = "c"),
+      show_col_types = FALSE
+    )
+  }
+  
+  # Converter para named list
   measurements <- as.list(as.numeric(raw$value))
   names(measurements) <- raw$code
   
-  # Remove NAs and warn
+  # Remover NAs e warn
   na_codes <- names(measurements)[is.na(measurements)]
   if (length(na_codes) > 0) {
     warning("NA values in measurements: ", paste(na_codes, collapse = ", "))

@@ -8,7 +8,6 @@ back_neck_drop,2,cm,Descida decote costas (B→decote)
 back_neckline_shift,1,cm,Desvio lateral decote costas
 back_dart_height,5,cm,Altura da pence costas (K→O)
 back_shoulder_extension,1,cm,Prolongamento LO para P
-armscye_depth_reference,21,cm,Profundidade da cava (para braço 33cm)
 bissetriz_R,1.5,cm,Bissetriz do ângulo R
 bissetriz_S,2.5,cm,Bissetriz do ângulo S
 desvio_V_esquerda,2,cm,Desvio à esquerda de V (ponto Y)

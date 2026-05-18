@@ -156,3 +156,11 @@ validate_pattern <- function(points, connections, tolerance = 0.01) {
   
   results
 }
+
+#' Calculate the total length of a curve
+#' @param curve Data frame with x and y columns
+#' @return Total length of the curve in cm
+curve_length <- function(curve) {
+  if (nrow(curve) < 2) return(0)
+  sum(sqrt(diff(curve$x)^2 + diff(curve$y)^2))
+}
