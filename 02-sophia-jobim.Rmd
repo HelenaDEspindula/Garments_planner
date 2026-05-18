@@ -1,3 +1,6 @@
+O `.Rmd` está quase pronto, mas precisa de alguns ajustes para funcionar com a nova estrutura modular. Aqui está a versão corrigida:
+
+```markdown
 # Curso por Correspondência — Sophia Jobim
 
 **Referência:** JOBIM, Sophia. *O sistema de corte e costura de Sophia Jobim: os anos de ouro de Mme Carvalho no Liceu Império: 1932-1954*. São Paulo: Portal de Livros Abertos da USP, 2024. Disponível em: https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/view/1327/1210/4651
@@ -12,12 +15,11 @@ Este capítulo documenta o estudo do método de modelagem de Sophia Jobim, trans
 
 ### Dados de Entrada
 
-Para um primeiro teste vamos usar as medidas padrão do livro para o maniquim 48
+Para um primeiro teste vamos usar as medidas padrão do livro para o manequim 48.
 
 #### Medidas do Manequim 48
 
 ```{r carregar-medidas}
-# Carregar medidas do arquivo CSV
 # Carregar medidas do arquivo CSV
 medidas_sj <- read_measurements(here("data", "measurements", "sophia_jobim_size48.csv"))
 
@@ -40,9 +42,9 @@ knitr::kable(medidas_df,
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
-Parâmetros de Folga e Construção
+#### Parametros de Folga e Construcao
 
-```{r}
+```{r carregar-ease}
 # Carregar parametros de ease
 ease_sj <- read_ease(here("data", "parameters", "sophia_jobim_ease.csv"))
 
@@ -58,9 +60,9 @@ knitr::kable(ease_df,
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
-Tabela de Profundidade da Cava
+#### Tabela de Profundidade da Cava
 
-```{r}
+```{r tabela-cava}
 # Carregar tabela de profundidade da cava
 tabela_cava <- read_csv(here("data", "measurements", "sophia_jobim_armscye_table.csv"),
                         show_col_types = FALSE)
@@ -85,7 +87,6 @@ cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n",
             grossura_braco, profundidade_cava))
 ```
 
-
 ---
 
 ### Instrucoes Originais (transcricao)
@@ -99,11 +100,11 @@ cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n",
 ### Execucao do Tracado
 
 ```{r executar-tracado}
-# Carregar o script de tracado
-source(here("Rscripts", "blouse_sophia_jobim.R"))
+# Carregar modulos necessarios
+source(here("Rscripts", "pattern_blocks.R"))
 
-# Executar o tracado com os dados carregados
-blusa <- draft_blouse_sophia_jobim(
+# Executar o tracado
+blusa <- draft_blouse_sj(
   medidas = medidas_sj,
   ease = ease_sj,
   armscye_depth = profundidade_cava
@@ -121,108 +122,33 @@ cat(sprintf("
    blusa$dimensions$dim_back_division))
 ```
 
-    
-Molde Completo
+---
 
-```{r}
-# Construir plot final
-pts <- blusa$points
+### Molde Completo
 
-# Plot base
-plot_final <- create_pattern_plot(
-  width = blusa$dimensions$dim_width,
-  height = blusa$dimensions$dim_height,
+```{r molde-final, fig.cap="Blusa (Corpo Simples) — Sophia Jobim", fig.width=10, fig.height=10}
+# Usar a funcao de plot do modulo
+source(here("Rscripts", "pattern_plot.R"))
+
+plot_pattern_notebook(
+  block = blusa,
+  filename = "blusa_sj_final",
   title = "Blusa (Corpo Simples) — Metodo Sophia Jobim",
-  subtitle = paste("Manequim 48 | Busto:", blusa$measurements$measure_bust, "cm")
+  subtitle = paste("Manequim 48 | Busto:", medida_busto, "cm"),
+  show_points = TRUE,
+  show_grid = TRUE,
+  show_construction = TRUE,
+  piece_type = "both",
+  width = 10,
+  height = 10
 )
-
-# Retangulo base (fundo)
-plot_final <- plot_final +
-  annotate("rect", xmin = 0, xmax = blusa$dimensions$dim_width,
-           ymin = 0, ymax = blusa$dimensions$dim_height,
-           fill = NA, color = "grey80", linetype = "dashed", linewidth = 0.5)
-
-# Linhas de construcao
-plot_final <- plot_final +
-  geom_vline(xintercept = pts$point_E[1], color = "grey80", linetype = "dotted", linewidth = 0.5) +
-  geom_vline(xintercept = pts$point_G[1], color = "grey80", linetype = "dotted", linewidth = 0.5) +
-  geom_hline(yintercept = pts$point_R[2], color = "grey80", linetype = "dotted", linewidth = 0.5)
-
-# Curvas
-plot_final <- plot_final +
-  geom_path(data = blusa$curves$curve_neckline_front, aes(x, y), 
-            color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2) +
-  geom_path(data = blusa$curves$curve_neckline_back, aes(x, y), 
-            color = FREESEWING_COLORS$fabric_interfacing, linewidth = 1.2) +
-  geom_path(data = blusa$curves$curve_armscye, aes(x, y), 
-            color = "#333333", linewidth = 1.5)
-
-# Conexoes da Frente (azul)
-plot_final <- plot_final +
-  geom_segment(aes(x = pts$point_I[1], xend = pts$point_M[1], 
-                   y = pts$point_I[2], yend = pts$point_M[2]),
-               color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_Q[1], xend = pts$point_c[1], 
-                   y = pts$point_Q[2], yend = pts$point_c[2]),
-               color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_c[1], xend = pts$point_b[1], 
-                   y = pts$point_c[2], yend = pts$point_b[2]),
-               color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_b[1], xend = pts$point_D[1], 
-                   y = pts$point_b[2], yend = pts$point_D[2]),
-               color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_D[1], xend = pts$point_N[1], 
-                   y = pts$point_D[2], yend = pts$point_N[2]),
-               color = FREESEWING_COLORS$fabric_lining, linewidth = 1.2)
-
-# Conexoes das Costas (laranja)
-plot_final <- plot_final +
-  geom_segment(aes(x = pts$point_L[1], xend = pts$point_P[1], 
-                   y = pts$point_L[2], yend = pts$point_P[2]),
-               color = FREESEWING_COLORS$fabric_interfacing, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_Q[1], xend = pts$point_d[1], 
-                   y = pts$point_Q[2], yend = pts$point_d[2]),
-               color = FREESEWING_COLORS$fabric_interfacing, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_d[1], xend = pts$point_a[1], 
-                   y = pts$point_d[2], yend = pts$point_a[2]),
-               color = FREESEWING_COLORS$fabric_interfacing, linewidth = 1.2) +
-  geom_segment(aes(x = pts$point_a[1], xend = pts$point_B_neck[1], 
-                   y = pts$point_a[2], yend = pts$point_B_neck[2]),
-               color = FREESEWING_COLORS$fabric_interfacing, linewidth = 1.2)
-
-# Adicionar pontos principais
-pontos_principais <- c("point_A", "point_B", "point_C", "point_D", 
-                       "point_E", "point_G", "point_H",
-                       "point_I", "point_J", "point_K", "point_L",
-                       "point_M", "point_N", "point_P", "point_Q",
-                       "point_W", "point_a", "point_b", "point_c", "point_d",
-                       "point_B_neck", "point_I2", "point_L2")
-
-pontos_df <- points_to_df(pts)
-pontos_df <- pontos_df[pontos_df$name %in% pontos_principais, ]
-
-plot_final <- plot_final +
-  geom_point(data = pontos_df, aes(x, y), 
-             size = 2.5, color = FREESEWING_COLORS$notch_default) +
-  ggrepel::geom_text_repel(data = pontos_df, aes(x, y, label = gsub("point_", "", name)),
-                           size = 3, color = "#333333", fontface = "bold")
-
-# Labels frente/costas
-plot_final <- plot_final +
-  annotate("text", x = pts$point_I[1] + 2, y = blusa$dimensions$dim_height / 2,
-           label = "FRENTE", size = 6, color = FREESEWING_COLORS$fabric_lining,
-           fontface = "bold", angle = 90, alpha = 0.4) +
-  annotate("text", x = pts$point_d[1] + 3, y = blusa$dimensions$dim_height / 2,
-           label = "COSTAS", size = 6, color = FREESEWING_COLORS$fabric_interfacing,
-           fontface = "bold", angle = 90, alpha = 0.4)
-
-cached_plot("blusa_sj_final", function() plot_final, width = 10, height = 10)
 ```
 
+---
 
-Comprimento das Linhas
+### Comprimento das Linhas
 
-```{r}
+```{r tabela-comprimentos}
 comprimentos_df <- data.frame(
   Segmento = c(
     "Ombro frente (I-M)",
@@ -260,10 +186,11 @@ knitr::kable(comprimentos_df,
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
+---
 
-Area Aproximada para Calculo de Tecido
+### Area Aproximada para Calculo de Tecido
 
-```{r}
+```{r area-tecido}
 area_info <- blusa$area
 
 area_df <- data.frame(
@@ -290,41 +217,42 @@ cat(sprintf("
    area_info$note))
 ```
 
+---
 
-
-## Nota Técnica: Escolha do Método para a Curva da Cava
-
-### Métodos Testados
+### Nota Tecnica: Escolha do Metodo para a Curva da Cava
 
 **1. Spline com pontos de controle manuais**
-Tentativa de ajustar a curva usando pontos de controle arbitrários. Resultado: zigue-zague e barriga invertida no decote. Descartado.
+
+Tentativa de ajustar a curva usando pontos de controle arbitrarios. Resultado: zigue-zague e barriga invertida no decote. Descartado.
 
 **2. Bezier cubica por segmentos**
+
 Dois segmentos (frente: M-Y-T-Q, costas: Q-U-Z-P) com pontos de controle calculados para t=1/3 e t=2/3. Resultado: passou sobre os pontos mas apresentou transicao brusca em Q. Descartado.
 
 **3. LOESS (Local Polynomial Regression)**
+
 Regressao polinomial local com span entre 0.3 e 0.7. Resultado: curvas muito suaves e organicas, mas nao passam exatamente sobre os pontos intermediarios (Z, U, T, Y). Descartado.
 
 **4. Spline cubica parametrica (ESCOLHIDO)**
+
 Spline cubica natural usando distancia acumulada como parametro. Passa exatamente sobre todos os 7 pontos (P, Z, U, Q, T, Y, M). Minimiza a curvatura total, garantindo maxima suavidade matematica. A condicao natural nos extremos permite curvatura zero em P e M. Resolve o problema de ordenacao espacial usando o parametro t baseado em distancia acumulada.
 
-### Decisao
+**Decisao:** O metodo escolhido foi a spline cubica parametrica por atender simultaneamente aos dois requisitos: passagem exata sobre todos os pontos de construcao e maxima suavidade da curva.
 
-O metodo escolhido foi a **spline cubica parametrica** por atender simultaneamente aos dois requisitos: passagem exata sobre todos os pontos de construcao e maxima suavidade da curva.
+---
 
-Exportar para Tamanho Real
+### Exportar para Tamanho Real
 
-```{r}
+```{r exportar-tamanho-real, eval=FALSE}
 # Para gerar o molde em tamanho real (A0):
-# Descomente e ajuste o caminho abaixo
+source(here("Rscripts", "pattern_plot.R"))
 
-# pontos_molde <- points_to_df(blusa$points)
-# 
-# create_plotter_pattern(
-#   pontos_molde,
-#   output_file = "output/blusa_corpo_simples_A0.pdf",
-#   include_seam_allowance = TRUE,
-#   seam_allowance = 1.5
-# )
+plot_pattern_fullscale(
+  block = blusa,
+  output_file = "output/blusa_corpo_simples_A0.pdf",
+  paper_size = "A0",
+  include_seam_allowance = TRUE,
+  seam_allowance = 1.5
+)
 ```
 
