@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.17)  17 MAY 2026 20:41
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.17)  17 MAY 2026 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,14 +633,202 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count353
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count354
-) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontsize/fontsize.sty
+Package: fontsize 2024/12/04 v0.9 'fontsize' package. Set main font sizes (Ivan Valbusa)
+(c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
+(c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks32
+\XKV@tempa@toks=\toks33
+\XKV@tempb@toks=\toks34
+)
+\XKV@depth=\count355
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/B scale = 0.941043990458295.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/I scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/BI scale = 0.941043990458295.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LatinModernSans(0)' created for font
+(fontspec)             'Latin Modern Sans' with options
+(fontspec)             [Scale=MatchLowercase,Ligatures=TeX].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9707163010643308]"Latin Modern
+(fontspec)             Sans/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.941043990458295]"Latin Modern
+(fontspec)             Sans/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9707163010643308]"Latin Modern
+(fontspec)             Sans/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.941043990458295]"Latin Modern
+(fontspec)             Sans/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/B scale = 0.941043990458295.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/I scale = 0.9707163010643308.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Sans/BI scale = 0.941043990458295.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LatinModernSans(1)' created for font
+(fontspec)             'Latin Modern Sans' with options
+(fontspec)             [Scale=MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9707163010643308]"Latin Modern
+(fontspec)             Sans/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.941043990458295]"Latin Modern
+(fontspec)             Sans/B/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9707163010643308]"Latin Modern
+(fontspec)             Sans/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.941043990458295]"Latin Modern
+(fontspec)             Sans/BI/OT:script=latn;language=dflt;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/LatinModernSans(1)/m/n on input line 149.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/LatinModernSans(1)/bx/n on input line 149.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 9.70718pt on input line 153.
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "Latin Modern Mono/B" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono/I scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono/BI scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LatinModernMono(0)' created for font
+(fontspec)             'Latin Modern Mono' with options
+(fontspec)             [Scale=MatchLowercase,WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/BI/OT:script=latn;language=dflt;"
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "Latin Modern Mono/B" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono/I scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Latin Modern Mono/BI scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LatinModernMono(1)' created for font
+(fontspec)             'Latin Modern Mono' with options
+(fontspec)             [Scale=MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"Latin Modern
+(fontspec)             Mono/BI/OT:script=latn;language=dflt;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/LatinModernMono(1)/m/n on input line 153.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/LatinModernMono(1)/bx/n on input line 153.
+(c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box69
 \beforetitleunit=\skip71
 \aftertitleunit=\skip72
 \ttl@plus=\dimen268
 \ttl@minus=\dimen269
-\ttl@toksa=\toks32
+\ttl@toksa=\toks35
 \titlewidth=\dimen270
 \titlewidthlast=\dimen271
 \titlewidthfirst=\dimen272
@@ -660,12 +848,51 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthL=\skip84
 \f@nch@widthC=\skip85
 \f@nch@widthR=\skip86
-\@temptokenb=\toks33
+\@temptokenb=\toks36
+) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 51.
+\cftparskip=\skip87
+\cftbeforetoctitleskip=\skip88
+\cftaftertoctitleskip=\skip89
+\cftbeforepartskip=\skip90
+\cftpartnumwidth=\skip91
+\cftpartindent=\skip92
+\cftbeforechapskip=\skip93
+\cftchapindent=\skip94
+\cftchapnumwidth=\skip95
+\cftbeforesecskip=\skip96
+\cftsecindent=\skip97
+\cftsecnumwidth=\skip98
+\cftbeforesubsecskip=\skip99
+\cftsubsecindent=\skip100
+\cftsubsecnumwidth=\skip101
+\cftbeforesubsubsecskip=\skip102
+\cftsubsubsecindent=\skip103
+\cftsubsubsecnumwidth=\skip104
+\cftbeforeparaskip=\skip105
+\cftparaindent=\skip106
+\cftparanumwidth=\skip107
+\cftbeforesubparaskip=\skip108
+\cftsubparaindent=\skip109
+\cftsubparanumwidth=\skip110
+\cftbeforeloftitleskip=\skip111
+\cftafterloftitleskip=\skip112
+\cftbeforefigskip=\skip113
+\cftfigindent=\skip114
+\cftfignumwidth=\skip115
+\c@lofdepth=\count356
+\c@lotdepth=\count357
+\cftbeforelottitleskip=\skip116
+\cftafterlottitleskip=\skip117
+\cftbeforetabskip=\skip118
+\cfttabindent=\skip119
+\cfttabnumwidth=\skip120
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
-\BKM@id=\count355
+\BKM@id=\count358
 ))
 
 LaTeX Warning: Unused global option(s):
@@ -674,26 +901,26 @@ LaTeX Warning: Unused global option(s):
 (./pattern-making-textbook.aux)
 \openout1 = `pattern-making-textbook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 296.
+LaTeX Font Info:    ... okay on input line 296.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -703,22 +930,22 @@ LaTeX Font Info:    ... okay on input line 199.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(45.52458pt, 523.24583pt, 45.52458pt)
-* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* v-part:(T,H,B)=(42.67912pt, 709.61174pt, 42.67912pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=523.24583pt
-* \textheight=681.15898pt
+* \textheight=709.61174pt
 * \oddsidemargin=-26.7454pt
 * \evensidemargin=-26.7454pt
-* \topmargin=-45.43198pt
+* \topmargin=-55.81723pt
 * \headheight=12.0pt
-* \headsep=18.06749pt
+* \headsep=14.22636pt
 * \topskip=10.0pt
 * \footskip=25.29494pt
 * \marginparwidth=69.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 3.9996pt minus 2.0004pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -729,19 +956,11 @@ LaTeX Font Info:    ... okay on input line 199.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 199.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 296.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 199.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 296.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 199.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 199.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 199.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 199.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 199.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 296.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -769,7 +988,7 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 199.
+(Font)              scaled to size 10.0pt on input line 296.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -805,15 +1024,15 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 199.
+(Font)              scaled to size 10.0pt on input line 296.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 199.
+(Font)              `operators' in the math version `normal' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 199.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 296.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 199.
+(Font)              `operators' in the math version `bold' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 199.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 296.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -879,13 +1098,13 @@ Package fontspec Info:
 (fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 199.
+(Font)              `symbols' in the math version `normal' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 199.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 296.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 199.
+(Font)              `symbols' in the math version `bold' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 199.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 296.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999964596882403.
@@ -945,60 +1164,70 @@ Package fontspec Info:
 (fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 199.
+(Font)              `largesymbols' in the math version `normal' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 199.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 296.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 199.
+(Font)              `largesymbols' in the math version `bold' on input line 296.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 199.
-LaTeX Info: Redefining \microtypecontext on input line 199.
-Package microtype Info: Applying patch `item' on input line 199.
-Package microtype Info: Applying patch `toc' on input line 199.
-Package microtype Info: Applying patch `eqnum' on input line 199.
-Package microtype Info: Applying patch `footnote' on input line 199.
-Package microtype Info: Applying patch `verbatim' on input line 199.
-LaTeX Info: Redefining \microtypesetup on input line 199.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 296.
+LaTeX Info: Redefining \microtypecontext on input line 296.
+Package microtype Info: Applying patch `item' on input line 296.
+Package microtype Info: Applying patch `toc' on input line 296.
+Package microtype Info: Applying patch `eqnum' on input line 296.
+
+Package microtype Warning: Unable to apply patch `footnote' on input line 296.
+
+Package microtype Info: Applying patch `verbatim' on input line 296.
+LaTeX Info: Redefining \microtypesetup on input line 296.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
-(c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
-File: mt-LatinModernRoman.cfg 2026/02/26 v1.2 microtype config. file: Latin Modern Roman (RS)
-)
-Package hyperref Info: Link coloring OFF on input line 199.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LatinModernSans' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package hyperref Info: Link coloring OFF on input line 296.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 16.774pt on input line 298.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 11.64862pt on input line 298.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 8.8578pt on input line 298.
+LaTeX Font Info:    Calculating math sizes for size <9.125> on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 201.
+(Font)              scaled to size 9.125pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 201.
+(Font)              scaled to size 6.38747pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 201.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 201.
+(Font)              scaled to size 4.5625pt on input line 298.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 298.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 201.
+(Font)              scaled to size 9.12582pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 201.
+(Font)              scaled to size 6.38805pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 201.
+(Font)              scaled to size 4.56291pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 201.
+(Font)              scaled to size 9.12402pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 201.
+(Font)              scaled to size 6.38678pt on input line 298.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 201.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 201.
+(Font)              scaled to size 4.56201pt on input line 298.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 298.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 201.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 298.
 (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/Himalaia/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -1006,181 +1235,180 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 
-] (./pattern-making-textbook.toc
+]
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 24.15147pt on input line 301.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 23.41307pt on input line 301.
+(./pattern-making-textbook.toc
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 9.4104pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3.
+(Font)              scaled to size 7.0pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 3.
+(Font)              scaled to size 5.0pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 3.
+(Font)              scaled to size 10.00092pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 3.
+(Font)              scaled to size 7.00064pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 3.
+(Font)              scaled to size 5.00046pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 3.
+(Font)              scaled to size 9.99893pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 3.
+(Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 3.
-[1
-
-
-])
+(Font)              scaled to size 4.99947pt on input line 2.
+)
 \tf@toc=\write4
 \openout4 = `pattern-making-textbook.toc'.
 
-[2] (./pattern-making-textbook.lof)
-\tf@lof=\write5
-\openout5 = `pattern-making-textbook.lof'.
-
-[3
-
-] (./pattern-making-textbook.lot)
-\tf@lot=\write6
-\openout6 = `pattern-making-textbook.lot'.
-
-[4
-
-] (./pattern-making-textbook.toc)
-\tf@toc=\write7
-\openout7 = `pattern-making-textbook.toc'.
-
-[1
-
-
-] [2
-
-] [3]
-Chapter 1.
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no │ (U+2502) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
+[1]
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 16.26117pt on input line 305.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/m/n' will be
+(Font)              scaled to size 13.97833pt on input line 308.
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 13.55096pt on input line 308.
 [1
 
 
 ]
-Missing character: There is no ⊙ (U+2299) in font [lmroman10-bold]:mapping=tex-text;!
-Missing character: There is no ⊗ (U+2297) in font [lmroman10-bold]:mapping=tex-text;!
-Missing character: There is no ⊙ (U+2299) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⊗ (U+2297) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⊕ (U+2295) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⊘ (U+2298) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ● (U+25CF) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ─ (U+2500) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⇅ (U+21C5) in font [lmroman10-regular]:mapping=tex-text;!
-[2] [3]
-Overfull \hbox (36.37918pt too wide) in paragraph at lines 608--612
-[]\TU/lmr/m/n/10 Examples: bodice_front_female_v1.0_size48.pdf sleeve_basic_v2.1_universal.csv skirt_pencil_variation_v1.0_size42_A0.pdf 
- []
+Chapter 1.
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no │ (U+2502) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 11.29248pt on input line 463.
+[1
 
-[4] [5]
+
+]
+LaTeX Font Info:    Font shape `TU/LatinModernMono(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 549.
+Missing character: There is no ⊙ (U+2299) in font Latin Modern Sans 10 Bold/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⊗ (U+2297) in font Latin Modern Sans 10 Bold/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⊙ (U+2299) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⊗ (U+2297) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⊕ (U+2295) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⊘ (U+2298) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ● (U+25CF) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ─ (U+2500) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+Missing character: There is no ⇅ (U+21C5) in font Latin Modern Sans 10 Regular/OT:script=latn;language=dflt;mapping=tex-text;!
+[2] [3] [4] [5]
 Chapter 2.
 [6
 
 ] [7]
 Chapter 3.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 817.
+
+LaTeX Font Warning: Font shape `TU/LatinModernMono(0)/b/n' undefined
+(Font)              using `TU/LatinModernMono(0)/m/n' instead on input line 907.
+
 [8
 
 ]
 Chapter 4.
+LaTeX Font Info:    Font shape `TU/LatinModernMono(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 926.
 [9
 
-] [10]
-Missing character: There is no ✗ (U+2717) in font [lmmono10-regular]:!
-Missing character: There is no ✓ (U+2713) in font [lmmono10-regular]:!
-Missing character: There is no ✓ (U+2713) in font [lmmono10-regular]:!
-Missing character: There is no ✓ (U+2713) in font [lmmono10-regular]:!
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+]
+LaTeX Font Info:    Font shape `TU/LatinModernSans(0)/b/n' will be
+(Font)              scaled to size 8.58699pt on input line 996.
+[10]
+Missing character: There is no ✗ (U+2717) in font Latin Modern Mono 10 Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ✓ (U+2713) in font Latin Modern Mono 10 Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ✓ (U+2713) in font Latin Modern Mono 10 Regular/OT:script=latn;language=dflt;!
+Missing character: There is no ✓ (U+2713) in font Latin Modern Mono 10 Regular/OT:script=latn;language=dflt;!
 [11] [12] (./pattern-making-textbook.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-04-28>
  ***********
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
  ) 
 Here is how much of TeX's memory you used:
- 22872 strings out of 469990
- 423494 string characters out of 5472554
- 1033343 words of memory out of 5000000
- 51347 multiletter control sequences out of 15000+600000
- 634148 words of font info for 90 fonts, out of 8000000 for 9000
+ 23573 strings out of 469990
+ 437058 string characters out of 5472554
+ 1057238 words of memory out of 5000000
+ 52020 multiletter control sequences out of 15000+600000
+ 634323 words of font info for 111 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 90i,11n,114p,1020b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,116p,1020b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on pattern-making-textbook.pdf (20 pages).
+Output written on pattern-making-textbook.pdf (15 pages).

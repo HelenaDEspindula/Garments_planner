@@ -1,47 +1,50 @@
 # Pattern Making Studies
 
-Parametric pattern drafting documentation using R and Bookdown.
+Parametric pattern drafting documentation using R and Bookdown, based on traditional methods and modern computational tools.
 
-## Overview
+## 📚 References
 
-This project translates traditional flat pattern drafting instructions into parameterized R code, generating annotated patterns with construction points, measurements, and notes.
+This project applies the drafting instructions from:
 
-## Features
+- **Sophia Jobim** — *O Sistema de Corte e Costura* (The Cutting and Sewing System)
+- **Assembil Books** — *How Patterns Work: The Fundamental Principles of Pattern Making and Sewing in Fashion Design*
 
-- 📐 Parametric basic blocks (bodice, sleeve, skirt, pants)
-- 📏 Metric system throughout
-- 🏷 FreeSewing-compatible notation
-- 📚 Bookdown documentation with PDF output
-- 🖨 Full-scale printable patterns (A0/A4 tiled)
-- 📊 Measurement integration with SeamlyMe
-- 🔄 Version controlled learning progress
+## 🤖 AI Disclaimer
 
-## Quick Start
+This project uses AI (DeepSeek) as a coding assistant to help translate traditional pattern drafting instructions into parameterized R code. All generated code is reviewed, tested, and adapted by a human. The design logic and drafting knowledge come from the textbooks listed above.
 
-1. Clone repository
-2. Open `pattern-making-textbook.Rproj` in RStudio
-3. Run `bookdown::render_book("index.Rmd", "bookdown::pdf_book")`
-4. Find PDF in `output/` folder
+## 🎯 Project Goals
 
-## Structure
+- **Reproducible patterns**: Change measurements, regenerate the pattern instantly
+- **Living documentation**: Annotated diagrams with all construction points, measurements, and notes
+- **Learning log**: Version-controlled record of the entire pattern making study journey
+- **Future expansion**: Automatic Google Drive saving, drafting animations (Manim), 3D garment visualization
+
+## 📁 Structure
+
 ├── *.Rmd # Book chapters
-├── R/ # Core functions
-├── data/ # Measurements and parameters
+├── Rscripts/ # Core R functions
+├── data/ # Measurements and ease parameters
 ├── images/ # Diagrams and cached plots
 ├── latex/ # LaTeX customization
-└── output/ # Generated PDF
+└── output/ # Generated PDF and full-scale patterns
 
-## Dependencies
 
-- R >= 4.0
-- R packages: bookdown, ggplot2, dplyr, tidyr, readr, knitr, kableExtra
-- LaTeX (TeX Live recommended)
+## 🚀 Quick Start
 
-## License
+1.  Clone the repository
+2.  Open `Garments_planner.Rproj` in RStudio
+3.  Run `source("Rscripts/install_packages.R")` to install dependencies
+4.  Render the book: `bookdown::render_book("index.Rmd", "bookdown::pdf_book")`
+5.  Find the PDF in `output/`
+
+## 🔭 Ideas for the Future
+
+- **Google Drive Integration**: Automatically save full-scale PDF patterns to a designated folder.
+- **Drafting Animations**: Use Manim (https://www.manim.community/) to create step-by-step animations of the pattern drafting process.
+- **3D Garment Simulation**: Generate 3D meshes from the 2D patterns.
+- **2D to 3D Transition**: Animate the transformation of a flat pattern into a 3D garment, showing how fit adjustments affect the final shape.
+
+## 📜 License
 
 MIT
-
-## References
-
-- FreeSewing Notation: https://freesewing.eu/docs/about/notation/
-- Seamly2D: https://seamly.net/

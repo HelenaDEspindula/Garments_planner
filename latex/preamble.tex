@@ -39,44 +39,141 @@
 \definecolor{patterngreen}{HTML}{388E3C}
 
 % ===========================================
-% Remove blank pages
+% Typography settings
+% ===========================================
+% Base font: 10pt with 1.15 line spacing
+\usepackage{setspace}
+\setstretch{1.15}
+
+% Set base font size to 10pt
+\usepackage[fontsize=10pt]{fontsize}
+
+% Sans-serif font for a clean, modern look
+\setsansfont{Latin Modern Sans}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Monospace font for code
+\setmonofont{Latin Modern Mono}
+
+% ===========================================
+% Section heading formatting
+% ===========================================
+\usepackage{titlesec}
+
+% Chapter: "1. Title" on one line
+\titleformat{\chapter}[hang]
+  {\normalfont\LARGE\bfseries}
+  {\thechapter.}
+  {0.5em}
+  {}
+\titlespacing*{\chapter}{0pt}{-10pt}{10pt}
+
+% Section
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection.}
+  {0.5em}
+  {}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% Subsection
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection.}
+  {0.5em}
+  {}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+
+% Subsubsection
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsection.}
+  {0.5em}
+  {}
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+% ===========================================
+% Page layout
+% ===========================================
+\usepackage{fancyhdr}
+
+% Headers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\leftmark}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{}}
+
+% Plain pages
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\leftmark}
+  \fancyhead[R]{\small\thepage}
+  \renewcommand{\headrulewidth}{0.3pt}
+}
+
+% ===========================================
+% Remove blank pages and fix spacing
 % ===========================================
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\clearpage}{}{}
 \makeatother
 \let\cleardoublepage\clearpage
+\raggedbottom
 
 % ===========================================
-% Chapter heading formatting
+% Table of Contents formatting
 % ===========================================
-\usepackage{titlesec}
-
-% Remove "Chapter X" label, use "X. Title" on one line
-\titleformat{\chapter}[block]
-  {\normalfont\LARGE\bfseries}
-  {\thechapter.\quad}
-  {0pt}
-  {}
-\titlespacing*{\chapter}{0pt}{0pt}{20pt}
-
-% Remove uppercase from headers
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\nouppercase{\leftmark}}
-\fancyhead[R]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
-
-% Redefine chaptermark to not uppercase
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% Compact TOC
+\usepackage{tocloft}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+\setlength{\cftbeforesecskip}{2pt}
+\setlength{\cftbeforesubsecskip}{1pt}
 
 % ===========================================
-% Unnumbered sections in frontmatter
+% Table formatting
 % ===========================================
-% Make sure frontmatter sections are not numbered
-\let\oldfrontmatter\frontmatter
-\renewcommand{\frontmatter}{%
-  \oldfrontmatter
-  \renewcommand{\thesection}{}%
+% Smaller text in tables
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\small\oldtabular}
+
+% Caption formatting
+\captionsetup{
+  font={small},
+  labelfont={bf,small},
+  skip=4pt
 }
+
+% ===========================================
+% Force figures to stay in place (no floating)
+% ===========================================
+\usepackage{float}
+\floatplacement{figure}{H}    % Here, definitely
+\floatplacement{table}{H}     % Here, definitely
+
+% Redefine figure environment to not float
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][H]{
+  \origfigure[H]
+}{
+  \endorigfigure
+}
+
+% Same for tables
+\let\origtable\table
+\let\endorigtable\endtable
+\renewenvironment{table}[1][H]{
+  \origtable[H]
+}{
+  \endorigtable
+}
+
+% ===========================================
+% Paragraph settings
+% ===========================================
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em}
