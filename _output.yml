@@ -15,5 +15,6 @@ bookdown::pdf_book:
   pandoc_args: [
     "--variable", "classoption=oneside",
     "--variable", "geometry:margin=1.6cm,top=1.5cm,bottom=1.5cm,headsep=0.5cm",
-    "--variable", "papersize=a4paper"
+    "--variable", "papersize=a4paper",
+    "--syntax-highlighting=tango"
   ]

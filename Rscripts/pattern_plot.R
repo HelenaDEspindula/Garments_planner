@@ -1,18 +1,17 @@
 #' =============================================================================
-#' Pattern Plot — Geração de Gráficos
+#' Pattern Plot — Geração de Gráficos a partir de .rds
 #' =============================================================================
-#' Dois modos principais:
-#'   1. plot_pattern_notebook(): Gráfico PNG para o caderno
-#'   2. plot_pattern_fullscale(): PDF em tamanho real para impressão
+#' Lê bloco de arquivo .rds e gera gráficos.
 #' =============================================================================
 
 source(here("Rscripts", "pattern_core.R"))
 source(here("Rscripts", "pattern_notation.R"))
+source(here("Rscripts", "pattern_io.R"))
 
-#' Gerar gráfico para o caderno (PNG cacheado em images/cache/)
+#' Gerar gráfico a partir de arquivo .rds
 #'
-#' @param block Saída de draft_*() ou blusa completa
-#' @param filename Nome base para o arquivo de cache
+#' @param block_name Nome do bloco salvo (ex: "blusa_sj_size48")
+#' @param output_filename Nome base para o arquivo de saída
 #' @param title Título do gráfico
 #' @param subtitle Subtítulo
 #' @param show_points Mostrar labels dos pontos?
@@ -22,6 +21,38 @@ source(here("Rscripts", "pattern_notation.R"))
 #' @param height Altura em polegadas
 #' @param dpi Resolução do PNG
 #' @return Caminho do arquivo gerado
+plot_from_rds <- function(block_name,
+                          output_filename = NULL,
+                          title = NULL,
+                          subtitle = NULL,
+                          show_points = TRUE,
+                          show_grid = TRUE,
+                          piece_type = "both",
+                          width = 7,
+                          height = 7,
+                          dpi = 150) {
+  
+  block <- load_block(block_name)
+  
+  if (is.null(output_filename)) {
+    output_filename <- paste0(block_name, "_plot")
+  }
+  
+  plot_pattern_notebook(
+    block = block,
+    filename = output_filename,
+    title = title,
+    subtitle = subtitle,
+    show_points = show_points,
+    show_grid = show_grid,
+    piece_type = piece_type,
+    width = width,
+    height = height,
+    dpi = dpi
+  )
+}
+
+#' Gerar gráfico para o caderno (PNG cacheado)
 plot_pattern_notebook <- function(block, 
                                   filename,
                                   title = NULL,
@@ -29,11 +60,10 @@ plot_pattern_notebook <- function(block,
                                   show_points = TRUE,
                                   show_grid = TRUE,
                                   piece_type = "both",
-                                  width = 10,
-                                  height = 10,
+                                  width = 7,
+                                  height = 7,
                                   dpi = 150) {
   
-  # Determinar dimensões do plot
   if (piece_type == "both") {
     dim_width <- block$dimensions$dim_width
     dim_height <- block$dimensions$dim_height
@@ -45,12 +75,10 @@ plot_pattern_notebook <- function(block,
     dim_height <- block$back$metadata$dimensions$height
   }
   
-  # Título padrão
   if (is.null(title)) {
     title <- "Pattern Draft"
   }
   
-  # Criar plot base
   p <- create_pattern_plot(
     width = dim_width,
     height = dim_height,
@@ -59,7 +87,6 @@ plot_pattern_notebook <- function(block,
     subtitle = subtitle
   )
   
-  # Adicionar peças
   if (piece_type %in% c("front", "both")) {
     front <- if (piece_type == "both") block$front else block
     p <- add_piece_to_plot(p, front, "front", show_points)
@@ -70,28 +97,22 @@ plot_pattern_notebook <- function(block,
     p <- add_piece_to_plot(p, back, "back", show_points)
   }
   
-  # Adicionar cava completa
   if (piece_type == "both" && !is.null(block$curves$curve_armscye)) {
-    p <- p + 
-      geom_path(data = block$curves$curve_armscye, aes(x, y),
-                color = "#333333", linewidth = 1.5)
+    p <- p + annotate("path",
+                      x = block$curves$curve_armscye$x,
+                      y = block$curves$curve_armscye$y,
+                      color = "#333333", linewidth = 1.5)
   }
   
-  # Salvar PNG
   cache_file <- here("images", "cache", paste0(filename, ".png"))
-  
-  ggsave(cache_file, p, 
-         width = width, height = height,
-         dpi = dpi,
-         device = "png",
-         create.dir = TRUE,
-         bg = "white")
+  ggsave(cache_file, p, width = width, height = height, dpi = dpi,
+         device = "png", create.dir = TRUE, bg = "white")
   
   message("Plot saved: ", cache_file)
   return(cache_file)
 }
 
-#' Adicionar uma peça ao plot
+#' Adicionar peça ao plot
 add_piece_to_plot <- function(p, piece, piece_type, show_points) {
   
   color <- if (piece_type == "front") {
@@ -102,243 +123,62 @@ add_piece_to_plot <- function(p, piece, piece_type, show_points) {
   
   pts <- piece$points
   
-  # Desenhar costuras
   for (seam in piece$seams) {
     from_pt <- pts[[seam$from]]
     to_pt <- pts[[seam$to]]
     
-    if (!is.null(from_pt) && !is.null(to_pt)) {
-      lty <- if (grepl("dart", seam$name)) "dashed" else "solid"
-      lwd <- if (grepl("dart", seam$name)) 0.8 else 1.2
-      
-      p <- p + geom_segment(
-        aes(x = from_pt[1], xend = to_pt[1],
-            y = from_pt[2], yend = to_pt[2]),
-        color = color, linewidth = lwd, linetype = lty
-      )
-    }
-  }
-  
-  # Desenhar curvas
-  for (curve_name in names(piece$curves)) {
-    curve_data <- piece$curves[[curve_name]]
-    p <- p + geom_path(data = curve_data, aes(x, y),
-                       color = color, linewidth = 1.2)
-  }
-  
-  # Mostrar pontos
-  if (show_points) {
-    main_points <- names(pts)[!grepl("dart_leg|dart_tip|_shifted|point_V|point_X", names(pts))]
+    if (is.null(from_pt) || is.null(to_pt)) next
     
-    for (pt_name in main_points) {
+    lty <- if (grepl("dart", seam$name)) "dashed" else "solid"
+    lwd <- if (grepl("dart", seam$name)) 0.8 else 1.2
+    
+    p <- p + annotate("segment",
+                      x = from_pt[1], xend = to_pt[1],
+                      y = from_pt[2], yend = to_pt[2],
+                      color = color, linewidth = lwd, linetype = lty)
+  }
+  
+  for (curve_data in piece$curves) {
+    if (is.null(curve_data) || nrow(curve_data) < 2) next
+    p <- p + annotate("path",
+                      x = curve_data$x, y = curve_data$y,
+                      color = color, linewidth = 1.2)
+  }
+  
+  if (show_points) {
+    for (pt_name in names(pts)) {
       pt <- pts[[pt_name]]
+      if (is.null(pt)) next
       label <- gsub("point_", "", pt_name)
-      
       p <- p + 
-        annotate("point", x = pt[1], y = pt[2], 
-                 size = 2.5, color = "#333333") +
-        annotate("text", x = pt[1], y = pt[2], 
-                 label = label, hjust = -0.3, vjust = -0.3,
-                 size = 3, color = "#333333", fontface = "bold")
+        annotate("point", x = pt[1], y = pt[2], size = 2, color = "#333333") +
+        annotate("text", x = pt[1], y = pt[2], label = label,
+                 hjust = -0.3, vjust = -0.3, size = 2.5, 
+                 color = "#333333", fontface = "bold")
     }
   }
   
-  # Label da peça
-  mid_x <- mean(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 1))
-  mid_y <- mean(sapply(pts[grepl("point_[A-Z]", names(pts))], `[`, 2))
+  all_x <- sapply(pts, `[`, 1)
+  all_y <- sapply(pts, `[`, 2)
+  mid_x <- mean(all_x, na.rm = TRUE)
+  mid_y <- mean(all_y, na.rm = TRUE)
   
   p <- p + annotate("text", x = mid_x, y = mid_y,
                     label = toupper(piece_type), size = 8, color = color,
                     fontface = "bold", angle = 90, alpha = 0.3)
   
-  p
-}
-
-#' Gerar PDF em tamanho real para plotter ou impressão
-#'
-#' @param block Saída de draft_*()
-#' @param output_file Caminho do arquivo de saída
-#' @param paper_size "A0", "A1", "A2", "A3", "A4"
-#' @return Caminho do arquivo gerado
-plot_pattern_fullscale <- function(block, 
-                                   output_file,
-                                   paper_size = "A0") {
-  
-  paper_dims <- list(
-    A4 = c(21.0, 29.7),
-    A3 = c(29.7, 42.0),
-    A2 = c(42.0, 59.4),
-    A1 = c(59.4, 84.1),
-    A0 = c(84.1, 118.9)
-  )
-  
-  dims <- paper_dims[[paper_size]]
-  margin <- 2
-  
-  p <- ggplot() +
-    coord_fixed(
-      xlim = c(-margin, dims[1] + margin),
-      ylim = c(-margin, dims[2] + margin)
-    ) +
-    theme_void()
-  
-  for (piece_name in c("front", "back")) {
-    piece <- block[[piece_name]]
-    
-    for (seam in piece$seams) {
-      from_pt <- piece$points[[seam$from]]
-      to_pt <- piece$points[[seam$to]]
-      
-      if (!is.null(from_pt) && !is.null(to_pt)) {
-        p <- p + geom_segment(
-          aes(x = from_pt[1], xend = to_pt[1],
-              y = from_pt[2], yend = to_pt[2]),
-          color = "black", linewidth = 1.5
-        )
-      }
-    }
-    
-    for (curve_data in piece$curves) {
-      p <- p + geom_path(data = curve_data, aes(x, y),
-                         color = "black", linewidth = 1.5)
-    }
-  }
-  
-  if (!is.null(block$curves$curve_armscye)) {
-    p <- p + geom_path(data = block$curves$curve_armscye, aes(x, y),
-                       color = "black", linewidth = 1.5)
-  }
-  
-  p <- p +
-    annotate("text", x = margin, y = margin,
-             label = paste("Escala 1:1 |", paper_size),
-             hjust = 0, vjust = 0, size = 8, color = "grey50") +
-    annotate("rect", xmin = margin, xmax = margin + 5,
-             ymin = dims[2] - margin - 1, ymax = dims[2] - margin + 1,
-             fill = NA, color = "black", linewidth = 1) +
-    annotate("text", x = margin + 2.5, y = dims[2] - margin - 2,
-             label = "5 cm", size = 6)
-  
-  ggsave(output_file, p,
-         width = dims[1], height = dims[2],
-         units = "cm", limitsize = FALSE,
-         device = "pdf")
-  
-  message("Full-scale pattern saved: ", output_file)
-  return(output_file)
-}
-
-#' Gerar tiles A4 para impressão caseira
-#'
-#' @param block Saída de draft_*()
-#' @param output_file Caminho do PDF de saída
-#' @param paper_size "A4" ou "Letter"
-#' @param overlap Sobreposição entre tiles (cm)
-#' @return Caminho do arquivo gerado
-plot_pattern_tiled <- function(block, output_file,
-                               paper_size = "A4", overlap = 1) {
-  
-  paper_dims <- list(
-    A4 = c(21.0, 29.7),
-    Letter = c(21.6, 27.9)
-  )
-  
-  dims <- paper_dims[[paper_size]]
-  margin <- 1.5
-  tile_width <- dims[1] - 2 * margin
-  tile_height <- dims[2] - 2 * margin
-  
-  all_x <- numeric(0)
-  all_y <- numeric(0)
-  
-  for (piece_name in c("front", "back")) {
-    piece <- block[[piece_name]]
-    for (pt in piece$points) {
-      all_x <- c(all_x, pt[1])
-      all_y <- c(all_y, pt[2])
-    }
-  }
-  
-  x_min <- min(all_x) - 2
-  x_max <- max(all_x) + 2
-  y_min <- min(all_y) - 2
-  y_max <- max(all_y) + 2
-  
-  n_cols <- ceiling((x_max - x_min) / (tile_width - overlap))
-  n_rows <- ceiling((y_max - y_min) / (tile_height - overlap))
-  
-  pdf(output_file, width = dims[1]/2.54, height = dims[2]/2.54)
-  
-  for (row in 1:n_rows) {
-    for (col in 1:n_cols) {
-      x_start <- x_min + (col - 1) * (tile_width - overlap)
-      x_end <- x_start + tile_width
-      y_start <- y_min + (row - 1) * (tile_height - overlap)
-      y_end <- y_start + tile_height
-      
-      p <- create_tile_plot(block, x_start, x_end, y_start, y_end,
-                            row, col, n_rows, n_cols)
-      print(p)
-    }
-  }
-  
-  dev.off()
-  message("Tiled pattern saved: ", output_file)
-  return(output_file)
-}
-
-#' Criar plot de um tile individual
-create_tile_plot <- function(block, x_start, x_end, y_start, y_end,
-                             row, col, n_rows, n_cols) {
-  
-  p <- ggplot() +
-    coord_fixed(xlim = c(x_start, x_end), ylim = c(y_start, y_end)) +
-    theme_void()
-  
-  for (piece_name in c("front", "back")) {
-    piece <- block[[piece_name]]
-    
-    for (seam in piece$seams) {
-      from_pt <- piece$points[[seam$from]]
-      to_pt <- piece$points[[seam$to]]
-      
-      if (!is.null(from_pt) && !is.null(to_pt)) {
-        p <- p + geom_segment(
-          aes(x = from_pt[1], xend = to_pt[1],
-              y = from_pt[2], yend = to_pt[2]),
-          color = "black", linewidth = 1.5
-        )
-      }
-    }
-    
-    for (curve_data in piece$curves) {
-      p <- p + geom_path(data = curve_data, aes(x, y),
-                         color = "black", linewidth = 1.5)
-    }
-  }
-  
-  p +
-    annotate("point", x = x_start, y = y_start, shape = 3, size = 5) +
-    annotate("point", x = x_end, y = y_start, shape = 3, size = 5) +
-    annotate("point", x = x_start, y = y_end, shape = 3, size = 5) +
-    annotate("point", x = x_end, y = y_end, shape = 3, size = 5) +
-    annotate("text", x = (x_start + x_end)/2, y = y_end - 1,
-             label = paste("Tile", (row-1)*n_cols + col, "de", n_rows*n_cols),
-             size = 6, color = "grey50")
+  return(p)
 }
 
 #' Criar plot base com grid
 create_pattern_plot <- function(width, height, grid_spacing = 5,
                                 title = NULL, subtitle = NULL) {
-  
   x_margin <- width * 0.1
   y_margin <- height * 0.1
   
   p <- ggplot() +
-    coord_fixed(
-      xlim = c(-x_margin, width + x_margin),
-      ylim = c(-y_margin, height + y_margin)
-    ) +
+    coord_fixed(xlim = c(-x_margin, width + x_margin),
+                ylim = c(-y_margin, height + y_margin)) +
     labs(title = title, subtitle = subtitle,
          x = "Width (cm)", y = "Height (cm)") +
     theme_minimal() +
@@ -351,11 +191,67 @@ create_pattern_plot <- function(width, height, grid_spacing = 5,
   
   if (!is.null(grid_spacing)) {
     p <- p +
-      geom_hline(yintercept = seq(0, height, by = grid_spacing),
+      geom_hline(yintercept = seq(0, height, by = grid_spacing), 
                  color = "#E0E0E0", linewidth = 0.3) +
-      geom_vline(xintercept = seq(0, width, by = grid_spacing),
+      geom_vline(xintercept = seq(0, width, by = grid_spacing), 
                  color = "#E0E0E0", linewidth = 0.3)
   }
   
   p
+}
+
+#' Salvar imagem do padrão em estrutura de pastas organizada por ano/mês
+#' 
+#' @param plot_file Caminho do arquivo gerado (do plot_pattern_notebook)
+#' @param base_name Nome base descritivo (ex: "blouse_sophia_j")
+#' @param width Largura para o markdown (ex: "80%")
+#' @param height Altura para o markdown (ex: "0.85\\textheight")
+#' @return String formatada para inclusão no markdown (impressa via cat)
+save_pattern_image <- function(plot_file, base_name, 
+                               width = "80%", 
+                               height = "0.85\\textheight") {
+  
+  agora <- Sys.time()
+  timestamp <- format(agora, "%Y-%m-%d_%Hh%M")
+  ano <- format(agora, "%Y")
+  mes_num <- as.numeric(format(agora, "%m"))
+  
+  mes_nomes <- c("01-jan", "02-fev", "03-mar", "04-abr", "05-mai", "06-jun",
+                 "07-jul", "08-ago", "09-set", "10-out", "11-nov", "12-dez")
+  mes_pasta <- mes_nomes[mes_num]
+  
+  output_filename <- paste0(timestamp, "--", base_name, ".png")
+  
+  # Caminho absoluto da pasta de destino
+  pasta_destino <- file.path(getwd(), "images", ano, mes_pasta)
+  dir.create(pasta_destino, recursive = TRUE, showWarnings = FALSE)
+  
+  # Mover arquivo do cache para a pasta definitiva
+  final_path <- file.path(pasta_destino, output_filename)
+  file.copy(plot_file, final_path, overwrite = TRUE)
+  unlink(plot_file)
+  
+  # Gerar tag markdown e imprimir
+  img_md <- sprintf("![%s](%s){fig-pos='H' width=%s height=%s}\n\n",
+                    base_name, final_path, width, height)
+  
+  cat(img_md)
+  message("Image saved: ", final_path)
+  invisible(final_path)
+}
+
+#' Salvar múltiplas imagens e gerar bloco markdown
+#' 
+#' @param plot_files Vetor de caminhos de arquivos
+#' @param base_names Vetor de nomes descritivos
+#' @param width Largura
+#' @param height Altura
+#' @return String formatada com todas as imagens
+save_pattern_images <- function(plot_files, base_names, 
+                                width = "80%", 
+                                height = "0.85\\textheight") {
+  
+  purrr::walk2(plot_files, base_names, function(img, name) {
+    save_pattern_image(img, name, width, height)
+  })
 }
