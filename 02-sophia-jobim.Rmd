@@ -1,10 +1,15 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Curso por Correspondência — Sophia Jobim
 
 **Referência:** JOBIM, Sophia. *O sistema de corte e costura de Sophia Jobim: os anos de ouro de Mme Carvalho no Liceu Império: 1932-1954*. São Paulo: Portal de Livros Abertos da USP, 2024. Disponível em: https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/view/1327/1210/4651
 
 Este capítulo documenta o estudo do método de modelagem de Sophia Jobim, transcrevendo as instruções originais e implementando-as em código R parametrizado.
 
----
+
 
 ## Blusa (Corpo Simples)
 
@@ -17,6 +22,9 @@ Para um primeiro teste vamos usar as medidas padrão do livro para o manequim 48
 #### Medidas do Manequim 48
 
 ```{r carregar-medidas}
+#source("Rscripts/install_packages.R")
+#source("Rscripts/common.R")
+
 # Carregar medidas do arquivo CSV
 medidas_sj <- read_measurements(here("data", "measurements", "sophia_jobim_size48.csv"))
 
@@ -84,15 +92,7 @@ cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n",
             grossura_braco, profundidade_cava))
 ```
 
----
 
-### Instrucoes Originais (transcricao)
-
-> Para facilitar as explicacoes, tomarei como exemplo as medidas do manequim 48, que sao as mais aproximadas do corpo medio feminino. Essas medidas sao, para a blusa: 90 cm para a circunferencia do busto; 44 cm para o comprimento da blusa, na frente, e 41 cm para o comprimento nas costas.
-> 
-> Para que a blusa nao fique justa como um colete, torna-se necessario dar-lhe um aumento de 6 cm na circunferencia do busto, resultando 96. Como vamos fazer apenas a metade do molde, isto e, metade da frente e metade das costas, dividiremos por 2 a medida total 96 cm. Que resulta 48 cm.
-
----
 
 ### Execucao do Tracado
 
@@ -116,11 +116,11 @@ cat(sprintf("
    blusa$dimensions$dim_back_division))
 ```
 
----
+
 ### Molde Completo
 
-```{r molde-final, fig.cap="Blusa (Corpo Simples) — Sophia Jobim", fig.width=10, fig.height=10}
-# Gerar e salvar o gráfico
+
+```{r molde-final, fig.cap="Blusa (Corpo Simples) — Sophia Jobim", fig.width=7, fig.height=7}
 plot_file <- plot_pattern_notebook(
   block = blusa,
   filename = "blusa_sj_final",
@@ -128,17 +128,15 @@ plot_file <- plot_pattern_notebook(
   subtitle = paste("Manequim 48 | Busto:", medida_busto, "cm"),
   show_points = TRUE,
   show_grid = TRUE,
-  show_construction = TRUE,
   piece_type = "both",
-  width = 10,
-  height = 10
+  width = 7,
+  height = 7
 )
 
-# Incluir a imagem no documento
 knitr::include_graphics(plot_file)
 ```
 
----
+
 
 ### Comprimento das Linhas
 
@@ -180,7 +178,7 @@ knitr::kable(comprimentos_df,
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
----
+
 
 ### Area Aproximada para Calculo de Tecido
 
@@ -211,7 +209,7 @@ cat(sprintf("
    area_info$note))
 ```
 
----
+
 
 ### Nota Tecnica: Escolha do Metodo para a Curva da Cava
 
@@ -233,7 +231,7 @@ Spline cubica natural usando distancia acumulada como parametro. Passa exatament
 
 **Decisao:** O metodo escolhido foi a spline cubica parametrica por atender simultaneamente aos dois requisitos: passagem exata sobre todos os pontos de construcao e maxima suavidade da curva.
 
----
+
 
 ### Exportar para Tamanho Real
 
@@ -247,7 +245,7 @@ plot_pattern_fullscale(
 )
 ```
 
----
+
 
 ### Resumo do Aprendizado
 
