@@ -82,7 +82,7 @@ validate_measurements <- function(measurements, required) {
 create_measurement_template <- function(filepath, codes = NULL) {
   if (is.null(codes)) {
     codes <- c("height", "bust_circ", "waist_circ", "hip_circ",
-               "neck_front_to_waist_f", "back_waist_length",
+               "neck_front_to_waist_f", "neck_back_to_waist_b",
                "shoulder_length", "armscye_circ", "neck_width")
   }
   

@@ -183,45 +183,4 @@ For tiled home printing:
 3. Tape from center outward
 4. Verify scale after assembly
 
-## Measurement File Format
-
-### SeamlyMe CSV Structure
-```
-code,reference,description,value,formula
-height,A01,Height: Total,154,154
-bust_circ,G04,Bust circumference,113,113
-```
-
-### Ease Parameters CSV Structure
-```
-parameter,value,unit,description
-bust_ease,6,cm,Overall bust ease
-shoulder_slope_front,4,cm,Front shoulder drop
-```
-
-## R Implementation Notes
-
-### Function Naming
-- `calc_*`: Pure mathematical calculations (distance, angle)
-- `create_*`: Generate new objects (curves, plots)
-- `add_*`: Modify existing plots with annotations
-- `read_*` / `write_*`: File I/O operations
-- `validate_*`: Check data integrity
-
-### Coordinate Storage
-- Points stored as named vectors: `c(x, y)`
-- Point collections as named lists: `list(A = c(0, 44), B = c(48, 44))`
-- Plotted points as data frames: `data.frame(name, x, y)`
-
-### Cache Strategy
-- All plots cached in `images/cache/`
-- Cache invalidation based on parameter hash
-- Manual cache clear: delete `images/cache/*.pdf`
-
-## References
-
-- FreeSewing Notation Guide: https://freesewing.eu/docs/about/notation/
-- ISO 8559: Garment construction and anthropometric surveys
-- ABNT NBR 13377: Brazilian standard for garment sizes (where applicable)
-
 

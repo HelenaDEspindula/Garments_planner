@@ -1,10 +1,10 @@
 code,reference,description,value,formula
-height,A01,Height: Total,0,0
+height,A01,Height: Total,154,154
 bust_circ,G04,Bust circumference,90,90
-waist_circ,G05,Waist circumference,0,0
-hip_circ,G06,Hip circumference,0,0
+waist_circ,G07,Waist circumference,0,0
+hip_circ,G09,Hip circumference,0,0
 neck_front_to_waist_f,H01,Neck Front to Waist Front,44,44
-back_waist_length,H02,Back Waist Length,41,41
+neck_back_to_waist_b,H19,Neck Back to Waist Back,41,41
 shoulder_length,I01,Shoulder length,0,0
 armscye_circ,L19,Armscye: Circumference,33,33
 neck_width,I14,Neck Width,0,0

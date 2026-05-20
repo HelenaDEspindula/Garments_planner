@@ -4,7 +4,7 @@
 
 Este capítulo documenta o estudo do método de modelagem de Sophia Jobim, transcrevendo as instruções originais e implementando-as em código R parametrizado.
 
----
+
 
 ## Blusa (Corpo Simples)
 
@@ -16,16 +16,18 @@ O método Sophia Jobim começa estabelecendo as medidas base e os parâmetros de
 
 #### Medidas do Manequim 48
 
-```{r carregar-medidas}
-medidas_sj <- read_measurements(here("data", "measurements", "sophia_jobim_size48.csv"))
+```{r, eval=TRUE, echo=FALSE}
+medidas_sj <- read_measurements(
+  normalizePath("data/measurements/sophia_jobim_size48.csv", mustWork = FALSE)
+)
 
 medida_busto <- m_get(medidas_sj, "bust_circ")
 comp_frente <- m_get(medidas_sj, "neck_front_to_waist_f")
-comp_costas <- m_get(medidas_sj, "back_waist_length")
+comp_costas <- m_get(medidas_sj, "neck_back_to_waist_b")
 grossura_braco <- m_get(medidas_sj, "armscye_circ")
 
 medidas_df <- data.frame(
-  Codigo = c("bust_circ", "neck_front_to_waist_f", "back_waist_length", "armscye_circ"),
+  Codigo = c("bust_circ", "neck_front_to_waist_f", "neck_back_to_waist_b", "armscye_circ"),
   Descricao = c("Circunferencia do busto", "Comprimento frente", "Comprimento costas", "Grossura do braco"),
   Valor_cm = c(medida_busto, comp_frente, comp_costas, grossura_braco)
 )
@@ -40,7 +42,7 @@ knitr::kable(medidas_df,
 
 Os parâmetros de folga e construção são valores fixos que a autora determina com base na experiência. O deslocamento de 3 cm para as costas (EF) é uma característica do método: a frente é sempre mais larga que as costas. A descida do ombro (4 cm) e a profundidade extra do decote (2 cm) são valores empíricos que funcionam para a maioria dos corpos. As bissetrizes da cava (1.5 cm em R, 2.5 cm em S) controlam a curvatura da cava — valores maiores deixam a cava mais aberta.
 
-```{r carregar-ease}
+```{r, eval=TRUE, echo=FALSE}
 ease_sj <- read_ease(here("data", "parameters", "sophia_jobim_ease.csv"))
 
 ease_df <- data.frame(
@@ -58,7 +60,7 @@ knitr::kable(ease_df,
 
 A profundidade da cava não é um valor fixo — depende da grossura do braço. O livro fornece uma tabela (Tabela 1) que relaciona a circunferência do braço com a profundidade da cava. Para o manequim 48, o braço tem 33 cm de circunferência, o que corresponde a uma cava de 21 cm de profundidade. O código localiza esse valor na tabela e, se necessário, interpola para medidas intermediárias.
 
-```{r tabela-cava}
+```{r, eval=TRUE, echo=FALSE}
 tabela_cava <- read_csv(here("data", "measurements", "sophia_jobim_armscye_table.csv"),
                         show_col_types = FALSE)
 
@@ -80,7 +82,7 @@ cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n",
             grossura_braco, profundidade_cava))
 ```
 
----
+
 
 ### Geracao do Bloco Base
 
@@ -88,7 +90,7 @@ Com os dados carregados, executamos o traçado completo. A função `draft_blous
 
 O resultado é salvo como arquivo `.rds` para que possa ser reutilizado posteriormente sem precisar recalcular — útil para gerar variações de design a partir do mesmo bloco base.
 
-```{r executar-tracado}
+```{r, eval=TRUE, echo=FALSE}
 blusa <- draft_blouse_sj(
   medidas = medidas_sj,
   ease = ease_sj,
@@ -109,7 +111,7 @@ cat(sprintf("
    blusa$dimensions$dim_back_division))
 ```
 
----
+
 
 ### Molde Completo
 
@@ -117,7 +119,7 @@ O grafico mostra o molde completo com frente (azul) e costas (laranja) sobrepost
 
 A cava e desenhada com spline cubica parametrica — metodo escolhido apos testes comparativos (ver Nota Tecnica abaixo). A curva passa exatamente sobre os 7 pontos de controle (P, Z, U, Q, T, Y, M) com maxima suavidade matematica.
 
-```{r molde-final}
+```{r}
 # Gerar grafico a partir do .rds
 plot_file <- plot_from_rds(
   block_name = "blusa_sj_size48",
@@ -133,12 +135,12 @@ plot_file <- plot_from_rds(
 ```
 
 
-```{r molde-imagem, results='asis'}
+```{r, results='asis'}
 # Salvar na estrutura images/ANO/MES e gerar tag markdown
 save_pattern_image(plot_file, "blouse_sophia_j")
 ```
 
----
+
 
 ### Comprimento das Linhas
 
@@ -147,7 +149,7 @@ A tabela abaixo lista o comprimento de cada segmento que delimita o molde. Estes
 - Comparar com medidas corporais (ex: ombro do molde vs ombro medido)
 - Calcular o comprimento de costura para aviamentos
 
-```{r tabela-comprimentos}
+```{r, eval=TRUE, echo=FALSE}
 comprimentos_df <- data.frame(
   Segmento = c(
     "Ombro frente (I-M)",
@@ -185,13 +187,13 @@ knitr::kable(comprimentos_df,
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
----
+
 
 ### Area Aproximada para Calculo de Tecido
 
 A área é calculada pelo método do polígono (fórmula de Shoelace) usando apenas os pontos do contorno, sem considerar as curvas. Isso dá uma estimativa rápida e suficiente para compra de tecido. A nota no final lembra de adicionar 10-15% para margens de costura e curvas.
 
-```{r area-tecido}
+```{r, eval=TRUE, echo=FALSE}
 area_info <- blusa$area
 
 area_df <- data.frame(
@@ -218,13 +220,13 @@ cat(sprintf("
    area_info$note))
 ```
 
----
+
 
 ### Exportar para Tamanho Real
 
 Para imprimir o molde em tamanho real (para corte em tecido), use a função `plot_pattern_fullscale()`. O formato A0 comporta a maioria dos moldes. Para impressão caseira em A4, use `plot_pattern_tiled()` que gera tiles com marcas de registro para colagem.
 
-```{r exportar-tamanho-real, eval=FALSE}
+```{r, eval=FALSE, echo=TRUE}
 plot_pattern_fullscale(
   block = blusa,
   output_file = "output/blusa_corpo_simples_A0.pdf",
@@ -232,7 +234,7 @@ plot_pattern_fullscale(
 )
 ```
 
----
+
 
 ### Nota Tecnica: Escolha do Metodo para a Curva da Cava
 
@@ -256,13 +258,195 @@ Spline cubica natural usando distancia acumulada como parametro. Passa exatament
 
 **Decisao:** O metodo escolhido foi a spline cubica parametrica por atender simultaneamente aos dois requisitos: passagem exata sobre todos os pontos de construcao e maxima suavidade da curva.
 
----
 
-### Resumo do Aprendizado
 
-1. **Proporcoes**: O metodo Sophia Jobim usa divisoes proporcionais baseadas no busto, nao em tabelas prontas. Isso significa que o molde se adapta automaticamente a diferentes tamanhos.
-2. **Assimetria frente/costas**: A frente e sempre mais larga que as costas (deslocamento EF de 3 cm). Isso acomoda o busto e da mobilidade aos bracos.
-3. **Cava anatomica**: Construida com 7 pontos (P, Z, U, Q, T, Y, M) que controlam a curvatura. As bissetrizes em R (1.5 cm) e S (2.5 cm) sao valores empiricos que funcionam para a maioria dos corpos.
-4. **Decote com desvio**: Tanto o decote frente (ponto I2) quanto o decote costas (ponto L2) tem um desvio de 1 cm sobre a linha do ombro. Isso evita que o decote fique pontudo.
-5. **Ombro costas com pence**: O ponto O desce 5 cm de K, e a linha LO e prolongada 1 cm para P. Essa pequena pence ajuda a acomodar a escapula.
-6. **Barra elevada**: A barra sobe 3 cm a partir de H e C (pontos W e a). Isso evita que a blusa fique comprida demais nas laterais.
+## Bloco com medidas pessoais
+
+
+```{r, eval=TRUE, echo=FALSE}
+medidas_sj <- read_measurements(here("data", "measurements", "helena-fev-2026.csv"))
+
+medida_busto <- m_get(medidas_sj, "bust_circ")
+comp_frente <- m_get(medidas_sj, "neck_front_to_waist_f")
+comp_costas <- m_get(medidas_sj, "neck_back_to_waist_b")
+grossura_braco <- m_get(medidas_sj, "armscye_circ")
+
+medidas_df <- data.frame(
+  Codigo = c("bust_circ", "neck_front_to_waist_f", "neck_back_to_waist_b", "armscye_circ"),
+  Descricao = c("Circunferencia do busto", "Comprimento frente", "Comprimento costas", "Grossura do braco"),
+  Valor_cm = c(medida_busto, comp_frente, comp_costas, grossura_braco)
+)
+
+knitr::kable(medidas_df, 
+             caption = "Medidas do manequim 48 (Sophia Jobim)",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+
+#### Parametros de Folga e Construcao
+
+
+```{r, eval=TRUE, echo=FALSE}
+ease_sj <- read_ease(here("data", "parameters", "sophia_jobim_ease.csv"))
+
+ease_df <- data.frame(
+  Parametro = names(ease_sj),
+  Valor = paste(unlist(ease_sj), "cm")
+)
+
+knitr::kable(ease_df,
+             caption = "Parametros de folga e construcao (Sophia Jobim)",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+#### Tabela de Profundidade da Cava
+
+
+```{r, eval=TRUE, echo=FALSE}
+tabela_cava <- read_csv(here("data", "measurements", "sophia_jobim_armscye_table.csv"),
+                        show_col_types = FALSE)
+
+profundidade_cava <- tabela_cava$armscye_depth[tabela_cava$arm_circ == grossura_braco]
+
+if (length(profundidade_cava) == 0) {
+  profundidade_cava <- approx(tabela_cava$arm_circ, tabela_cava$armscye_depth, 
+                              xout = grossura_braco)$y
+}
+
+tabela_cava$Destaque <- ifelse(tabela_cava$arm_circ == grossura_braco, "<- USADO", "")
+
+knitr::kable(tabela_cava,
+             caption = "Tabela 1: Profundidade da cava conforme grossura do braco",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+
+cat(sprintf("\n**Braco:** %.0f cm -> **Profundidade da cava:** %.0f cm\n", 
+            grossura_braco, profundidade_cava))
+```
+
+
+
+### Geracao do Bloco Base
+
+```{r, eval=TRUE, echo=FALSE}
+blusa <- draft_blouse_sj(
+  medidas = medidas_sj,
+  ease = ease_sj,
+  armscye_depth = profundidade_cava
+)
+
+nome_bloco <- "blusa_sj_helena-fev-2026"
+
+save_block(blusa, nome_bloco)
+
+cat(sprintf("
+**Dimensoes do molde:**
+- Largura total: %.1f cm
+- Altura total: %.1f cm
+- Divisao da frente: %.1f cm
+- Divisao das costas: %.1f cm
+", blusa$dimensions$dim_width, 
+   blusa$dimensions$dim_height,
+   blusa$dimensions$dim_front_division,
+   blusa$dimensions$dim_back_division))
+```
+
+
+
+### Molde Completo
+
+```{r}
+# Gerar grafico a partir do .rds
+plot_file <- plot_from_rds(
+  block_name = nome_bloco,
+  output_filename = "blusa_sj_temp",
+  title = "Blusa (Corpo Simples) — Metodo Sophia Jobim",
+  subtitle = paste("Manequim 48 | Busto:", medida_busto, "cm"),
+  show_points = TRUE,
+  show_grid = TRUE,
+  piece_type = "both",
+  width = 7,
+  height = 7
+)
+```
+
+
+```{r, results='asis'}
+# Salvar na estrutura images/ANO/MES e gerar tag markdown
+save_pattern_image(plot_file, nome_bloco)
+```
+
+
+
+### Comprimento das Linhas
+
+```{r, eval=TRUE, echo=FALSE}
+comprimentos_df <- data.frame(
+  Segmento = c(
+    "Ombro frente (I-M)",
+    "Decote frente (curva N-I2)",
+    "Ombro costas (L-P)",
+    "Decote costas (curva B'-L2)",
+    "Cava (curva P-M)",
+    "Lateral frente (Q-c)",
+    "Lateral costas (Q-d)",
+    "Cintura frente (c-b)",
+    "Cintura costas (d-a)",
+    "Barra frente (b-D)",
+    "Centro frente (D-N)",
+    "Centro costas (a-B')"
+  ),
+  Comprimento_cm = round(c(
+    blusa$line_lengths$shoulder_front_IM,
+    blusa$line_lengths$neckline_front,
+    blusa$line_lengths$shoulder_back_LP,
+    blusa$line_lengths$neckline_back,
+    blusa$line_lengths$armscye,
+    blusa$line_lengths$side_front_Qc,
+    blusa$line_lengths$side_back_Qd,
+    blusa$line_lengths$waist_front_cb,
+    blusa$line_lengths$waist_back_da,
+    blusa$line_lengths$hem_front_bD,
+    blusa$line_lengths$center_front_DN,
+    blusa$line_lengths$center_back_aB
+  ), 1)
+)
+
+knitr::kable(comprimentos_df, 
+             caption = "Comprimento das linhas que delimitam o molde",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+
+
+### Area Aproximada para Calculo de Tecido
+
+```{r, eval=TRUE, echo=FALSE}
+area_info <- blusa$area
+
+area_df <- data.frame(
+  Peca = c("Frente", "Costas", "Total (2 pecas)"),
+  Area_cm2 = c(area_info$front_area_cm2, area_info$back_area_cm2, area_info$total_area_cm2),
+  Area_m2 = c(area_info$front_area_m2, area_info$back_area_m2, area_info$total_area_m2)
+)
+
+knitr::kable(area_df,
+             caption = "Area aproximada das pecas do molde",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+
+cat(sprintf("
+**Estimativa de tecido:**
+- Area total do molde (frente + costas): %.2f m2
+- Com margem de 15%% para curvas e costuras: %.2f m2
+- Tecido recomendado (largura 1.40 m): %.2f m linear
+
+> **Nota:** %s
+", area_info$total_area_m2,
+   area_info$total_area_m2 * 1.15,
+   (area_info$total_area_m2 * 1.15) / 1.40,
+   area_info$note))
+```

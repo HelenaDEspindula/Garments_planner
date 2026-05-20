@@ -15,11 +15,16 @@ Pattern Measurement = Body Measurement + Ease
 
 ### Types of Ease
 
-| Ease Type | Purpose | Example |
-|-----------|---------|---------|
-| **Wearing ease** | Minimum needed for movement and comfort | 4-6 cm at bust |
-| **Design ease** | Style choice affecting silhouette | Additional 10 cm for oversized look |
-| **Negative ease** | Garment smaller than body (stretch fabrics) | -2 cm at bust for fitted knit |
+
+```{r}
+read_and_display_csv(
+  normalizePath("data/parameters/types_of_ease.csv", mustWork = FALSE),
+  caption = "Types of Ease",
+  #col_names = c("Codigo", "Referencia", "Descricao", "Valor", "Formula")
+)
+
+```
+
 
 ## SeamlyMe Integration
 
@@ -43,23 +48,18 @@ neck_front_to_waist_f,H01,Neck Front to Waist Front,58,58
 
 Columns explained:
 
-    code: Internal identifier used in our R code (e.g., bust_circ)
+- `code`: Internal identifier used in our R code (e.g., bust_circ)
+- `reference`: SeamlyMe reference code (e.g., G04)
+- `description`: Human-readable description
+- `value`: The actual measurement in centimeters
+- `formula`: Can be a fixed value or a formula referencing other measurements
 
-    reference: SeamlyMe reference code (e.g., G04)
+## Required Measurements by Block Type
 
-    description: Human-readable description
+### Female Bodice Block Requirements
 
-    value: The actual measurement in centimeters
 
-    formula: Can be a fixed value or a formula referencing other measurements
-
-Required Measurements by Block Type
-
-Female Bodice Block Requirements
-
-# Required measurements for female bodice
-
-```{r, eval=FALSE, echo=TRUE}
+```{r, echo=FALSE}
 female_bodice_required <- c(
   "height",
   "bust_circ",
@@ -72,12 +72,8 @@ female_bodice_required <- c(
   "bustpoint_to_bustpoint",
   "bustpoint_to_neck_side"
 )
-```
 
 
-
-# Create reference table
-```{r, eval=FALSE, echo=TRUE}
 reqs_df <- data.frame(
   Code = female_bodice_required,
   Description = c(
@@ -99,13 +95,13 @@ reqs_df <- data.frame(
 
 knitr::kable(reqs_df, 
              caption = "Required measurements for female bodice block",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
-Male Bodice Block Requirements
+### Male Bodice Block Requirements
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, echo=FALSE}
 male_bodice_required <- c(
   "height",
   "chest_circ",
@@ -137,14 +133,14 @@ reqs_male_df <- data.frame(
 
 knitr::kable(reqs_male_df,
              caption = "Required measurements for male bodice block",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
 
-Skirt Block Requirements
+### Skirt Block Requirements
 
-```{r}
+```{r, echo=FALSE}
 skirt_required <- c(
   "waist_circ",
   "hip_circ",
@@ -167,15 +163,15 @@ reqs_skirt_df <- data.frame(
 
 knitr::kable(reqs_skirt_df,
              caption = "Required measurements for skirt block",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
 
-Sleeve Block Requirements
+### Sleeve Block Requirements
 
 
-```{r}
+```{r, echo=FALSE}
 sleeve_required <- c(
   "armscye_circ",
   "arm_upper_circ",
@@ -185,6 +181,7 @@ sleeve_required <- c(
   "arm_shoulder_tip_to_elbow",
   "arm_armpit_to_wrist"
 )
+
 
 reqs_sleeve_df <- data.frame(
   Code = sleeve_required,
@@ -203,15 +200,15 @@ reqs_sleeve_df <- data.frame(
 
 knitr::kable(reqs_sleeve_df,
              caption = "Required measurements for sleeve block",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
 
-Pants Block Requirements
+### Pants Block Requirements
 
 
-```{r}
+```{r, echo=FALSE}
 pants_required <- c(
   "waist_circ",
   "hip_circ",
@@ -244,36 +241,16 @@ reqs_pants_df <- data.frame(
 
 knitr::kable(reqs_pants_df,
              caption = "Required measurements for pants block",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
 
-Loading Measurements in R
-
-The `read_measurements()` Function
-```{r}
-# Source measurement functions
-# source(here::here("Rscripts", "measurement_io.R"))
-
-# Load a measurement file
-fem48 <- read_measurements(here::here("data", "measurements", "female_size48.csv"))
-
-# Display key measurements
-key_codes <- c("height", "bust_circ", "neck_front_to_waist_f", "shoulder_length")
-
-cat("Key measurements for female size 48:\n")
-for (code in key_codes) {
-  cat(sprintf("  %-30s: %6.1f cm\n", code, m_get(fem48, code)))
-}
-```
-
-
-Creating a Measurement Template
+## Creating a Measurement Template
 
 If you don't have SeamlyMe, you can create a template CSV and fill in values manually:
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 # Create template for manual editing
 create_measurement_template(
   filepath = "data/measurements/custom_measurements.csv",
@@ -283,11 +260,9 @@ create_measurement_template(
 )
 ```
 
-Measurement Validation
+### Measurement Validation
 
-Checking Required Measurements
-
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 # Validate that all required measurements are present
 tryCatch({
   validate_measurements(fem48, female_bodice_required)
@@ -304,7 +279,7 @@ if (length(zero_measurements) > 0) {
 }
 ```
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 # Logical consistency checks
 checks <- list()
 
@@ -333,21 +308,17 @@ for (check_name in names(checks)) {
 ```
 
 
-
-
-Ease Parameters
+## Ease Parameters
 
 Ease parameters are stored separately from body measurements.
 
 This separation allows:
 
-    Changing body measurements without affecting design decisions
+- Changing body measurements without affecting design decisions
+- Experimenting with different fits on the same body
+- Sharing ease settings across measurement sets
 
-    Experimenting with different fits on the same body
-
-    Sharing ease settings across measurement sets
-
-Ease Parameters File Format
+### Ease Parameters File Format
 
 ```{r, eval=FALSE}
 # Read ease parameters
@@ -374,25 +345,27 @@ ease_df <- data.frame(
 
 knitr::kable(ease_df,
              caption = "Female bodice ease parameters",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
 
 
-Ease by Garment Type and Fit
-Garment	Close Fit	Semi-Fit	Loose Fit	Oversized
-Bodice bust	4-6 cm	6-8 cm	8-12 cm	12-20 cm
-Bodice waist	2-4 cm	4-6 cm	6-10 cm	10-16 cm
-Skirt hip	2-4 cm	4-6 cm	6-8 cm	8-12 cm
-Pants hip	2-4 cm	4-6 cm	6-8 cm	—
-Sleeve biceps	2-4 cm	4-6 cm	6-8 cm	8-12 cm
-Standard Size Reference Tables
-Female Standard Measurements (ABNT NBR 13377)
-
+### Ease by Garment Type and Fit
 
 
 ```{r}
+read_and_display_csv(
+  normalizePath("data/parameters/ease_female_standards.csv", mustWork = FALSE),
+  caption = "Ease by Garment Type and Fit",
+  #col_names = c("Codigo", "Referencia", "Descricao", "Valor", "Formula")
+)
+
+```
+
+### Female Standard Measurements (ABNT NBR 13377)
+
+```{r, eval=TRUE, echo=FALSE}
 female_standard <- data.frame(
   Size = c("38", "40", "42", "44", "46", "48", "50"),
   Bust = c(84, 88, 92, 96, 102, 108, 114),
@@ -404,14 +377,14 @@ female_standard <- data.frame(
 
 knitr::kable(female_standard,
              caption = "Standard female measurements (cm) — Reference only",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 
 ```
 
-Male Standard Measurements
+### Male Standard Measurements
 
-```{r}
+```{r, eval=TRUE, echo=FALSE}
 
 male_standard <- data.frame(
   Size = c("46", "48", "50", "52", "54", "56"),
@@ -423,48 +396,10 @@ male_standard <- data.frame(
 
 knitr::kable(male_standard,
              caption = "Standard male measurements (cm) — Reference only",
-             booktabs = TRUE) %>%
+             booktabs = TRUE, align = "c") %>%
   kable_styling(latex_options = c("hold_position", "striped"))
 ```
 
-
-Practical Measurement Tips
-Taking Body Measurements
-
-    Use a flexible tape measure — not a metal one
-
-    Measure over undergarments — or the clothing layer the garment will be worn over
-
-    Keep the tape parallel to the floor — especially for circumferences
-
-    Don't pull too tight — the tape should be snug but not compressing
-
-    Mark landmarks — use elastic bands to mark waist, hip, and bust levels
-
-    Take multiple measurements — average three readings for accuracy
-
-    Record posture — note if the subject has forward shoulders, sway back, etc.
-
-Measurement Landmarks
-Landmark	How to Find
-Waist level	Side bend — where the body creases
-Hip level	Widest part of hips, usually 18-22 cm below waist
-Bust point	Apex of bust (nipple level)
-Neck base	Where neck meets shoulder
-Shoulder tip	Acromion bone (bony point at shoulder edge)
-Elbow	Olecranon process (bony point of elbow)
-Wrist	Styloid process (bony bump at wrist)
-Chapter Summary
-
-    All measurements in centimeters, stored in SeamlyMe CSV format
-
-    Measurements are validated for presence and consistency before drafting
-
-    Ease parameters are stored separately for flexibility
-
-    Standard size tables provided for reference only — use actual body measurements when possible
-
-    Each block type has specific measurement requirements documented above
 
 
 

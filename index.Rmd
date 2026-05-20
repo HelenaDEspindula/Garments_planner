@@ -1,8 +1,8 @@
 ---
 title: "Pattern Making Studies"
 subtitle: "A Parametric Approach to Flat Pattern Drafting with R"
-author: "Your Name"
-date: "`r Sys.Date()`"
+author: "Helena R. S. D'Espindula"
+date: "version of `r format(Sys.time(), '%d de %B de %Y as %R [tz = %z]')`"
 site: bookdown::bookdown_site
 documentclass: book
 ---
@@ -10,59 +10,12 @@ documentclass: book
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE)
 source("Rscripts/install_packages.R")
+source("Rscripts/common.R")
 ```
 
 \frontmatter
 
-# Preface {-}
-
-## About This Book {-}
-
-This book documents my journey learning pattern making through a parametric, code-based approach. Rather than traditional paper drafting, I translate pattern making instructions into R code, creating:
-
-- Reproducible patterns that adjust to any measurement set
-- Fully annotated diagrams with all construction points visible
-- A searchable reference of drafting techniques
-- A record of errors, corrections, and learning insights
-
-## Why Parametric Pattern Making? {-}
-
-Traditional pattern making relies on manual drafting for each size and design. This approach:
-
-1. **Eliminates manual grading**: Change measurements, regenerate the pattern
-2. **Preserves design logic**: Every calculation is documented in code
-3. **Enables experimentation**: Test design changes instantly
-4. **Creates a knowledge base**: Build upon previous work systematically
-
-## Tools Used {-}
-
-- **R** and **R Markdown/Bookdown**: Documentation and computation
-- **SeamlyMe**: Body measurement management
-- **FreeSewing Notation**: Standard pattern marking symbols
-- **Git/GitHub**: Version control and sharing
-
-## How to Use This Book {-}
-
-The book follows a structured learning path:
-
-1. **Chapter 0**: Notation standards and conventions
-2. **Chapter 1**: Measurement systems and file formats
-3. **Chapters 2a-2f**: Basic blocks for different garments
-4. **Chapter 3**: Design variations from basic blocks
-5. **Chapter 4**: Real projects with iterations and corrections
-6. **Chapter 5**: Reference tables and formulas
-
-## Prerequisites {-}
-
-- R (>= 4.0) and RStudio
-- LaTeX distribution (for PDF output)
-- Basic understanding of garment construction
-- Optional: SeamlyMe for measurement management
-
-## Acknowledgments {-}
-
-- FreeSewing.org for the notation system
-- Traditional pattern making textbooks
-- Open source community
+```{r child="README.md"}
+```
 
 \mainmatter
