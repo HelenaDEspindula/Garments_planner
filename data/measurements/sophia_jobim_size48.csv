@@ -1,8 +1,8 @@
 code,reference,description,value,formula
 height,A01,Height: Total,154,154
 bust_circ,G04,Bust circumference,90,90
-waist_circ,G07,Waist circumference,0,0
-hip_circ,G09,Hip circumference,0,0
+waist_circ,G07,Waist circumference,80,80
+hip_circ,G09,Hip circumference,99,99
 neck_front_to_waist_f,H01,Neck Front to Waist Front,44,44
 neck_back_to_waist_b,H19,Neck Back to Waist Back,41,41
 shoulder_length,I01,Shoulder length,0,0
@@ -13,3 +13,5 @@ bustpoint_to_bustpoint,J01,Bustpoint to Bustpoint,0,0
 bustpoint_to_neck_side,J02,Bustpoint to Neck Side,0,0
 arm_upper_circ,L11,Arm: Upper Arm circumference,0,0
 arm_wrist_circ,L15,Arm: Wrist circumference,0,0
+waist_to_hip_side,H35,Waist Side to Hip Side,0,0
+skirt_length,CUST01,Skirt length,78,78
