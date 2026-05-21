@@ -451,9 +451,211 @@ cat(sprintf("
    area_info$note))
 ```
 
+## Aula 02 - Saia (Corpo Simples)
 
+**Pagina de referencia:** ~124 do PDF original
 
+### Dados de Entrada
 
+O metodo Sophia Jobim para a saia utiliza as medidas do manequim 48: cintura 80 cm, quadril 99 cm e comprimento 78 cm. A autora recomenda acrescentar 3 cm de folga ao quadril para que a saia nao fique demasiadamente justa. O deslocamento de 3 cm para as costas (EF) segue a mesma logica da blusa: a frente e sempre mais larga que as costas.
 
+A principal diferenca da saia em relacao a blusa esta no calculo da pence. Enquanto a blusa tem pences separadas no ombro e na cintura, a saia concentra toda a diferenca entre quadril e cintura em uma unica pence central. Sophia Jobim ensina: metade do quadril com folga (51 cm) menos metade da cintura (40 cm) resulta em 11 cm de abertura total, distribuidos 5.5 cm para cada lado do ponto G.
 
-## Aula 02 
+#### Medidas do Manequim 48
+
+```{r aula02-carregar-medidas}
+medidas_sj <- read_measurements(
+  normalizePath("data/measurements/sophia_jobim_size48.csv", mustWork = FALSE))
+
+medida_cintura <- m_get(medidas_sj, "waist_circ")
+medida_quadril <- m_get(medidas_sj, "hip_circ")
+medida_comp_saia <- m_get(medidas_sj, "skirt_length")
+
+skirt_medidas_df <- data.frame(
+  Codigo = c("waist_circ", "hip_circ", "skirt_length"),
+  Descricao = c("Circunferencia da cintura", "Circunferencia dos quadris", "Comprimento da saia"),
+  Valor_cm = c(medida_cintura, medida_quadril, medida_comp_saia)
+)
+
+knitr::kable(skirt_medidas_df,
+             caption = "Medidas do manequim 48 - Saia (Sophia Jobim)",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+Parametros de Folga e Construcao
+
+Os parametros da saia sao mais simples que os da blusa. A folga de 3 cm no quadril e o unico valor de ease. O deslocamento de 3 cm (EF) mantem a frente mais larga. As quedas da cintura (3 cm na frente, 1 cm nas costas) acompanham a inclinacao natural do corpo. A profundidade da pence (20 cm) e um valor empirico que funciona para a maioria dos corpos; o livro ensina a ajusta-la conforme a altura do quadril da pessoa.
+
+```{r aula02-carregar-ease}
+ease_skirt <- read_ease(
+  normalizePath("data/parameters/sophia_jobim_skirt_ease.csv", mustWork = FALSE))
+
+skirt_ease_df <- data.frame(
+  Parametro = names(ease_skirt),
+  Valor = paste(unlist(ease_skirt), "cm")
+)
+
+knitr::kable(skirt_ease_df,
+             caption = "Parametros de folga e construcao - Saia (Sophia Jobim)",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+
+# Mostrar o calculo da pence
+half_hip <- (medida_quadril + e_get(ease_skirt, "hip_ease")) / 2
+half_waist <- medida_cintura / 2
+dart_total <- half_hip - half_waist
+
+cat(sprintf("\n**Calculo da pence:**\n- Metade do quadril com folga: (%.0f + %.0f) / 2 = %.1f cm\n- Metade da cintura: %.0f / 2 = %.0f cm\n- Diferenca (abertura total da pence): %.1f - %.0f = %.1f cm\n- Para cada lado de G: %.1f / 2 = %.2f cm\n",
+  medida_quadril, e_get(ease_skirt, "hip_ease"), half_hip,
+  medida_cintura, half_waist,
+  half_hip, half_waist, dart_total,
+  dart_total, dart_total / 2))
+```
+
+---
+
+Geracao do Bloco Base
+
+Com os dados carregados, executamos o tracado da saia. A funcao draft_skirt_sj() implementa o metodo em 6 etapas: retangulo base ABCD, deslocamento EF, centro GH, calculo da pence (pontos J e I a 5.5 cm de G, ponto K a 20 cm abaixo), quedas da cintura (M desce 3 cm, N desce 1 cm) e curvas de uniao M-I e N-J.
+
+O resultado e salvo como .rds para reutilizacao futura — util para aplicar variacoes de design (recortes, pregas, godes) que o livro ensina nas aulas seguintes.
+
+```{r aula02-executar-tracado}
+saia <- draft_skirt_sj(
+  medidas = medidas_sj,
+  ease = ease_skirt
+)
+
+save_block(saia, "saia_sj_size48")
+
+cat(sprintf("
+**Dimensoes do molde:**
+- Largura total: %.1f cm
+- Altura total: %.0f cm
+- Abertura total da pence: %.1f cm
+- Metade para cada lado de G: %.2f cm
+", saia$dimensions$dim_width,
+   saia$dimensions$dim_height,
+   dart_total,
+   dart_total / 2))
+```
+
+---
+
+Molde Completo
+
+O grafico mostra a metade da frente (azul) e a metade das costas (laranja) sobrepostas no retangulo base. A pence central (pontos J, K, I) concentra toda a diferenca entre quadril e cintura. A cintura da frente desce 3 cm (ponto M) e a das costas desce 1 cm (ponto N), criando a inclinacao natural.
+
+As curvas M-I e N-J conectam a cintura a pence de forma suave. Na pratica, o vertice K deve ser arredondado (linhas pontilhadas no livro) para evitar bicos nas laterais do quadril. As linhas tracejadas indicam as linhas de construcao (deslocamento EF, centro GH).
+
+```{r aula02-molde-final}
+plot_file_skirt <- plot_from_rds(
+  block_name = "saia_sj_size48",
+  output_filename = "saia_sj_temp",
+  title = "Saia — Metodo Sophia Jobim",
+  subtitle = paste("Manequim 48 | Cintura:", medida_cintura, "cm | Quadril:", medida_quadril, "cm"),
+  show_points = TRUE,
+  show_grid = TRUE,
+  piece_type = "both",
+  width = 7,
+  height = 7
+)
+```
+
+```{r aula02-include-graphic, results='asis'}
+save_pattern_image(plot_file_skirt, "skirt_sophia_j")
+```
+
+---
+
+Comprimento das Linhas
+
+A tabela abaixo lista o comprimento de cada segmento do molde. Estes valores sao uteis para conferir a proporcao e calcular aviamentos. Note que as laterais da frente (D-H) e das costas (C-H) tem o mesmo comprimento — a diferenca entre as pecas esta apenas na cintura.
+
+```{r aula02-tabela-comprimentos}
+skirt_comprimentos_df <- data.frame(
+  Segmento = c(
+    "Cintura frente (curva M-I)",
+    "Cintura costas (curva N-J)",
+    "Lateral frente (D-H)",
+    "Lateral costas (C-H)",
+    "Pence perna direita (I-K)",
+    "Pence perna esquerda (J-K)",
+    "Centro frente (M-D)",
+    "Centro costas (N-C)"
+  ),
+  Comprimento_cm = round(c(
+    saia$line_lengths$waist_front_MI,
+    saia$line_lengths$waist_back_NJ,
+    saia$line_lengths$side_front_DH,
+    saia$line_lengths$side_back_CH,
+    saia$line_lengths$dart_IK,
+    saia$line_lengths$dart_JK,
+    saia$line_lengths$center_front_MD,
+    saia$line_lengths$center_back_NC
+  ), 1)
+)
+
+knitr::kable(skirt_comprimentos_df,
+             caption = "Comprimento das linhas que delimitam o molde da saia",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+---
+
+Area Aproximada para Calculo de Tecido
+
+A area e calculada pelo metodo do poligono (formula de Shoelace) usando apenas os pontos do contorno, sem considerar as curvas. A estimativa e suficiente para compra de tecido. A nota recomenda adicionar 10-15% para margens de costura e curvas.
+
+```{r aula02-area-tecido}
+area_info_skirt <- saia$area
+
+skirt_area_df <- data.frame(
+  Peca = c("Frente", "Costas", "Total (2 pecas)"),
+  Area_cm2 = c(area_info_skirt$front_area_cm2, area_info_skirt$back_area_cm2, area_info_skirt$total_area_cm2),
+  Area_m2 = c(area_info_skirt$front_area_m2, area_info_skirt$back_area_m2, area_info_skirt$total_area_m2)
+)
+
+knitr::kable(skirt_area_df,
+             caption = "Area aproximada das pecas do molde da saia",
+             booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+
+cat(sprintf("
+**Estimativa de tecido:**
+- Area total do molde (frente + costas): %.2f m2
+- Com margem de 15%% para curvas e costuras: %.2f m2
+- Tecido recomendado (largura 1.40 m): %.2f m linear
+
+> **Nota:** %s
+", area_info_skirt$total_area_m2,
+   area_info_skirt$total_area_m2 * 1.15,
+   (area_info_skirt$total_area_m2 * 1.15) / 1.40,
+   area_info_skirt$note))
+```
+
+---
+
+Notas de Adaptacao do Livro
+
+O livro Sophia Jobim oferece varias orientacoes para adaptar o molde base a diferentes tipos de corpo:
+
+· Quadris baixos: prolongar a pence 5 a 8 cm alem do ponto K. Para determinar o ponto exato, medir a distancia da cintura ate a parte mais grossa do quadril e aplicar essa medida a partir de G.
+· Coxas grossas: aumentar a largura da saia abaixo da pence (nesgar).
+· Barriga exagerada: aumentar AM para 4 cm (em vez de 3 cm) e deslocar EF mais 1 cm para a direita (AE = 4 cm). Para compensar o comprimento, aumentar MD em 1 ou 2 cm abaixo de D.
+· Pessoas magras: diminuir AM para 2 cm.
+
+Estas adaptacoes serao implementadas como funcoes de modificacao no modulo pattern_modifiers.R.
+
+---
+
+Resumo do Aprendizado
+
+1. Pence unica central: Diferente de outros metodos que usam duas pences laterais, Sophia Jobim concentra toda a folga em uma unica pence no centro. O calculo e simples: diferenca entre metade do quadril com folga e metade da cintura.
+2. Assimetria da cintura: A frente desce 3 cm (ponto M) e as costas apenas 1 cm (ponto N). Esta diferenca de 2 cm acomoda a anatomia natural — a cintura nas costas e mais alta que na frente.
+3. Arredondamento do vertice: O livro alerta que na pratica o ponto K deve ser arredondado para evitar bicos. Isso sera implementado como uma curva de Bezier no vertice.
+4. Mesma estrutura da blusa: O retangulo base, deslocamento EF e centro GH seguem exatamente o mesmo raciocinio da blusa. Isso mostra a consistencia do metodo Sophia Jobim.
+5. Adaptabilidade: O metodo preve ajustes para diferentes tipos de corpo, mostrando que a modelagem nao e rigida — deve se adaptar a pessoa que vai vestir a roupa.
+
