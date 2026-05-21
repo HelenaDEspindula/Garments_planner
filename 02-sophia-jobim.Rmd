@@ -6,7 +6,7 @@ Este capítulo documenta o estudo do método de modelagem de Sophia Jobim, trans
 
 
 
-## Blusa (Corpo Simples)
+## Aula 01 - Blusa (Corpo Simples) feminino
 
 **Página de referência:** ~111 do PDF original
 
@@ -450,3 +450,10 @@ cat(sprintf("
    (area_info$total_area_m2 * 1.15) / 1.40,
    area_info$note))
 ```
+
+
+
+
+
+
+## Aula 02 
